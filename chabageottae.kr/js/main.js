@@ -57,3 +57,21 @@ toTopEl.addEventListener('click', function () {
     scrollTo: 0
   })
 })
+
+var cmap = $("#Map");
+
+function campmap (key) {
+	if(key) cmap.attr('src', '/chabageottae.kr/img/'+key+'.gif');
+
+	$('#campMap > area').hover(function() {
+		var idx = $(this).attr('class');
+		cmap.attr('src', '/chabageottae.kr/img/'+idx+'.gif');
+	},function() {
+		if(key) {
+			cmap.attr('src', '/chabageottae.kr/img/'+key+'.gif');
+		} else {
+			cmap.attr('src', '/chabageottae.kr/img/kmap.gif');
+		}
+	});
+}
+campmap();
