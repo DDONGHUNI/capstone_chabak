@@ -7,10 +7,23 @@ new Swiper('.notice-line .swiper', {
   loop: true // 반복 재생 여부
 });
 
+new Swiper('.news .swiper', {
+  autoplay: { // 자동 재생 여부
+    delay: 3000 // 3초마다 슬라이드 바뀜
+  },
+  loop: true,
+  slidesPerView: 5, // 한 번에 보여줄 슬라이드 개수
+  spaceBetween: 3, // 슬라이드 사이 여백
+  navigation: { // 슬라이드 이전/다음 버튼 사용 여부
+    prevEl: '.news .swiper-prev', // 이전 버튼 선택자
+    nextEl: '.news .swiper-next' // 다음 버튼 선택자
+  }
+});
+
 new Swiper('.promotion .swiper', {
   // direction: 'horizontal', // 수평 슬라이드
   autoplay: { // 자동 재생 여부
-    delay: 3000 // 5초마다 슬라이드 바뀜
+    delay: 3000 // 3초마다 슬라이드 바뀜
   },
   loop: true, // 반복 재생 여부
   slidesPerView: 3, // 한 번에 보여줄 슬라이드 개수
