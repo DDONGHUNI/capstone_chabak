@@ -19,12 +19,11 @@
 }
 
 #camping-map.maininfo .campinfo_wrap .kmap {
-  background-color: orange;
   width: 200px;
   border-right: 1px #e0e0e0 solid;
   height: 500px;
   margin: auto 0; 
-  padding: 0 20px 0 0;
+  padding: 150px 20px 0 0;
 }
 
 #camping-map.maininfo .campinfo_wrap .kmap h2 {
@@ -50,35 +49,29 @@
 }
 
 
-
-
-
-
-
 /* * NOTICE */
 /*NOTICE LINE*/
 .notice .notice-line {
   position: relative;
 }
 .notice .notice-line .bg-left {
-  width: 50%;
-  height: 100%;
-  background-color: #333;
   position: absolute;
   top: 0;
   left: 0;
-}
-.notice .notice-line .bg-right {
   width: 50%;
   height: 100%;
-  background-color: #f6f5ef;
+  background-color: #333;
+}
+.notice .notice-line .bg-right {
   position: absolute;
   top: 0;
   right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #f6f5ef;
 }
 .notice .notice-line .inner {
   height: 62px;
-  z-index: 1;
   display: flex;
 }
 .notice .notice-line .inner__left {
@@ -92,9 +85,9 @@
   color: #fff;
   font-size: 17px;
   font-weight: 700;
-  margin-right: 20px;
+  margin-right: 60px;
 }
-.notice .notice-line .inner__left .swiper-container {
+.notice .notice-line .inner__left .swiper{
   height: 62px;
   flex-grow: 1;
 }
@@ -124,12 +117,18 @@
   justify-content: flex-end;
   align-items: center;
 }
-.notice .notice-line .inner__right h2 {
+.notice .notice-line .inner__right .toggle-promotion span {
+  font-size: 14px;
+  font-weight: 700;
+  opacity: .7;
+}
+.notice .notice-line .inner__right .toggle-promotion h2 {
   font-size: 17px;
   font-weight: 700;
+  margin-right: 30px;
 }
 .notice .notice-line .inner__right .toggle-promotion {
-  width: 62px;
+  width: 330px;
   height: 62px;
   cursor: pointer;
   display: flex;
@@ -144,36 +143,48 @@
 /* * PROMOTION */
 .notice .promotion {
   /*width: auto;*/
-  height: 693px;
+  height: 515px;
   background-color: #f6f5ef;
   position: relative;
-  overflow: hidden;
+  
   transition: height .4s;
 }
 .notice .promotion.hide {
   height: 0;
 }
-.notice .promotion .swiper-container {
-  /* 819px 슬라이드 3개와 그 사이 여백 10px씩 = 2477px */
+.notice .promotion .swiper {
   width: calc(819px * 3 + 20px);
-  height: 553px;
   position: absolute;
   top: 40px;
+  /* * 요소 가운데 배치 */
   left: 50%;
   margin-left: calc((819px * 3 + 20px) / -2);
+  
 }
+
 .notice .promotion .swiper-slide {
-  position: relative;
+  border: 3px solid #333;
+  height: 425px;
+  border-radius: 10px;
   opacity: .5;
-  transition: opacity 1s;
+  transition: opacity 0.7s;
+  position: relative;
 }
 .notice .promotion .swiper-slide-active {
   opacity: 1;
 }
-.notice .promotion .swiper-slide .btn {
-  /*width: 130px;*/
+.notice .promotion .swiper-slide img {
+  object-fit: cover;
   position: absolute;
-  bottom: 0;
+  top: 60px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.notice .promotion .swiper-slide .btn {
+  width: 200px;
+  position: absolute;
+  bottom: 25px;
   left: 0;
   right: 0;
   margin: auto;
@@ -182,7 +193,6 @@
   bottom: 40px;
   left: 0;
   right: 0;
-  z-index: 0;
 }
 .notice .promotion .swiper-pagination .swiper-pagination-bullet {
   background-color: transparent;
@@ -198,13 +208,13 @@
 .notice .promotion .swiper-next {
   width: 42px;
   height: 42px;
-  outline: none;
   border: 2px solid #333;
   border-radius: 50%;
   position: absolute;
-  top: 300px;
+  top: 45%;
   z-index: 1;
   cursor: pointer;
+  outline: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -212,11 +222,11 @@
 }
 .notice .promotion .swiper-prev {
   left: 50%;
-  margin-left: -480px;
+  margin-left: -370px;
 }
 .notice .promotion .swiper-next {
   right: 50%;
-  margin-right: -480px;
+  margin-right: -390px;
 }
 .notice .promotion .swiper-prev:hover,
 .notice .promotion .swiper-next:hover {

@@ -38,8 +38,9 @@
 	<link rel="stylesheet" href="./css/main.css">
 	
   <!-- * swiper -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.3.1/swiper-bundle.css" integrity="sha512-cAtZ0Luj6XlQ7YGgi5mPW0szI2z/2+btPjOqVEqK3z4h1/qojUwvQyTcocgKKOFv8noUFH5GOuhheX7PeDwwPA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.3.1/swiper-bundle.min.js" integrity="sha512-2w85qGM9apXW9EgevsY4S4fnJIUz6U6mXlLbgDKphBuwh7jPQNad70Ll5W+pcIrJ6rIMGpjP0CxYGQwKsynIaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <!-- * GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js" integrity="sha512-v/m68W+vaGN/6igoyFpd4GlQzu0jx9/n5gr2PKq5vif+RObyGKHse384YHrOULaxZ810XhlHUrmB3U8UnPB19Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -323,11 +324,11 @@
         <!-- * camping map -->
         <div id="camping-map" class="maininfo">
           <div class="campinfo_wrap">
-            <!--kmap-->
+            <!-- * kmap -->
             <div class="kmap fl">
               <h2>Camping <span>Map</span></h2>
               <p class="csub_head">대한민국 캠핑 지도</p>
-              <div class="mapwrap"><img src="./img/kmap.gif" alt="" usemap="#campMap" id="Map">
+              <div class="mapwrap"><img src="./img/kormap/kmap.gif" alt="" usemap="#campMap" id="Map">
                 <map name="campMap" id="campMap">
                 <area shape="poly" onfocus="this.blur()" coords="49,59,51,58,56,55,69,46,78,75,66,75,49,74,51,68,48,59" href="javascript:;" alt="서울" class="kmap_02" onclick="sido('서울','','')">
                 <area shape="poly" onfocus="this.blur()" coords="47,45,47,45,47,39,51,36,51,29,65,14,80,28,89,34,96,41,93,45,95,59,105,71,102,82,103,88,101,95,85,100,75,105,52,99,45,91,42,83,46,74,79,74,68,46,49,59,43,55,43,47" href="javascript:;" alt="경기" class="kmap_031" onclick="sido('경기','','')">
@@ -349,11 +350,8 @@
                 </map>
               </div>
             </div>
-            <!--kmap-->
-          </div><!--campinfo_wrap-->	
+          </div>
         </div>
-  
-  
       </div>
     </section>
   
@@ -370,7 +368,7 @@
   
           <div class="inner__left">
             <h2>공지사항</h2>
-            <div class="swiper-container">
+            <div class="swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <a href="javascript:void(0)">공지사항 1</a>
@@ -392,8 +390,8 @@
           </div>
   
           <div class="inner__right">
-            <h2>오늘은 어디로 가볼까?</h2>
             <div class="toggle-promotion open">
+              <h2><span>( 랜덤 추천 )</span> 오늘은 어디로 가볼까?</h2>
               <div class="material-icons">upload</div>
             </div>
           </div>
@@ -404,27 +402,27 @@
     <!-- * PROMOTION -->
     <div class="promotion">
 
-      <div class="swiper-container">
+      <div class="swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="" alt="장소1" />
-            <a href="javascript:void(0)" class="btn">자세히 보기</a>
+            <img src="/chabageottae.kr/img/gangwon/gw_chuncheon_01.jpg" alt="장소1" />
+            <a href="javascript:void(0)" class="btn">캠프 포지션</a>
           </div>
           <div class="swiper-slide">
-            <img src="" alt="장소2" />
-            <a href="javascript:void(0)" class="btn">자세히 보기</a>
+            <img src="/chabageottae.kr/img/gangwon/gw_chuncheon_02.jpg" alt="장소2" />
+            <a href="javascript:void(0)" class="btn">아웃 오브 파크</a>
           </div>
           <div class="swiper-slide">
-            <img src="" alt="장소3" />
-            <a href="javascript:void(0)" class="btn">자세히 보기</a>
+            <img src="/chabageottae.kr/img/gangwon/gw_chuncheon_03.jpg" alt="장소3" />
+            <a href="javascript:void(0)" class="btn">어반 슬로우시티</a>
           </div>
           <div class="swiper-slide">
-            <img src="" alt="장소4" />
-            <a href="javascript:void(0)" class="btn">자세히 보기</a>
+            <img src="/chabageottae.kr/img/gangwon/gw_hongcheon_01.jpg" alt="장소4" />
+            <a href="javascript:void(0)" class="btn">예담숲</a>
           </div>
           <div class="swiper-slide">
-            <img src="" alt="장소5" />
-            <a href="javascript:void(0)" class="btn">자세히 보기</a>
+            <img src="/chabageottae.kr/img/gangwon/gw_hongcheon_02.jpg" alt="장소5" />
+            <a href="javascript:void(0)" class="btn">산으로 캠핑장</a>
           </div>
         </div>
       </div>
@@ -434,6 +432,7 @@
       <div class="swiper-prev">
         <span class="material-icons">arrow_back</span>
       </div>
+
       <div class="swiper-next">
         <span class="material-icons">arrow_forward</span>
       </div>

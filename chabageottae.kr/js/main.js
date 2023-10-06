@@ -1,12 +1,13 @@
 
 
 // * 슬라이드 요소 관리
-new Swiper('.notice-line .swiper-container', {
+new Swiper('.notice-line .swiper', {
   direction: 'vertical', // 수직 슬라이드
   autoplay: true, // 자동 재생 여부
   loop: true // 반복 재생 여부
-})
-new Swiper('.promotion .swiper-container', {
+});
+
+new Swiper('.promotion .swiper', {
   // direction: 'horizontal', // 수평 슬라이드
   autoplay: { // 자동 재생 여부
     delay: 5000 // 5초마다 슬라이드 바뀜
@@ -23,7 +24,7 @@ new Swiper('.promotion .swiper-container', {
     prevEl: '.promotion .swiper-prev', // 이전 버튼 선택자
     nextEl: '.promotion .swiper-next' // 다음 버튼 선택자
   }
-})
+});
 
 
 // * Promotion 슬라이드 토글 기능
@@ -61,16 +62,16 @@ toTopEl.addEventListener('click', function () {
 var cmap = $("#Map");
 
 function campmap (key) {
-	if(key) cmap.attr('src', '/chabageottae.kr/img/'+key+'.gif');
+	if(key) cmap.attr('src', '/chabageottae.kr/img/kormap/'+key+'.gif');
 
 	$('#campMap > area').hover(function() {
 		var idx = $(this).attr('class');
-		cmap.attr('src', '/chabageottae.kr/img/'+idx+'.gif');
+		cmap.attr('src', '/chabageottae.kr/img/kormap/'+idx+'.gif');
 	},function() {
 		if(key) {
-			cmap.attr('src', '/chabageottae.kr/img/'+key+'.gif');
+			cmap.attr('src', '/chabageottae.kr/img/kormap/'+key+'.gif');
 		} else {
-			cmap.attr('src', '/chabageottae.kr/img/kmap.gif');
+			cmap.attr('src', '/chabageottae.kr/img/kormap/kmap.gif');
 		}
 	});
 }
