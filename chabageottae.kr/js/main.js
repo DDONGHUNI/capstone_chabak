@@ -10,7 +10,7 @@ new Swiper('.notice-line .swiper', {
 new Swiper('.promotion .swiper', {
   // direction: 'horizontal', // 수평 슬라이드
   autoplay: { // 자동 재생 여부
-    delay: 5000 // 5초마다 슬라이드 바뀜
+    delay: 3000 // 5초마다 슬라이드 바뀜
   },
   loop: true, // 반복 재생 여부
   slidesPerView: 3, // 한 번에 보여줄 슬라이드 개수
