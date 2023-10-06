@@ -71,7 +71,7 @@
   background-color: #f6f5ef;
 }
 .notice .notice-line .inner {
-  height: 62px;
+  height: 70px;
   display: flex;
 }
 .notice .notice-line .inner__left {
@@ -146,8 +146,8 @@
   height: 515px;
   background-color: #f6f5ef;
   position: relative;
-  
   transition: height .4s;
+  overflow: hidden;
 }
 .notice .promotion.hide {
   height: 0;
@@ -159,7 +159,6 @@
   /* * 요소 가운데 배치 */
   left: 50%;
   margin-left: calc((819px * 3 + 20px) / -2);
-  
 }
 
 .notice .promotion .swiper-slide {

@@ -57,7 +57,7 @@ toTopEl.addEventListener('click', function () {
   gsap.to(window, .7, {
     scrollTo: 0
   })
-})
+});
 
 var cmap = $("#Map");
 
@@ -74,5 +74,5 @@ function campmap (key) {
 			cmap.attr('src', '/chabageottae.kr/img/kormap/kmap.gif');
 		}
 	});
-}
+};
 campmap();
