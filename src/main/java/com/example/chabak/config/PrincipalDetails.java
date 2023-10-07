@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Map;
 
 import com.example.chabak.model.User;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -13,6 +14,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import lombok.Data;
 
 // Authentication 객체에 저장할 수 있는 유일한 타입
+@Data
 public class PrincipalDetails implements UserDetails, OAuth2User{
 
     private static final long serialVersionUID = 1L;

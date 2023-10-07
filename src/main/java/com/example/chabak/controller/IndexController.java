@@ -1,37 +1,36 @@
 package com.example.chabak.controller;
 
 import java.util.Iterator;
+import java.util.List;
+import java.util.function.Supplier;
 
 import com.example.chabak.config.PrincipalDetails;
 import com.example.chabak.model.User;
 import com.example.chabak.repository.UserRepository;
+import com.example.chabak.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-//import com.cos.securityex01.config.auth.PrincipalDetails;
-//import com.cos.securityex01.repository.UserRepository;
 
 @Controller
 public class IndexController {
 
     @Autowired
     private UserRepository userRepository;
+    private BoardService boardService;
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @GetMapping({ "", "/" })
-    public @ResponseBody String index() {
-        return "인덱스 페이지입니다.";
-    }
-    //머스테치 기본폴더 src/main/resources/
+
 
     @GetMapping("/user")
     public @ResponseBody String user(@AuthenticationPrincipal PrincipalDetails principal) {
@@ -46,6 +45,29 @@ public class IndexController {
 
         return "유저 페이지입니다.";
     }
+
+    //유저 정보 확인
+    @Secured("ROLE_MANAGER")
+    @GetMapping("/user/{id}")
+    @ResponseBody
+    public User detail(@PathVariable int id){
+        User user = userRepository.findById(id).orElseThrow(new Supplier<IllegalArgumentException>(){
+            @Override
+            public IllegalArgumentException get() {
+                return new IllegalArgumentException("해당 유저는 없습니다. id:"+id);
+            }
+        });
+        return user;
+    }
+//
+//
+//    //유저 명단
+//    @GetMapping("/users")
+//    public String list(Model model){
+//        List<User> users = userRepository.findAll();
+//        model.addAttribute("users", users);
+//        return "userList";
+//    }
 
     @GetMapping("/admin")
     public @ResponseBody String admin() {

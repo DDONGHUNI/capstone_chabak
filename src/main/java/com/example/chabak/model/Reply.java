@@ -4,12 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.List;
+import java.time.LocalDateTime;
 
 
 @Data
@@ -17,27 +15,30 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Board {
+public class Reply {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment
     private int id;
 
-    @Column(nullable = false, length = 100)
-    private String title;
-
-    @Lob //대용량데이터
+    @Column(nullable = false, length = 200)
     private String content;
 
-    private int count; //조회수
+    @ManyToOne
+    @JoinColumn(name="boardId")
+    private Board board;
 
-    @ManyToOne //Many = Board, User = One  한명의 유저가 여러 게시글 작성
+    @ManyToOne
     @JoinColumn(name="userId")
     private User user;
 
-    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) //mapppedBy DB에 컬럼 생성 x
-    private List<Reply> reply;
-
     @CreationTimestamp
-    private Timestamp createDate;
+    private LocalDateTime createDate;
+
+
+    @Override
+    public String toString() {
+        return "Reply [id=" + id + ", content=" + content + ", board=" + board + ", user=" + user + ", createDate="
+                + createDate + "]";
+    }
 }

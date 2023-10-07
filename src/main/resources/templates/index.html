@@ -1,20 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-    <h1>kakao login test</h1>
-    <span th:if="${userId == null}">
-        <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=548e66f9ed79b68557b2964f553c0cd0&redirect_uri=http://localhost:8080/login">
-            <img src = "img/kakao_login_medium_narrow.png">
-        </a>
-    </span>
-    <span th:if="${userId != null}">
-		<form name="logout" action="http://localhost:8080/logout">
-			<input type="submit" value="로그아웃">
-		</form>
-	</span>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" >
+    <a class="navbar-brand" href="#">INDEX</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#" th:href="@{/}">홈 </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" th:href="@{/board/saveForm}" sec:authorize="isAuthenticated()">글쓰기</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" th:href="@{/user}" sec:authorize="isAuthenticated()">회원정보 </a>
+            </li>
+        </ul>
+        <!-- 로그인이 안된 경우  -->
+        <a class="btn btn-secondary mr-2 my-2 my-sm-0" th:href="@{/join}" sec:authorize="!isAuthenticated()">register</a>
+        <a class="btn btn-secondary my-2 my-sm-0" th:href="@{/login}" sec:authorize="!isAuthenticated()">login</a>
+
+        <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">logout</button>
+        </form>
+    </div>
+</nav>
+<br/>
+<br/>
+
+<div class="container">
+
+<div class="card m-2" th:each="board : ${boards.content}">
+    <div class="card-body">
+        <h4 class="card-title" th:text="${board.title}"></h4>
+        <a class="btn btn-primary" th:href="@{/board/{id}(id=${board.id})}">상세보기</a>
+    </div>
+</div>
+
+
+<ul class="pagination justify-content-center">
+    <li th:if="${boards.first}" class="page-item disabled">
+        <a class="page-link" th:href="@{/(page=${boards.number}-1)}">Previous</a>
+    </li>
+    <li th:unless="${boards.first}" class="page-item">
+        <a class="page-link" th:href="@{/(page=${boards.number}-1)}">Previous</a>
+    </li>
+    <li th:if="${boards.last}" class="page-item disabled">
+        <a class="page-link" th:href="@{/(page=${boards.number}+1)}">Next</a>
+    </li>
+    <li th:unless="${boards.last}" class="page-item">
+        <a class="page-link" th:href="@{/(page=${boards.number}+1)}">Next</a>
+    </li>
+
+
+</ul>
+</div>
+
 </body>
+
 </html>
