@@ -13,7 +13,7 @@ a {
   text-decoration: none;
 }
 .inner {
-  width: 1100px;
+  width: 1200px;
   margin: 0 auto; 
   position: relative;
 }
@@ -93,6 +93,7 @@ a {
 .show .back-to-position.delay-3 {
   transition-delay: .9s;
 }
+
 
 
 

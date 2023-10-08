@@ -2,11 +2,104 @@
 .visual {
   background-color: #f6f5ef;
 }
+
+/* * camping-map */
+#camping-map {
+  position: relative;
+  width: 1100px;
+}
+#camping-map.maininfo .campinfo {
+}
+#camping-map.maininfo .campinfo:after {
+  content: "";
+  display: flex;
+  float: none;
+  clear: both;
+}
+#camping-map.maininfo .campinfo .kmap {
+  float: left;
+  width: 200px;
+  border-right: 2px #c8c8c8 dashed;
+  height: 480px;
+  padding: 155px 50px 15px 0;
+}
+#camping-map.maininfo .campinfo .kmap .kmapborder{
+  border: 2px solid #333;
+  border-radius: 20px;
+  background-color: #FFf;
+  width: 200px;
+  height: 440PX;
+  padding: 10px;
+}
+#camping-map.maininfo .campinfo .kmap h2 {
+  margin: 0;
+  padding: 10px 0;
+  font-size: 1.7rem;
+  text-align: center;
+  letter-spacing: -0.03em
+}
+#camping-map.maininfo .campinfo .kmap h2 span {
+  color: #558001
+}
+#camping-map.maininfo .campinfo .kmap p.csub_head {
+  margin: 3px 0 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+#camping-map.maininfo .campinfo .kmap #campMap area {
+  outline: 0
+}
+
+/* * info-right */
+#camping-map.maininfo .info-right {
+  position: relative;
+  top: 160px;
+  left: 270px;
+  width: 900px;
+  height: 460px;
+}
+#camping-map.maininfo .info-right .selectsido {
+  position: absolute;
+  left: 0;
+}
+#camping-map.maininfo .info-right .searchSelect {
+  outline: none;
+  min-width: 50px;
+  height: 36px;
+  padding: 4px 40px 6px 15px;
+  border: 1px solid #bbb;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #444;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  background: url('/chabageottae.kr/img/select_arrow.gif') right center no-repeat;
+  background: none\9;
+  background-color: #fff;
+}
+#camping-map.maininfo .info-right .camp_right_content{
+  display: flex;
+
+}
+#camping-map.maininfo .info-right .camp_right_content .item {
+
+}
+#camping-map.maininfo .info-right .camp_right_content .items .photo a img {
+  width: 100px;
+  height: 100px;
+
+}
+
+/* * news */
 .news {
-  background-color: #fce6ce;
+  background-color: #f7e5d2;
 }
 .news .inner {
-  height: 260px;
+  height: 250px;
 }
 .news h2 {
   padding: 10px 0 0 0;
@@ -72,61 +165,6 @@
 .news .swiper-next:hover {
   background-color: #333;
   color: #fff;
-}
-
-
-#camping-map {
-  width: 1100px;
-  margin: 0 auto;
-}
-
-#camping-map.maininfo .campinfo_wrap {
-}
-
-#camping-map.maininfo .campinfo_wrap:after {
-  content: "";
-  display: flex;
-  float: none;
-  clear: both;
-}
-
-#camping-map.maininfo .campinfo_wrap .kmap {
-  float: left;
-  width: 200px;
-  border-right: 2px #c8c8c8 dashed;
-  height: 480px;
-  margin: auto 0; 
-  padding: 160px 50px 15px 0;
-}
-#camping-map.maininfo .campinfo_wrap .kmap .kmapborder{
-  border: 2px solid #333;
-  border-radius: 20px;
-  background-color: #FFf;
-  width: 200px;
-  height: 440px;
-  padding: 10px;
-}
-
-#camping-map.maininfo .campinfo_wrap .kmap h2 {
-  margin: 0;
-  padding: 10px 0;
-  font-size: 1.7rem;
-  text-align: center;
-  letter-spacing: -0.03em
-}
-
-#camping-map.maininfo .campinfo_wrap .kmap h2 span {
-  color: #558001
-}
-
-#camping-map.maininfo .campinfo_wrap .kmap p.csub_head {
-  margin: 3px 0 20px;
-  text-align: center;
-  font-size: 0.9rem
-}
-
-#camping-map.maininfo .campinfo_wrap .kmap #campMap area {
-  outline: 0
 }
 
 
