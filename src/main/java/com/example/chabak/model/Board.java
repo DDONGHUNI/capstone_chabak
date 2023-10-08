@@ -1,5 +1,6 @@
 package com.example.chabak.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,12 +32,14 @@ public class Board {
 
     private int count; //조회수
 
-    @ManyToOne //Many = Board, User = One  한명의 유저가 여러 게시글 작성
+    @ManyToOne(fetch = FetchType.EAGER) //Many = Board, User = One  한명의 유저가 여러 게시글 작성
     @JoinColumn(name="userId")
     private User user;
 
-    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) //mapppedBy DB에 컬럼 생성 x
-    private List<Reply> reply;
+    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE) //mapppedBy DB에 컬럼 생성 x
+    @JsonIgnoreProperties({"board"})
+    @OrderBy("id desc")
+    private List<Reply> replys;
 
     @CreationTimestamp
     private Timestamp createDate;

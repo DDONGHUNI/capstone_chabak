@@ -1,8 +1,10 @@
 package com.example.chabak.service;
 
+import com.example.chabak.dto.ReplySaveRequestDto;
 import com.example.chabak.model.Board;
 import com.example.chabak.model.User;
 import com.example.chabak.repository.BoardRepository;
+import com.example.chabak.repository.ReplyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,7 +18,7 @@ import java.util.List;
 public class BoardService {
 
     private final BoardRepository boardRepository;
-//    private final ReplyRepository replyRepository;
+    private final ReplyRepository replyRepository;
 
 
     @Transactional
@@ -57,14 +59,14 @@ public class BoardService {
         board.setContent(requestBoard.getContent());
     }
 
-//    @Transactional
-//    public void replyWrite(ReplySaveRequestDto replySaveRequestDto) {
-//        int result = replyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
-//        System.out.println("BoardService : "+result);
-//    }
-//
-//    @Transactional
-//    public void replyDelete(int replyId) {
-//        replyRepository.deleteById(replyId);
-//    }
+    @Transactional
+    public void replyWrite(ReplySaveRequestDto replySaveRequestDto) {
+        int result = replyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
+        System.out.println("BoardService : "+result);
+    }
+
+    @Transactional
+    public void replyDelete(int replyId) {
+        replyRepository.deleteById(replyId);
+    }
 }

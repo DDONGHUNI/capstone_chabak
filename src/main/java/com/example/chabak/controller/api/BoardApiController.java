@@ -1,6 +1,7 @@
 package com.example.chabak.controller.api;
 
 import com.example.chabak.config.PrincipalDetails;
+import com.example.chabak.dto.ReplySaveRequestDto;
 import com.example.chabak.dto.ResponseDto;
 import com.example.chabak.model.Board;
 import com.example.chabak.service.BoardService;
@@ -37,17 +38,17 @@ public class BoardApiController {
 	}
 
 
-//	@PostMapping("/api/board/{boardId}/reply")
-//	public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestDto replySaveRequestDto) {
-//		boardService.댓글쓰기(replySaveRequestDto);
-//		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
-//	}
-//
-//	@DeleteMapping("/api/board/{boardId}/reply/{replyId}")
-//	public ResponseDto<Integer> replyDelete(@PathVariable int replyId) {
-//		boardService.댓글삭제(replyId);
-//		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
-//	}
+	@PostMapping("/api/board/{boardId}/reply")
+	public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestDto replySaveRequestDto) {
+		boardService.replyWrite(replySaveRequestDto);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+	}
+
+	@DeleteMapping("/api/board/{boardId}/reply/{replyId}")
+	public ResponseDto<Integer> replyDelete(@PathVariable int replyId) {
+		boardService.replyDelete(replyId);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+	}
 }
 
 
