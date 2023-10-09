@@ -45,18 +45,6 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-#kakao{
-  background-color: #FEE500;
-  color: #000000;
-}
-#google{
- background-color: #4285F4;
- color: #FFFFFF;
-}
-#naver{
-  background-color: #03C75A;
-  color: #FFFFFF;
- }
 .signin__card form [type="submit"] {
   background-color: #006633;
   border: none;
