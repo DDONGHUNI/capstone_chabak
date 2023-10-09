@@ -118,7 +118,7 @@
 
 .news .swiper-slide {
   width: 100px;
-  height: 170px;
+  height: 200px;
   margin: auto;
 }
 .news .swiper-slide a {
@@ -131,8 +131,8 @@
   margin: 10px auto;
   border: 3px solid #fff;
   border-radius: 10px;
-  width: 150px;
-  height: 100px;
+  width: 175px;
+  height: 125px;
 }
 .news .swiper-slide a span {
   display: block;
@@ -291,6 +291,7 @@
   opacity: 1;
 }
 .notice .promotion .swiper-slide img {
+  width: 480px;
   object-fit: cover;
   position: absolute;
   top: 60px;
@@ -301,7 +302,7 @@
 .notice .promotion .swiper-slide .btn {
   width: 200px;
   position: absolute;
-  bottom: 25px;
+  bottom: 18px;
   left: 0;
   right: 0;
   margin: auto;
