@@ -45,29 +45,58 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-#kakao{
-  background-color: #FEE500;
-  color: #000000;
-}
-#google{
- background-color: #4285F4;
- color: #FFFFFF;
-}
-#naver{
-  background-color: #03C75A;
-  color: #FFFFFF;
- }
 .signin__card form [type="submit"] {
   background-color: #006633;
   border: none;
   color: #fff;
   font-size: 20px;
+  font-weight: 700;
   cursor: pointer;
 }
+.signin__card form li {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.signin__card form li a span {
+  position: absolute;
+  left: 55px;
+  height: 50px;
+  border-left: 3px solid #fff;
+}
+.signin__card form li a {
+  color: #fff;
+}
+.signin__card form li img {
+  position: absolute;
+  left: 3px;
+  top: 2px;
+  width: 46px;
+  z-index: 9;
+  border-radius: 12px;
+}
+.signin__card form li:nth-child(1) {
+  background-color: #fee500 ;
+}
+.signin__card form li:nth-child(2) {
+  background-color: #03c75a ;
+}
+.signin__card form li:nth-child(3) {
+  background-color: #4285F4 ;
+}
+
 .signin__card form p {
   font-size: 12px;
   color: #006633;
   text-align: center;
+  margin-bottom: 12px;
 }
 .signin__card .actions {
   display: flex;
