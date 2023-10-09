@@ -61,7 +61,8 @@
 }
 #camping-map.maininfo .info-right .selectsido {
   position: absolute;
-  left: 0;
+  top: -25px;
+  left: 10px;
 }
 #camping-map.maininfo .info-right .searchSelect {
   outline: none;
@@ -82,16 +83,41 @@
   background-color: #fff;
 }
 #camping-map.maininfo .info-right .camp_right_content{
+  position: absolute;
+  top: 25px;
   display: flex;
-
+  flex-wrap: wrap;
+  margin:auto;
 }
-#camping-map.maininfo .info-right .camp_right_content .item {
-
+#camping-map.maininfo .info-right .camp_right_content .items {
+  width: 416px;
+  height: 203px;
+  margin:0 20px 20px 10px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
 }
 #camping-map.maininfo .info-right .camp_right_content .items .photo a img {
-  width: 100px;
-  height: 100px;
-
+  border-radius: 10px;
+  width: 250px;
+  margin: 10px;
+}
+#camping-map.maininfo .info-right .camp_right_content .items .cont {
+  border-left: 2px dashed #bbb;
+  height: 185px;
+  padding: 10px;
+  text-align: center;
+  margin: auto 0;
+}
+#camping-map.maininfo .info-right .camp_right_content .items .cont .tt {
+  height: 25px;
+  font-size: 18px;
+  font-weight: 700;
+}
+#camping-map.maininfo .info-right .camp_right_content .items .cont .mcont {
+  height: 20px;
+  font-size: 14px;
 }
 
 /* * news */
