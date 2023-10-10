@@ -130,16 +130,16 @@ $('document').ready(function () {
 
 var kmap = $("#Map");
 function campmap(key) {
-  if (key) kmap.attr('src', '/chabageottae.kr/img/kormap/' + key + '.gif');
+  if (key) kmap.attr('src', './img/kormap/' + key + '.gif');
 
   $('#campMap > area').hover(function () {
     var idx = $(this).attr('class');
-    kmap.attr('src', '/chabageottae.kr/img/kormap/' + idx + '.gif');
+    kmap.attr('src', './img/kormap/' + idx + '.gif');
   }, function () {
     if (key) {
-      kmap.attr('src', '/chabageottae.kr/img/kormap/' + key + '.gif');
+      kmap.attr('src', './img/kormap/' + key + '.gif');
     } else {
-      kmap.attr('src', '/chabageottae.kr/img/kormap/kmap.gif');
+      kmap.attr('src', './img/kormap/kmap.gif');
     }
   });
 };
