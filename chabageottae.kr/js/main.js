@@ -1,15 +1,29 @@
 
 
 // * 슬라이드 요소 관리
-new Swiper('.notice-line .swiper-container', {
+new Swiper('.notice-line .swiper', {
   direction: 'vertical', // 수직 슬라이드
   autoplay: true, // 자동 재생 여부
   loop: true // 반복 재생 여부
-})
-new Swiper('.promotion .swiper-container', {
+});
+
+new Swiper('.news .swiper', {
+  autoplay: { // 자동 재생 여부
+    delay: 3000 // 3초마다 슬라이드 바뀜
+  },
+  loop: true,
+  slidesPerView: 5, // 한 번에 보여줄 슬라이드 개수
+  spaceBetween: 3, // 슬라이드 사이 여백
+  navigation: { // 슬라이드 이전/다음 버튼 사용 여부
+    prevEl: '.news .swiper-prev', // 이전 버튼 선택자
+    nextEl: '.news .swiper-next' // 다음 버튼 선택자
+  }
+});
+
+new Swiper('.promotion .swiper', {
   // direction: 'horizontal', // 수평 슬라이드
   autoplay: { // 자동 재생 여부
-    delay: 5000 // 5초마다 슬라이드 바뀜
+    delay: 3000 // 3초마다 슬라이드 바뀜
   },
   loop: true, // 반복 재생 여부
   slidesPerView: 3, // 한 번에 보여줄 슬라이드 개수
@@ -23,7 +37,7 @@ new Swiper('.promotion .swiper-container', {
     prevEl: '.promotion .swiper-prev', // 이전 버튼 선택자
     nextEl: '.promotion .swiper-next' // 다음 버튼 선택자
   }
-})
+});
 
 
 // * Promotion 슬라이드 토글 기능
@@ -40,7 +54,7 @@ promotionToggleBtn.addEventListener('click', function () {
   // 요소를 숨겨야 하면,
   if (isHidePromotion) {
     promotionEl.classList.add('hide')
-  // 요소가 보여야 하면,
+    // 요소가 보여야 하면,
   } else {
     promotionEl.classList.remove('hide')
   }
@@ -56,4 +70,121 @@ toTopEl.addEventListener('click', function () {
   gsap.to(window, .7, {
     scrollTo: 0
   })
-})
+});
+
+$('document').ready(function () {
+  var area0 = ["전국", "서울", "인천", "대전", "광주", "대구", "울산", "부산", "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주도", "세종"];
+  var area1 = ["강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구"];
+  var area2 = ["계양구", "남구", "남동구", "동구", "부평구", "서구", "연수구", "중구", "강화군", "옹진군"];
+  var area3 = ["대덕구", "동구", "서구", "유성구", "중구"];
+  var area4 = ["광산구", "남구", "동구", "북구", "서구"];
+  var area5 = ["남구", "달서구", "동구", "북구", "서구", "수성구", "중구", "달성군"];
+  var area6 = ["남구", "동구", "북구", "중구", "울주군"];
+  var area7 = ["강서구", "금정구", "남구", "동구", "동래구", "부산진구", "북구", "사상구", "사하구", "서구", "수영구", "연제구", "영도구", "중구", "해운대구", "기장군"];
+  var area8 = ["고양시", "과천시", "광명시", "광주시", "구리시", "군포시", "김포시", "남양주시", "동두천시", "부천시", "성남시", "수원시", "시흥시", "안산시", "안성시", "안양시", "양주시", "오산시", "용인시", "의왕시", "의정부시", "이천시", "파주시", "평택시", "포천시", "하남시", "화성시", "가평군", "양평군", "여주군", "연천군"];
+  var area9 = ["강릉시", "동해시", "삼척시", "속초시", "원주시", "춘천시", "태백시", "고성군", "양구군", "양양군", "영월군", "인제군", "정선군", "철원군", "평창군", "홍천군", "화천군", "횡성군"];
+  var area10 = ["제천시", "청주시", "충주시", "괴산군", "단양군", "보은군", "영동군", "옥천군", "음성군", "증평군", "진천군", "청원군"];
+  var area11 = ["계룡시", "공주시", "논산시", "보령시", "서산시", "아산시", "천안시", "금산군", "당진군", "부여군", "서천군", "연기군", "예산군", "청양군", "태안군", "홍성군"];
+  var area12 = ["군산시", "김제시", "남원시", "익산시", "전주시", "정읍시", "고창군", "무주군", "부안군", "순창군", "완주군", "임실군", "장수군", "진안군"];
+  var area13 = ["광양시", "나주시", "목포시", "순천시", "여수시", "강진군", "고흥군", "곡성군", "구례군", "담양군", "무안군", "보성군", "신안군", "영광군", "영암군", "완도군", "장성군", "장흥군", "진도군", "함평군", "해남군", "화순군"];
+  var area14 = ["경산시", "경주시", "구미시", "김천시", "문경시", "상주시", "안동시", "영주시", "영천시", "포항시", "고령군", "군위군", "봉화군", "성주군", "영덕군", "영양군", "예천군", "울릉군", "울진군", "의성군", "청도군", "청송군", "칠곡군"];
+  var area15 = ["거제시", "김해시", "마산시", "밀양시", "사천시", "양산시", "진주시", "진해시", "창원시", "통영시", "거창군", "고성군", "남해군", "산청군", "의령군", "창녕군", "하동군", "함안군", "함양군", "합천군"];
+  var area16 = ["서귀포시", "제주시", "남제주군", "북제주군"];
+  var area17 = ["세종시"];
+
+  // 시/도 선택 박스 초기화
+  $("select[name^=cate]").each(function () {
+    $selsido = $(this);
+    $.each(eval(area0), function () {
+      $selsido.append("<option value='" + this + "'>" + this + "</option>");
+    });
+    $selsido.next().append("<option value=''>구/군 선택</option>");
+  });
+
+ // 시/도 선택시 구/군 설정
+ $("select[name^=cate]").change(function () {
+  var area = $(this).val(); // 선택한 시/도 값 가져오기
+  var $gugun = $(this).next(); // 선택영역 군구 객체
+  $("option:not(:first)", $gugun).remove(); // 구군 초기화
+
+  if (area === "") {
+    $gugun.append("<option value=''>구/군 선택</option>");
+    return;
+  }
+
+  var areaIndex = area0.indexOf(area); // 시/도의 인덱스 찾기
+
+  if (areaIndex !== -1) {
+    var gugunArrayName = 'area' + areaIndex; // 해당 시/도에 대한 구군 배열 이름 생성
+    var gugunArray = eval(gugunArrayName); // 해당 시/도의 구군 배열 가져오기
+    
+    $.each(gugunArray, function () {
+      $gugun.append("<option value='" + this + "'>" + this + "</option>");
+    });
+    
+    sido(area, areaIndex); // sido() 함수 호출하여 지도 업데이트하기
+ }
+});
+
+});
+
+var kmap = $("#Map");
+function campmap(key) {
+  if (key) kmap.attr('src', './img/kormap/' + key + '.gif');
+
+  $('#campMap > area').hover(function () {
+    var idx = $(this).attr('class');
+    kmap.attr('src', './img/kormap/' + idx + '.gif');
+  }, function () {
+    if (key) {
+      kmap.attr('src', './img/kormap/' + key + '.gif');
+    } else {
+      kmap.attr('src', './img/kormap/kmap.gif');
+    }
+  });
+};
+campmap();
+
+
+function sido(c1,a1) {
+  // if (btype == "next") if (parseInt($('#totalpage').text()) > page) page++;
+  // if (btype == "prev") if (page > 1) page--;
+  // if (!btype) page = 1;
+  function changeOption(city,area) { 
+    var selectCity; 
+    var selectArea;
+  
+    selectCity=$("#sido");  
+    selectCity.val(c1);  
+    selectArea=$("#gugun");  
+    selectArea.val(a1);  
+  }
+  changeOption();
+  console.log(a1); 
+  switch (c1) {
+    case "서울": campmap("kmap_02"); break;
+    case "광주": campmap("kmap_062"); break;
+    case "경기": campmap("kmap_031"); break;
+    case "전남": campmap("kmap_061"); break;
+    case "인천": campmap("kmap_032"); break;
+    case "강원": campmap("kmap_033"); break;
+    case "충남": campmap("kmap_041"); break;
+    case "대전": campmap("kmap_042"); break;
+    case "충북": campmap("kmap_043"); break;
+    case "세종": campmap("kmap_044"); break;
+    case "부산": campmap("kmap_051"); break;
+    case "울산": campmap("kmap_052"); break;
+    case "대구": campmap("kmap_053"); break;
+    case "경북": campmap("kmap_054"); break;
+    case "경남": campmap("kmap_055"); break;
+    case "전북": campmap("kmap_063"); break;
+    case "제주": campmap("kmap_064"); break;
+    default: campmap("kmap");
+  }
+  return false;
+}
+
+
+
+
+
