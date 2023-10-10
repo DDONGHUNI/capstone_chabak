@@ -1,7 +1,7 @@
 .signin {
   margin-top: 120px;
   padding: 130px 0 180px;
-  background-image: url("/chabageottae.kr/signin/img/bg11.jpg");
+  background-image: url("../signin/img/bg11.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
