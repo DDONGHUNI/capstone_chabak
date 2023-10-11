@@ -26,7 +26,7 @@ public class Reply {
     private String content;
 
     @NotNull
-    Integer raitng;
+    private double rating;
 
     @ManyToOne
     @JoinColumn(name="boardId")
@@ -42,7 +42,7 @@ public class Reply {
 
     @Override
     public String toString() {
-        return "Reply [id=" + id + ", content=" + content + ", board=" + board + ", user=" + user + ", createDate="
+        return "Reply [id=" + id + ", content=" + content + ", rating=" + rating + ", board=" + board + ", user=" + user + ", createDate="
                 + createDate + "]";
     }
 }

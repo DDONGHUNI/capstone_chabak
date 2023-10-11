@@ -1,39 +1,381 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <style>
-    img{
-        width:170px;
-        height:40px;
-    }
-  </style>
-  <title>로그인 페이지</title>
-</head>
-<body>
-<h1>로그인 페이지</h1>
-<hr/>
-<!-- 시큐리티는 x-www-form-url-encoded 타입만 인식 -->
-<form action="/loginProc" method="post">
-  <input type="text" name="username" />
-  <input type="password" name="password" />
-  <button>로그인</button>
-</form>
+<html lang="ko" >
 
-<br />
-<h1>Social Login</h1>
-<br />
-<a href="/oauth2/authorization/google" >
-  <img src = "img/btn_google_signin_dark_normal_web.png">
-</a>
-<br />
-<a href="/oauth2/authorization/naver" >
-  <img src = "img/btnG_완성형.png">
-</a>
-<br />
-<a href="/oauth2/authorization/kakao" >
-  <img src = "img/kakao_login_medium_narrow.png" width="100" height="20">
-</a>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!--* Open Graph-->
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="chabageottae" />
+	<meta property="og:title" content="차박어때" />
+	<meta property="og:description" content="국내의 오지/노지캠핑,무료캠핑장,글램핑,카라반 정보를 위치기반 지도 공유 서비스" />
+	<meta property="og:image" content="/img/logo.png" />
+  <!-- <meta property="og:url" content="" /> -->
+
+	<!--* Twitter Card-->
+	<meta property="twitter:card" content="summary" />
+	<meta property="twitter:site" content="chabageottae" />
+	<meta property="twitter:title" content="차박어때" />
+	<meta property="twitter:description" content="국내의 오지/노지캠핑,무료캠핑장,글램핑,카라반 정보를 위치기반 지도 공유 서비스" />
+	<meta property="twitter:image" content="/img/logo.png" />
+  <!-- <meta property="twitter:url" content="" /> -->
+
+	<!-- * 파비콘 -->
+	<link rel="icon" href="/favicon.ico">
+
+	<!-- * 폰트 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+
+	<!-- * 메터리얼 아이콘 -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+	<!-- * CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.css">
+  <link rel="stylesheet" href="/css/common.css">
+	<link rel="stylesheet" href="/css/signin.css">
+  
+  <!-- * JS -->
+	<script defer src="/js/common.js"></script>
+
+
+	<title>차박어때</title>
+
+</head>
+
+<body class="user">
+	 <!-- * HEADER -->
+	 <header>
+    <div class="inner">
+
+      <a href="" class="logo">
+        <img src="/img/logo.png" alt="CHABAGEOTTAE" />
+      </a>
+      
+      <!-- * SUB MENU -->
+      <div class="sub-menu">
+        <ul class="menu">
+          <li>
+            <a href="/login">HOME</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">공지사항</a>
+          </li>
+          <li>
+            <a href="/join">회원가입</a>
+          </li>
+          <li>
+            <a href="/login">로그인</a>
+          </li>
+					<li>
+            <a href="javascript:void(0)">고객센터</a>
+          </li>
+        </ul>
+        <div class="search">
+          <input type="text">
+          <div class="material-icons">search</div>
+        </div>
+      </div>
+
+      <!-- * MAIN MENU -->
+      <ul class="main-menu">
+        <li class="item">
+          <div class="item__name">전체</div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>전체</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>오지/노지캠핑</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>글램핑/카라반</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+						<div class="contents__texture">
+              <div class="inner">
+                <h4>이벤트</h4>
+                <p>이벤트</p>
+                <h4>홍보</h4>
+                <p>홍보</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">오지/노지캠핑</div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>1</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>2</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>3</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>4</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>5</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+						<div class="contents__texture">
+              <div class="inner">
+                <h4>이벤트</h4>
+                <p>이벤트</p>
+                <h4>홍보</h4>
+                <p>홍보</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">유료캠핑장</div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>1</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>2</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+						<div class="contents__texture">
+              <div class="inner">
+                <h4>이벤트</h4>
+                <p>이벤트</p>
+                <h4>홍보</h4>
+                <p>홍보</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">글램핑/카라반</div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>1</h4>
+                  <ul>
+                    <li>1/li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>2</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>3</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>4</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+						<div class="contents__texture">
+              <div class="inner">
+                <h4>이벤트</h4>
+                <p>이벤트</p>
+                <h4>홍보</h4>
+                <p>홍보</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">테마검색</div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>1</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>2</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>3</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+						<div class="contents__texture">
+              <div class="inner">
+                <h4>이벤트</h4>
+                <p>이벤트</p>
+                <h4>홍보</h4>
+                <p>홍보</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">차박장터</div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>프로모션 & 이벤트</h4>
+                  <ul>
+                    <li>전체</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>새소식</h4>
+                  <ul>
+                    <li>전체</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>매장</h4>
+                  <ul>
+                    <li>일반 매장</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+						<div class="contents__texture">
+              <div class="inner">
+                <h4>이벤트</h4>
+                <p>이벤트</p>
+                <h4>홍보</h4>
+                <p>홍보</p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+
+  <section class="signin">
+    <h1>로그인</h1>
+    <div class="signin__card">
+      <h2>
+         <strong>차박어때</strong>에 오신 것을 환영합니다.
+      </h2>
+      <form action="/loginProc" method="post">
+        <input type="text" name="username" placeholder="아이디를 입력하세요." />
+        <input type="password"  name="password" placeholder="비밀번호를 입력하세요." />
+        <p>
+          * 비밀번호를 타 사이트와 같이 사용할 경우 도용 위험이 있으니,<br />
+          정기적으로 비밀번호를 변경하세요!
+        </p>
+        <input type="submit" value="로그인" />
+      </form>
+      <ul>
+        <li class="kakao" href="">
+          <a href="/oauth2/authorization/kakao"><span></span>
+            <img src="/signin/img/kakao_log.png" alt="">카카오 로그인</a>
+        </li>
+        <li class="naver"href="">
+          <a href="/oauth2/authorization/naver"><span></span>
+            <img src="/signin/img/naver_logo.png" alt="">네이버 로그인</a>
+        </li>
+        <li>
+          <a class="google" href="/oauth2/authorization/google"><span></span>
+            <img src="/signin/img/g-logo.png" alt="">구글 로그인</a>
+        </li>
+      </ul>
+
+      <div class="actions">
+        <a href="/join">회원가입</a>
+        <a href="javascript:void(0)">아이디 찾기</a>
+        <a href="javascript:void(0)">비밀번호 찾기</a>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- * FOOTER -->
+  <footer>
+    <div class="inner">
+
+      <ul class="menu">
+        <li><a href="javascript:void(0)" class="green">개인정보처리방침</a></li>
+        <li><a href="javascript:void(0)">홈페이지 이용약관</a></li>
+        <li><a href="javascript:void(0)">광고 및 제휴 문의</a></li>
+        <li><a href="javascript:void(0)">회원가입</a></li>
+        <li><a href="/login">로그인</a></li>
+        <li><a href="javascript:void(0)">고객센터</a></li>
+      </ul>
+
+      <div class="info">
+        <span>사업자등록번호 : </span>
+        <span>(주)차박어떄 대표이사 차차차</span>
+        <span>TEL : 033) 1234-1234 / FAX : 033) 1234-1234</span>
+      </div>
+
+      <p class="copyright">
+        &copy; <span class="this-year"></span> chabageottae. All Rights Reserved.
+      </p>
+      <img src="/img/logo.png" alt="STAR BUCKS" class="logo"  width="150"/>
+
+    </div>
+  </footer>
+
 
 </body>
+
 </html>

@@ -74,8 +74,6 @@ public class IndexController {
         return "어드민 페이지입니다.";
     }
 
-    //@PostAuthorize("hasRole('ROLE_MANAGER')")
-    //@PreAuthorize("hasRole('ROLE_MANAGER')")
     @Secured("ROLE_MANAGER")
     @GetMapping("/manager")
     public @ResponseBody String manager() {

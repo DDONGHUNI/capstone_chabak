@@ -11,4 +11,5 @@ public class ReplySaveRequestDto {
     private int userId;
     private int boardId;
     private String content;
+    private double rating;
 }

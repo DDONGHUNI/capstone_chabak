@@ -61,7 +61,8 @@ public class BoardService {
 
     @Transactional
     public void replyWrite(ReplySaveRequestDto replySaveRequestDto) {
-        int result = replyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
+        int result = replyRepository.mSave(replySaveRequestDto.getUserId(),
+                replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent(), replySaveRequestDto.getRating());
         System.out.println("BoardService : "+result);
     }
 

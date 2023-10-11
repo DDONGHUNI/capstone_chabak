@@ -10,6 +10,6 @@ import org.springframework.data.jpa.repository.Query;
 public interface ReplyRepository extends JpaRepository<Reply, Integer>{
 
     @Modifying
-    @Query(value="INSERT INTO reply(userId, boardId, content, createDate) VALUES(?1, ?2, ?3, now())", nativeQuery = true)
-    int mSave(int userId, int boardId, String content);
+    @Query(value="INSERT INTO reply(userId, boardId, content, rating, createDate) VALUES(?1, ?2, ?3, ?4, now())", nativeQuery = true)
+    int mSave(int userId, int boardId, String content, double rating);
 }

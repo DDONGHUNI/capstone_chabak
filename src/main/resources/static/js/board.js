@@ -1,3 +1,20 @@
+let currentRating = 0;
+function rate(stars) {
+    currentRating = stars;
+
+    for (let i = 1; i <= 5; i++) {
+        const star = document.getElementById(`star${i}`);
+        if (i <= stars) {
+                star.style.color = "gold";
+        } else {
+                star.style.color = "lightgray";
+        }
+    }
+
+    const ratingMessage = document.getElementById("ratingMessage");
+    ratingMessage.innerHTML = `별점: ${"★".repeat(currentRating)} / 5`;
+}
+
 let index = {
 		init: function(){
 			$("#btn-save").on("click", ()=>{
@@ -73,6 +90,7 @@ let index = {
 
 		replySave: function(){
 			let data = {
+			        rating: currentRating,
 					userId: $("#userId").val(),
 					boardId: $("#boardId").val(),
 					content: $("#reply-content").val()
@@ -107,5 +125,7 @@ let index = {
 		},
 
 }
+
+
 
 index.init();
