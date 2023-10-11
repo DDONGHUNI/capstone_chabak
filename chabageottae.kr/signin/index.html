@@ -314,7 +314,7 @@
       <h2>
          <strong>차박어때</strong>에 오신 것을 환영합니다.
       </h2>
-      <form>
+      <form action="/loginProc" method="post">
         <input type="text" placeholder="아이디를 입력하세요." />
         <input type="password" placeholder="비밀번호를 입력하세요." />
         <p>
@@ -322,6 +322,7 @@
           정기적으로 비밀번호를 변경하세요!
         </p>
         <input type="submit" value="로그인" />
+      </form>
         <ul>
           <li class="kakao" href="">
             <a href=""><span></span>
@@ -336,7 +337,7 @@
               <img src="../signin/img/g-logo.png" alt="">구글 로그인</a>
           </li>
         </ul>
-      </form>
+    
       <div class="actions">
         <a href="javascript:void(0)">회원가입</a>
         <a href="javascript:void(0)">아이디 찾기</a>
