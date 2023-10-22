@@ -1,5 +1,3 @@
-
-
 // * 슬라이드 요소 관리
 new Swiper('.notice-line .swiper', {
   direction: 'vertical', // 수직 슬라이드
