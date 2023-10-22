@@ -11,7 +11,7 @@ img {
 }
 a {
   text-decoration: none;
-  color: #fff;
+  color: #000;
 }
 .inner {
   width: 1200px;
@@ -128,7 +128,7 @@ header .logo img {
 header .sub-menu {
   position: absolute;
   top: 10px;
-  right: 0;
+  right: 50px;
   display: flex;
 }
 header .sub-menu ul.menu {
@@ -209,6 +209,7 @@ header .main-menu .item .item__contents > ul > li > a {
   font-size: 14px;
   padding: 20px 60px;
   border-bottom: 1px dashed #999;
+  color: #fff;
 }
 header .main-menu .item .item__contents > ul > li > a:hover {
   font-weight: 700;
