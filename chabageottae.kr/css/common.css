@@ -173,15 +173,17 @@ header .main-menu {
   z-index: 1;
 }
 header .main-menu .item .item__name {
+  width: 100px;
+  text-align: center;
   padding: 10px 40px 20px;
   font-family: Arial, sans-serif;
   font-size: 17px;
 	font-weight: 700;
 }
 header .main-menu .item:hover .item__name {
- background-color: #685f46; 
- color: #a3be6b;
- border-radius: 6px 6px 0 0;
+  background-color: #685f46; 
+  color: #a3be6b;
+  border-radius: 6px 6px 0 0;
 }
 
 header .main-menu .item .item__contents{
