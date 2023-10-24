@@ -89,6 +89,7 @@ public class IndexController {
     public String join() {
         return "join";
     }
+    
 
     @PostMapping("/joinProc")
     public String joinProc(User user) {

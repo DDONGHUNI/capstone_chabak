@@ -1,35 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 
 
+<!--<form>-->
+<!--    <div class="form-group">-->
+<!--        <input type="text" class="form-control" placeholder="Enter title" id="title">-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--        <textarea class="form-control summernote" rows="5" id="content"></textarea>-->
+<!--    </div>-->
+<!--</form>-->
+<!--<button id="btn-save" class="btn btn-primary">글쓰기완료</button>-->
+
+
 <form>
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter title" id="title">
-    </div>
-
-    <div class="form-group">
-        <textarea class="form-control summernote" rows="5" id="content"></textarea>
-    </div>
+    <input type="text" id="postcode" placeholder="우편번호">
+    <input type="button" onclick="execDaumPostcode()" value="주소 찾기"><br>
+    <input type="text" id="address" placeholder="주소" style="width:300px"><br>
+    <input type="text" id="lat" placeholder="위도">
+    <input type="text" id="lng" placeholder="경도">
 </form>
-<button id="btn-save" class="btn btn-primary">글쓰기완료</button>
-
-
-<form>
-    <input type="text" id="sample6_postcode" placeholder="우편번호" id = post>
-    <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-    <input type="text" id="sample6_address" placeholder="주소"><br>
-    <input type="text" id="sample6_detailAddress" placeholder="상세주소">
-    <input type="text" id="sample6_extraAddress" placeholder="참고항목">
-</form>
+<button id="btn-save" class="btn btn-primary">저장완료</button>
+<div id="map" style="width:100%;height:350px;"></div>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4dd60f03a96442002fcd9c4c64c846d1&libraries=services"></script>
 <script>
-    function sample6_execDaumPostcode() {
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+            level: 5 // 지도의 확대 레벨
+        };
+
+    //지도를 미리 생성
+    var map = new daum.maps.Map(mapContainer, mapOption);
+    //주소-좌표 변환 객체를 생성
+    var geocoder = new daum.maps.services.Geocoder();
+    //마커를 미리 생성
+    var marker = new daum.maps.Marker({
+        position: new daum.maps.LatLng(37.537187, 127.005476),
+        map: map
+    });
+
+    function execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -62,21 +82,48 @@
                         extraAddr = ' (' + extraAddr + ')';
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
-                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                    addr += extraAddr;
 
                 } else {
-                    document.getElementById("sample6_extraAddress").value = '';
+                    addr += '';
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample6_postcode').value = data.zonecode;
-                document.getElementById("sample6_address").value = addr;
-                // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("sample6_detailAddress").focus();
+                document.getElementById('postcode').value = data.zonecode;
+                document.getElementById("address").value = addr;
+
+                var lat = 1.0;
+                var lng = 1.0;
+                // 주소로 상세 정보를 검색
+                geocoder.addressSearch(data.address, function(results, status) {
+                    // 정상적으로 검색이 완료됐으면
+                    if (status === daum.maps.services.Status.OK) {
+
+                        var result = results[0]; //첫번째 결과의 값을 활용
+
+                        // 해당 주소에 대한 좌표를 받는다.
+                        lat = result.y;
+                        lng = result.x;
+                        document.getElementById("lat").value = lat;
+                        document.getElementById("lng").value = lng;
+
+                        var coords = new daum.maps.LatLng(result.y, result.x);
+                        // 지도를 보여준다.
+                        mapContainer.style.display = "block";
+                        map.relayout();
+                        // 지도 중심을 변경한다.
+                        map.setCenter(coords);
+                        // 마커를 결과값으로 받은 위치로 옮긴다.
+                        marker.setPosition(coords)
+                    }
+
+                });
+
+
             }
         }).open();
     }
 </script>
-
+<script src="/js/address.js"></script>
 </body>
 </html>
