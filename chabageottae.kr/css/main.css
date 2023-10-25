@@ -96,7 +96,7 @@
   height: 36px;
   padding: 4px 40px 6px 15px;
   border: 1px solid #bbb;
-  font-size: 13px;
+  font-size: 0.8rem;
   font-weight: 600;
   line-height: 19px;
   color: #444;
@@ -136,11 +136,11 @@
 }
 #camping-map.maininfo .info-bottom .camp_content .items .cont .tt {
   margin: 10px 0;
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 #camping-map.maininfo .info-bottom .camp_content .items .cont .mcont {
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 /* * news */
@@ -252,7 +252,7 @@
 }
 .notice .notice-line .inner__left h2 {
   color: #fff;
-  font-size: 17px;
+  font-size: 1rem;
   font-weight: 700;
   margin-right: 60px;
 }
@@ -277,7 +277,7 @@
 }
 .notice .notice-line .inner__left .notice-line__more .material-icons {
   color: #fff;
-  font-size: 30px;
+  font-size: 1.7rem;
 }
 .notice .notice-line .inner__right {
   width: 40%;
@@ -287,12 +287,12 @@
   align-items: center;
 }
 .notice .notice-line .inner__right .toggle-promotion span {
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: 700;
   opacity: .7;
 }
 .notice .notice-line .inner__right .toggle-promotion h2 {
-  font-size: 17px;
+  font-size: 1.1rem;
   font-weight: 700;
   margin-right: 30px;
 }
@@ -305,7 +305,7 @@
   align-items: center;
 }
 .notice .notice-line .inner__right .toggle-promotion .material-icons {
-  font-size: 30px;
+  font-size: 1.7rem;
 }
 
 
