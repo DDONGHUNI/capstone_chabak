@@ -9,7 +9,8 @@ let index = {
         let data = {
                 lat: $("#lat").val(),
                 lng: $("#lng").val(),
-                address: $("#address").val()
+                address: $("#address").val(),
+                sido: $("#sido").val()
         };
 
         $.ajax({

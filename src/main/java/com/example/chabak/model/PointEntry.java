@@ -22,6 +22,10 @@ public class PointEntry implements Serializable {
     @Column(nullable = false, columnDefinition = "GEOMETRY")
     private Point point;
 
+
+
+    private String sido;
+
     private String address;
 
     public PointEntry() {

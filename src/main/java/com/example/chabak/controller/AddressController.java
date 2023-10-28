@@ -1,13 +1,14 @@
 package com.example.chabak.controller;
 
-import com.example.chabak.model.PointEntry;
 import com.example.chabak.repository.PointEntryRepository;
+import com.example.chabak.service.PointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.List;
+
+
+
 
 @Controller
 public class AddressController {
@@ -15,16 +16,20 @@ public class AddressController {
     @Autowired
     PointEntryRepository pointEntryRepository;
 
+    @Autowired
+    PointService pointService;
+
     @GetMapping("/map")
     public String insertPage(){
         return "map";
     }
 
-    @GetMapping("/marker")
-    public String marker(Model model) {
-       return "marker";
-    }
 
+
+    @GetMapping("/marker")
+    public String marker(){
+        return "marker";
+    }
 
 
 }

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PointService {
@@ -19,12 +21,10 @@ public class PointService {
         pointEntryRepository.save(pointEntry);
     }
 
-    /*
-    @Transactional(readOnly = true)
-    public Page<Board> boardList(Pageable pageable){
-
-        return boardRepository.findAll(pageable);
+    @Transactional
+    public List<PointEntry> pointEntryList(){
+        return pointEntryRepository.findAll();
     }
-     */
+
 
 }

@@ -12,4 +12,5 @@ public class PointDto {
     private double lat;
     private double lng;
     private String address;
+    private String sido;
 }
