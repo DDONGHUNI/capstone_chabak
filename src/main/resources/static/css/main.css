@@ -11,7 +11,7 @@
 #camping-map.maininfo .campinfo {
   height: 1280px;
   width: 1100px;
-  padding-bottom: 80px;
+  padding-bottom: 90px;
 }
 #camping-map.maininfo .campinfo:after {
   content: "";
@@ -24,7 +24,7 @@
   width: 200px;
   border-right: 2px #c8c8c8 dashed;
   height: 480px;
-  padding: 175px 50px 15px 0;
+  padding: 155px 50px 15px 0;
 }
 #camping-map.maininfo .campinfo .kmap .kmapborder{
   border: 2px solid #333;
@@ -58,7 +58,7 @@
 /* * info-right */
 #camping-map.maininfo .info-right {
   position: relative;
-  top: 175px;
+  top: 155px;
   left: 270px;
   width: 1200px;
   height: 460px;
@@ -78,7 +78,7 @@
 /* * info-bottom */
 #camping-map.maininfo .info-bottom{
   position: relative;
-  top: 210px;
+  top: 200px;
   height: 500px;
   width: 1200px;
   border-top: 2px #c8c8c8 dashed;
@@ -149,6 +149,7 @@
 }
 .news .inner {
   height: 250px;
+  padding: 25px 0;
 }
 .news h2 {
   padding: 10px 0 0 0;
@@ -206,7 +207,7 @@
 }
 .news .swiper-prev {
   left: 0;
-  
+
 }
 .news .swiper-next {
   right: 0;
@@ -316,6 +317,7 @@
   position: relative;
   transition: height .4s;
   overflow: hidden;
+  padding: 25px 0;
 }
 .notice .promotion.hide {
   height: 0;
@@ -323,7 +325,7 @@
 .notice .promotion .swiper {
   width: calc(819px * 3 + 20px);
   position: absolute;
-  top: 40px;
+  top: 60px;
   /* * 요소 가운데 배치 */
   left: 50%;
   margin-left: calc((819px * 3 + 20px) / -2);

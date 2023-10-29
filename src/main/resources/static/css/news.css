@@ -1,0 +1,123 @@
+.board {
+  background-color: #f6f5ef;
+}
+.board .board_wrap { 
+  padding-top: 160px;
+  padding-bottom: 60px;
+}
+.board .board_title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.board .board_title strong {
+  font-size: 40px;
+  font-weight: 700;
+}
+.board .board_title .news_list {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.board .board_title .news_list a {
+  font-size: 17px;
+  padding: 0 10px;
+  border-right: 1px solid #000;
+}
+.board .board_title .news_list a:hover {
+  font-weight: 600;
+}
+.board .board_title .news_list li:last-child a {
+  border: none;
+}
+.board .board_list {
+  width: 100%;
+  border-top: 2px solid #000;
+}
+.board .board_list > div {
+  width: 100%;
+  border-top: 1px solid #ddd;
+  font-size: 0;
+}
+.board .board_list > div.top {
+  border-bottom: 1px solid #999;
+}
+.board .board_list > div:last-child {
+  border-bottom: 1px solid #000;
+}
+.board .board_list > div > div {
+  display: inline-block;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 14px;
+}
+.board .board_list > div.top > div {
+  font-weight: 600;
+}
+.board .board_list .num {
+  width: 10%;
+  text-align: center;
+}
+.board .board_list .title {
+  width: 60%;
+  text-align: left;
+}
+.board .board_list .writer {
+  width: 10%;
+}
+.board .board_list .date {
+  width: 10%;
+}
+.board .board_list .count {
+  width: 10%;
+}
+.board .board_page {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0;
+}
+.board .board_page a {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border: 1px solid #000;
+  border-left: 0;
+  line-height: 100%;
+}
+.board .board_page a.bt {
+  padding-top: 10px;
+  font-size: 12px;
+  letter-spacing: -1px;
+}
+.board .board_page a.num {
+  padding-top: 9px;
+  font-size: 14px;
+}
+.board .board_page a.num.on{
+  border-color: #000;
+  background: #000;
+  color: #fff;
+}
+.board .board_page a:first-child {
+  border-left: 1px solid #000;
+}
+.board .bt_wrap {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0;
+}
+.board .bt_wrap a {
+  display: inline-block;
+  min-width: 80px;
+  margin-left: 10px;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  font-size: 14px;
+  background: #000;
+  color: #fff;
+}
+.board .bt_wrap a:first-child {
+  margin-left: 0;
+}

@@ -25,13 +25,18 @@ public class BoardController {
         return "board/saveForm";
     }
 
-    @GetMapping({"", "/"})
+    @GetMapping({"/news/board"})
     public String index(Model model, @PageableDefault(size=3, sort="id", direction = Sort.Direction.DESC) Pageable pageable) {
         model.addAttribute("boards", boardService.boardList(pageable));
-        return "index"; // viewResolver 작동!!
+        return "news/notice"; // viewResolver 작동!!
     }
 
-    @GetMapping("/board/{id}")
+    @GetMapping("")
+    public String noticeBoard(){
+        return "index";
+    }
+
+    @GetMapping("/news/board/{id}")
     public String findById(@PathVariable int id, Model model) {
         Map ratingOptions = new HashMap();
         ratingOptions.put(0.0, "☆☆☆☆☆");
@@ -46,7 +51,7 @@ public class BoardController {
         return "board/detail";
     }
 
-    @GetMapping("/board/{id}/updateForm")
+    @GetMapping("/news/board/{id}/updateForm")
     public String updateForm(@PathVariable int id, Model model) {
         model.addAttribute("board", boardService.boardDetail(id));
         return "board/updateForm";

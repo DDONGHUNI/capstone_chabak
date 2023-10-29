@@ -1,5 +1,3 @@
-
-
 // * 슬라이드 요소 관리
 new Swiper('.notice-line .swiper', {
   direction: 'vertical', // 수직 슬라이드
@@ -101,45 +99,45 @@ $('document').ready(function () {
     $selsido.next().append("<option value=''>구/군 선택</option>");
   });
 
- // 시/도 선택시 구/군 설정
- $("select[name^=cate]").change(function () {
-  var area = $(this).val(); // 선택한 시/도 값 가져오기
-  var $gugun = $(this).next(); // 선택영역 군구 객체
-  $("option:not(:first)", $gugun).remove(); // 구군 초기화
+  // 시/도 선택시 구/군 설정
+  $("select[name^=cate]").change(function () {
+    var area = $(this).val(); // 선택한 시/도 값 가져오기
+    var $gugun = $(this).next(); // 선택영역 군구 객체
+    $("option:not(:first)", $gugun).remove(); // 구군 초기화
 
-  if (area === "") {
-    $gugun.append("<option value=''>구/군 선택</option>");
-    return;
-  }
+    if (area === "") {
+      $gugun.append("<option value=''>구/군 선택</option>");
+      return;
+    }
 
-  var areaIndex = area0.indexOf(area); // 시/도의 인덱스 찾기
+    var areaIndex = area0.indexOf(area); // 시/도의 인덱스 찾기
 
-  if (areaIndex !== -1) {
-    var gugunArrayName = 'area' + areaIndex; // 해당 시/도에 대한 구군 배열 이름 생성
-    var gugunArray = eval(gugunArrayName); // 해당 시/도의 구군 배열 가져오기
-    
-    $.each(gugunArray, function () {
-      $gugun.append("<option value='" + this + "'>" + this + "</option>");
-    });
-    
-    sido(area, areaIndex); // sido() 함수 호출하여 지도 업데이트하기
- }
-});
+    if (areaIndex !== -1) {
+      var gugunArrayName = 'area' + areaIndex; // 해당 시/도에 대한 구군 배열 이름 생성
+      var gugunArray = eval(gugunArrayName); // 해당 시/도의 구군 배열 가져오기
+
+      $.each(gugunArray, function () {
+        $gugun.append("<option value='" + this + "'>" + this + "</option>");
+      });
+
+      sido(area, areaIndex); // sido() 함수 호출하여 지도 업데이트하기
+    }
+  });
 
 });
 
 var kmap = $("#Map");
 function campmap(key) {
-  if (key) kmap.attr('src', '/img/kormap/' + key + '.gif');
+  if (key) kmap.attr('src', './img/kormap/' + key + '.gif');
 
   $('#campMap > area').hover(function () {
     var idx = $(this).attr('class');
-    kmap.attr('src', '/img/kormap/' + idx + '.gif');
+    kmap.attr('src', './img/kormap/' + idx + '.gif');
   }, function () {
     if (key) {
-      kmap.attr('src', '/img/kormap/' + key + '.gif');
+      kmap.attr('src', './img/kormap/' + key + '.gif');
     } else {
-      kmap.attr('src', '/img/kormap/kmap.gif');
+      kmap.attr('src', './img/kormap/kmap.gif');
     }
   });
 };
@@ -150,17 +148,17 @@ function sido(c1,a1) {
   // if (btype == "next") if (parseInt($('#totalpage').text()) > page) page++;
   // if (btype == "prev") if (page > 1) page--;
   // if (!btype) page = 1;
-  function changeOption(city,area) { 
-    var selectCity; 
+  function changeOption(city,area) {
+    var selectCity;
     var selectArea;
-  
-    selectCity=$("#sido");  
-    selectCity.val(c1);  
-    selectArea=$("#gugun");  
-    selectArea.val(a1);  
+
+    selectCity=$("#sido");
+    selectCity.val(c1);
+    selectArea=$("#gugun");
+    selectArea.val(a1);
   }
   changeOption();
-  console.log(a1); 
+  console.log(a1);
   switch (c1) {
     case "서울": panToSeoul(), campmap("kmap_02"); break;
     case "광주": panToGwangju(), campmap("kmap_062"); break;
@@ -187,80 +185,90 @@ function sido(c1,a1) {
 // * KAKAOMAP
 var container = document.getElementById('kakaomap'); //지도를 담을 영역의 DOM 레퍼런스
 var options = { //지도를 생성할 때 필요한 기본 옵션
-	center: new kakao.maps.LatLng(37.881372876975846, 127.72976953847908), //지도의 중심좌표.
-	level: 5 //지도의 레벨(확대, 축소 정도)
+  center: new kakao.maps.LatLng(37.881372876975846, 127.72976953847908), //지도의 중심좌표.
+  level: 5 //지도의 레벨(확대, 축소 정도)
 };
 
 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+var mapTypeControl = new kakao.maps.MapTypeControl();
+
+// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+var zoomControl = new kakao.maps.ZoomControl();
+map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
 
 function panToSeoul() {
   var moveLatLon = new kakao.maps.LatLng(37.56667, 126.97806);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToBusan() {
   var moveLatLon = new kakao.maps.LatLng(35.17944, 129.07556);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToIncheon() {
   var moveLatLon = new kakao.maps.LatLng(37.45639, 126.70528);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToDaegu() {
   var moveLatLon = new kakao.maps.LatLng(35.87222, 128.60250);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToDaejeon() {
   var moveLatLon = new kakao.maps.LatLng(36.35111, 127.38500);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToGwangju() {
   var moveLatLon = new kakao.maps.LatLng(35.15972, 126.85306);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToUlsan() {
   var moveLatLon = new kakao.maps.LatLng(35.53889, 129.31667);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToSejong() {
   var moveLatLon = new kakao.maps.LatLng(36.47982853966825, 127.28930603521691);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToJeju() {
   var moveLatLon = new kakao.maps.LatLng(33.50000, 126.51667);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToChuncheon() {
   var moveLatLon = new kakao.maps.LatLng(37.88535048289929, 127.72976900685539);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToGoyang() {
   var moveLatLon = new kakao.maps.LatLng(37.65844516519566, 126.83198338098317);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToJecheon() {
   var moveLatLon = new kakao.maps.LatLng(37.132673673602376, 128.1910167607669);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToGyeryong() {
   var moveLatLon = new kakao.maps.LatLng(36.274547305909216, 127.2485302817933);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToGunsan() {
   var moveLatLon = new kakao.maps.LatLng(36.274547305909216, 127.2485302817933);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToGwangyang() {
   var moveLatLon = new kakao.maps.LatLng(34.94043151895034, 127.69593848802423);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToGyeongsan() {
   var moveLatLon = new kakao.maps.LatLng(35.82506802477233, 128.7413196122302);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 function panToGeoje() {
   var moveLatLon = new kakao.maps.LatLng(34.88051989337904, 128.62107877700012);
-  map.panTo(moveLatLon);            
+  map.panTo(moveLatLon);
 }
 
 
