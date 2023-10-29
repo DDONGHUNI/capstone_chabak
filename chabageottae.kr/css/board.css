@@ -42,7 +42,7 @@
   border-bottom: 1px solid #999;
 }
 .board .board_list > div:last-child {
-  border-bottom: 1px solid #000;
+  border-bottom: 2px solid #000;
 }
 .board .board_list > div > div {
   display: inline-block;
@@ -70,6 +70,44 @@
 .board .board_list .count {
   width: 10%;
 }
+
+.board .board_list ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  border-bottom: 2px solid #000;
+}
+.board .board_list li {
+  width: 220px;
+  height: 180px;
+  padding: 25px 40px 40px 40px;
+  margin-bottom: -1px;
+  border-bottom: 1px solid #aaa;
+}
+.board .board_list li a { 
+  border: 1px solid #999;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+.board .board_list li a img { 
+  width: 90%;
+  padding: 10px;
+  border-bottom: 1px solid #000;
+}
+.board .board_list li a div{ 
+  height: 20px;
+}
+.board .board_list li a div:hover {font-weight: 600;}
+
+
+
+
+
 .board .board_page {
   margin-top: 30px;
   text-align: center;
@@ -113,7 +151,7 @@
   margin-left: 10px;
   padding: 10px;
   border: 1px solid #000;
-  border-radius: 2px;
+  border-radius: 4px;
   font-size: 0.9rem;
   background: #000;
   color: #fff;
@@ -122,6 +160,7 @@
   margin-left: 0;
 }
 
+/* ! VIEW */
 
 .board_view {
   width: 100%;
@@ -187,6 +226,7 @@
   font-size: 1rem;
 }
 
+/* ! WRITE */
 
 .board_write {
   border-top: 2px solid #000;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
   <meta charset="UTF-8">
@@ -10,7 +10,7 @@
   <meta property="og:site_name" content="chabageottae" />
   <meta property="og:title" content="차박어때" />
   <meta property="og:description" content="국내의 오지/노지캠핑,무료캠핑장,글램핑,카라반 정보를 위치기반 지도 공유 서비스" />
-  <meta property="og:image" content="./img/logo.png" />
+  <meta property="og:image" content="/img/logo.png" />
   <!-- <meta property="og:url" content="" /> -->
 
   <!--* Twitter Card-->
@@ -18,15 +18,15 @@
   <meta property="twitter:site" content="chabageottae" />
   <meta property="twitter:title" content="차박어때" />
   <meta property="twitter:description" content="국내의 오지/노지캠핑,무료캠핑장,글램핑,카라반 정보를 위치기반 지도 공유 서비스" />
-  <meta property="twitter:image" content="./img/logo.png" />
+  <meta property="twitter:image" content="/img/logo.png" />
   <!-- <meta property="twitter:url" content="" /> -->
 
   <!-- * 파비콘 -->
-  <link rel="icon" href="./favicon.ico">
+  <link rel="icon" href="/favicon.ico">
 
   <!-- * 폰트 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.g.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- * 메터리얼 아이콘 -->
@@ -34,8 +34,8 @@
 
   <!-- * CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.css">
-  <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/main.css">
 
   <!-- * swiper -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.3.1/swiper-bundle.css"
@@ -54,10 +54,9 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!-- * JS -->
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=75ff8b51bf7097ff70ae1f1011ffb111"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script defer src="./js/common.js"></script>
-  <script defer src="./js/main.js"></script>
+  <script defer src="/js/common.js"></script>
+  <script defer src="/js/main.js"></script>
   
 
   <title>차박어때</title>
@@ -68,79 +67,270 @@
   <header>
     <div class="inner">
 
-      <a href="./" class="logo">
-        <img src="./img/logo.png" alt="CHABAGEOTTAE" />
+      <a href="/" class="logo">
+        <img src="/img/logo.png" alt="CHABAGEOTTAE" />
       </a>
 
       <!-- * SUB MENU -->
       <div class="sub-menu">
         <ul class="menu">
           <li>
-            <a href="./">HOME</a>
+            <a href="/">HOME</a>
           </li>
           <li>
-            <a href="javascript:void(0)">회원가입</a>
+            <a href="join"  sec:authorize="!isAuthenticated()">회원가입</a>
           </li>
           <li>
-            <a href="./signin/">로그인</a>
+            <a href="/login" sec:authorize="!isAuthenticated()">로그인</a>
           </li>
+          <li>
+            <a href="/board/saveForm" sec:authorize="isAuthenticated()">글쓰기</a>
+          </li>
+          <li>
+            <a href="/logout" sec:authorize="isAuthenticated()">로그아웃</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">고객센터</a>
+          </li>
+        </ul>
+        <div class="search">
+          <input type="text">
+          <div class="material-icons">search</div>
+        </div>
       </div>
 
       <!-- * MAIN MENU -->
       <ul class="main-menu">
         <li class="item">
-          <div class="item__name">NEWS</div>
+          <div class="item__name">공지사항</div>
           <div class="item__contents">
-            <ul>
-              <li><a href="./mainMenu/newsNotice.html">공지사항</a></li>
-              <li><a href="./mainMenu/newsUpdate.html">업데이트</a></li>
-              <li><a href="./mainMenu/newsEvent.html">이벤트</a></li>
-            </ul>
-          </div> 
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>공지사항</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>업데이트</h4>
+                  <ul>
+                    <li>홈페이지</li>\
+                    <li>오지/노지</li>
+                    <li>글램핑/카라반</li>
+                    <li>오지/노지</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>글램핑/카라반</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="contents__texture">
+              <div class="inner">
+                <h4>이벤트</h4>
+                <p>이벤트</p>
+                <h4>홍보</h4>
+                <p>홍보</p>
+              </div>
+            </div>
+          </div>
         </li>
         <li class="item">
-          <div class="item__name">PLACE</div>
+          <div class="item__name">오지/노지캠핑</div>
           <div class="item__contents">
-              <ul class="contents_menu">
-                <li><a href="./mainMenu/place01.html">오지/노지캠핑</a></li>
-                <li><a href="./mainMenu/place02.html">유료캠핑</a></li>
-                <li><a href="./mainMenu/place03.html">글램핑/카라반</a></li>
-            </ul>
-           </div>
-          </li>
-        <li class="item">
-          <div class="item__name">TIP</div>
-          <div class="item__contents">
-            <ul>
-              <li><a href="./mainMenu/campTip.html">캠핑 팁</a></li>
-              <li><a href="./mainMenu/campFood.html">캠핑 음식</a></li>
-              <li><a href="./mainMenu/campTent.html">텐트 설치 방법</a></li>
-            </ul>
-          </div> 
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>1</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>2</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>3</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>4</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>5</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="contents__texture">
+              <div class="inner">
+                <h4>이벤트</h4>
+                <p>이벤트</p>
+                <h4>홍보</h4>
+                <p>홍보</p>
+              </div>
+            </div>
+          </div>
         </li>
         <li class="item">
-          <div class="item__name">STORE</div>
+          <div class="item__name">유료캠핑장</div>
           <div class="item__contents">
-            <ul>
-              <li><a href="./mainMenu/storeBuy.html">삽니다.</a></li>
-              <li><a href="./mainMenu/storeSell.html">팝니다.</a></li>
-            </ul>
-          </div> 
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>1</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>2</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="contents__texture">
+              <div class="inner">
+                <h4>이벤트</h4>
+                <p>이벤트</p>
+                <h4>홍보</h4>
+                <p>홍보</p>
+              </div>
+            </div>
+          </div>
         </li>
         <li class="item">
-          <div class="item__name">COMMUNITY</div>
+          <div class="item__name">글램핑/카라반</div>
           <div class="item__contents">
-            <ul>
-              <li><a href="./mainMenu/commuAll.html">전체글</a></li>
-              <li><a href="./mainMenu/commuFree.html">자유게시판</a></li>
-              <li><a href="./mainMenu/commuReview.html">캠핑 후기</a></li>
-            </ul>
-          </div> 
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>1</h4>
+                  <ul>
+                    <li>1/li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>2</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>3</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="contents__texture">
+              <div class="inner">
+                <h4>이벤트</h4>
+                <p>이벤트</p>
+                <h4>홍보</h4>
+                <p>홍보</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">테마검색</div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>1</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>2</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>3</h4>
+                  <ul>
+                    <li>1</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="contents__texture">
+              <div class="inner">
+                <h4>이벤트</h4>
+                <p>이벤트</p>
+                <h4>홍보</h4>
+                <p>홍보</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">차박장터</div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>프로모션 & 이벤트</h4>
+                  <ul>
+                    <li>전체</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>새소식</h4>
+                  <ul>
+                    <li>전체</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>매장</h4>
+                  <ul>
+                    <li>일반 매장</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="contents__texture">
+              <div class="inner">
+                <h4>이벤트</h4>
+                <p>이벤트</p>
+                <h4>홍보</h4>
+                <p>홍보</p>
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
   </header>
+  <section class="kakaomap-section">
+    <div class="inner">
+      <div id="kakaomap">
 
+      </div>
+  
+    </div>
+  </section>
 
   <!-- * VISUAL-->
   <section class="visual">
@@ -153,7 +343,7 @@
             <div class="kmapborder">
               <h2>Camping <span>Map</span></h2>
               <p class="csub_head">대한민국 캠핑 지도</p>
-              <div class="mapwrap"><img src="./img/kormap/kmap.gif" alt="" usemap="#campMap" id="Map">
+              <div class="mapwrap"><img src="/img/kormap/kmap.gif" alt="" usemap="#campMap" id="Map">
                 <map name="campMap" id="campMap">
                   <area shape="poly" onfocus="this.blur()"
                     coords="49,59,51,58,56,55,69,46,78,75,66,75,49,74,51,68,48,59" 
@@ -208,19 +398,16 @@
             </div>
           </div>
           <div class="info-right">
-            <div id="kakaomap">
-            </div>
-          </div>
-          <div class="info-bottom">
             <div class="selectsido">
               <select class="searchSelect" name="cate1" id="sido"></select>
               <select class="searchSelect" name="cate2" id="gugun"></select>
             </div>
-            <div class="camp_content">
+            
+            <div class="camp_right_content">
               <div class="items">
                 <div class="photo">
                   <a href="">
-                    <img src="./img/강원/춘천/강원_춘천_개야리 유원지.jpg" alt="">
+                    <img src="/img/gangwon/춘천/강원_춘천_개야리 유원지.jpg" alt="">
                   </a>
                 </div>
                 <div class="cont">
@@ -233,11 +420,11 @@
               <div class="items">
                 <div class="photo">
                   <a href="">
-                    <img src="./img/강원/춘천/강원_춘천_더시크릿가든 캠프지라운드.jpg" alt="">
+                    <img src="/img/gangwon/춘천/강원_춘천_더시크릿가든 캠프지라운드.jpg" alt="">
                   </a>
                 </div>
                 <div class="cont">
-                  <p class="tt">더시크릿가든 캠프지 라운드</p>
+                  <p class="tt">더시크릿가든<br> 캠프지 라운드</p>
                   <p class="mcont">강원 &gt; 춘천시 &gt; 남산면</p>
                 </div>
               </div>
@@ -246,7 +433,7 @@
                 <div class="items">
                   <div class="photo">
                     <a href="">
-                      <img src="./img/강원/춘천/강원_춘천_별빛_캠핑장.JPG" alt="">
+                      <img src="/img/gangwon/춘천/강원_춘천_별빛_캠핑장.JPG" alt="">
                     </a>
                   </div>
                   <div class="cont">
@@ -259,40 +446,16 @@
                 <div class="items">
                   <div class="photo">
                     <a href="">
-                      <img src="./img/강원/춘천/강원_춘천_빌리빙_캠핑장.JPG" alt="">
+                      <img src="/img/gangwon/춘천/강원_춘천_빌리빙_캠핑장.JPG" alt="">
                     </a>
                   </div>
                   <div class="cont">
                     <p class="tt">스타밸리 캠핑장</p>
                     <p class="mcont">강원 &gt; 춘천시 &gt; 사북면</p>
                   </div>
-                </div> 
-
-                <div class="items">
-                  <div class="photo">
-                    <a href="">
-                      <img src="./img/강원/춘천/강원_춘천_빌리빙_캠핑장.JPG" alt="">
-                    </a>
-                  </div>
-                  <div class="cont">
-                    <p class="tt">스타밸리 캠핑장</p>
-                    <p class="mcont">강원 &gt; 춘천시 &gt; 사북면</p>
-                  </div>
-                </div> 
-
-                <div class="items">
-                  <div class="photo">
-                    <a href="">
-                      <img src="./img/강원/춘천/강원_춘천_빌리빙_캠핑장.JPG" alt="">
-                    </a>
-                  </div>
-                  <div class="cont">
-                    <p class="tt">스타밸리 캠핑장</p>
-                    <p class="mcont">강원 &gt; 춘천시 &gt; 사북면</p>
-                  </div>
-                </div> 
-            </div> 
-            
+                </div>
+          
+            </div>
           </div>
         </div>
       </div>
@@ -307,55 +470,55 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <a href="javascript:void(0)">
-                <img src="./img/강원/춘천/강원_춘천_별빛_캠핑장.JPG" alt="춘천 캠핑장" />
+                <img src="/img/gangwon/춘천/강원_춘천_별빛_캠핑장.JPG" alt="춘천 캠핑장" />
                 <span>춘천 별빛 캠핑장<p>1</p></span>
               </a>
             </div>
             <div class="swiper-slide">
               <a href="javascript:void(0)">
-                <img src="./img/강원/춘천/강원_춘천_빌리빙_캠핑장.JPG" alt="춘천 캠핑장" />
+                <img src="/img/gangwon/춘천/강원_춘천_빌리빙_캠핑장.JPG" alt="춘천 캠핑장" />
                 <span>춘천 빌리빙 캠핑장<p>2</p></span>
               </a>
             </div>
             <div class="swiper-slide">
               <a href="javascript:void(0)">
-                <img src="./img/강원/춘천/강원_춘천_왕터_리조트.JPG" alt="춘천 리조트" />
+                <img src="/img/gangwon/춘천/강원_춘천_왕터_리조트.JPG" alt="춘천 리조트" />
                 <span>춘천 왕터 리조트<p>3</p></span>
               </a>
             </div>
             <div class="swiper-slide">
               <a href="javascript:void(0)">
-                <img src="./img/강원/강릉/강원_강릉_물내치기_캠핑장.JPG" alt="강릉 캠핑장" />
+                <img src="/img/gangwon/강릉/강원_강릉_물내치기_캠핑장.JPG" alt="강릉 캠핑장" />
                 <span>강릉 물내치기 캠핑장<p>4</p></span>
               </a>
             </div>
             <div class="swiper-slide">
               <a href="javascript:void(0)">
-                <img src="./img/강원/강릉/강원_강릉_소금강_자동차야영장.JPG" alt="강릉 자동차야영장" />
+                <img src="/img/gangwon/강릉/강원_강릉_소금강_자동차야영장.JPG" alt="강릉 자동차야영장" />
                 <span>강릉 소금강 자동차야영장<p>5</p></span>
               </a>
             </div>
             <div class="swiper-slide">
               <a href="javascript:void(0)">
-                <img src="./img/강원/강릉/강원_강릉_자연휴양림_야영장.JPG" alt="강릉 야영장" />
+                <img src="/img/gangwon/강릉/강원_강릉_자연휴양림_야영장.JPG" alt="강릉 야영장" />
                 <span>강릉 자연휴양림 야영장<p>6</p></span>
               </a>
             </div>
             <div class="swiper-slide">
               <a href="javascript:void(0)">
-                <img src="./img/강원/원주/강원_원주_그린애_캠핑장.JPG" alt="원주 캠핑장" />
+                <img src="/img/gangwon/원주/강원_원주_그린애_캠핑장.JPG" alt="원주 캠핑장" />
                 <span>원주 그린애 캠핑장<p>7</p></span>
               </a>
             </div>
             <div class="swiper-slide">
               <a href="javascript:void(0)">
-                <img src="./img/강원/원주/강원_원주_오크_캠핑장.JPG" alt="캠핑장" />
+                <img src="/img/gangwon/원주/강원_원주_오크_캠핑장.JPG" alt="캠핑장" />
                 <span>원주 오크 캠핑장<p>8</p></span>
               </a>
             </div>
             <div class="swiper-slide">
               <a href="javascript:void(0)">
-                <img src="./img/강원/원주/강원_원주_오크밸리_카라반.JPG" alt="카라반" />
+                <img src="/img/gangwon/원주/강원_원주_오크밸리_카라반.JPG" alt="카라반" />
                 <span>원주 오크밸리 카라반<p>9</p></span>
               </a>
             </div>
@@ -421,23 +584,23 @@
       <div class="swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="./img/강원/춘천/강원_춘천_캠프 포지션.jpg" alt="장소1" />
+            <img src="/img/gangwon/춘천/강원_춘천_캠프 포지션.jpg" alt="장소1" />
             <a href="javascript:void(0)" class="btn">캠프 포지션</a>
           </div>
           <div class="swiper-slide">
-            <img src="./img/강원/춘천/강원_춘천_아웃 오브 파크.jpg" alt="장소2" />
+            <img src="/img/gangwon/춘천/강원_춘천_아웃 오브 파크.jpg" alt="장소2" />
             <a href="javascript:void(0)" class="btn">아웃 오브 파크</a>
           </div>
           <div class="swiper-slide">
-            <img src="./img/강원/춘천/강원_춘천_어반 슬로우시티.jpg" alt="장소3" />
+            <img src="/img/gangwon/춘천/강원_춘천_어반 슬로우시티.jpg" alt="장소3" />
             <a href="javascript:void(0)" class="btn">어반 슬로우시티</a>
           </div>
           <div class="swiper-slide">
-            <img src="./img/강원/홍천/강원_홍천_예담숲.jpg" alt="장소4" />
+            <img src="/img/gangwon/홍천/강원_홍천_예담숲.jpg" alt="장소4" />
             <a href="javascript:void(0)" class="btn">예담숲</a>
           </div>
           <div class="swiper-slide">
-            <img src="./img/강원/홍천/강원_홍천_산으로 캠핑장.jpg" alt="장소5" />
+            <img src="/img/gangwon/홍천/강원_홍천_산으로 캠핑장.jpg" alt="장소5" />
             <a href="javascript:void(0)" class="btn">산으로 캠핑장</a>
           </div>
         </div>
@@ -467,7 +630,7 @@
         <li><a href="javascript:void(0)">홈페이지 이용약관</a></li>
         <li><a href="javascript:void(0)">광고 및 제휴 문의</a></li>
         <li><a href="javascript:void(0)">회원가입</a></li>
-        <li><a href="./signin/">로그인</a></li>
+        <li><a href="/signin/">로그인</a></li>
         <li><a href="javascript:void(0)">고객센터</a></li>
       </ul>
 
@@ -480,7 +643,7 @@
       <p class="copyright">
         &copy; <span class="this-year"></span> chabageottae. All Rights Reserved.
       </p>
-      <img src="./img/logo.png" alt="STAR BUCKS" class="logo" width="150" />
+      <img src="/img/logo.png" alt="STAR BUCKS" class="logo" width="150" />
 
     </div>
   </footer>
