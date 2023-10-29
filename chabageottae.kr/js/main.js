@@ -186,7 +186,7 @@ function sido(c1,a1) {
 var container = document.getElementById('kakaomap'); //지도를 담을 영역의 DOM 레퍼런스
 var options = { //지도를 생성할 때 필요한 기본 옵션
 	center: new kakao.maps.LatLng(37.881372876975846, 127.72976953847908), //지도의 중심좌표.
-	level: 5 //지도의 레벨(확대, 축소 정도)
+	level: 7 //지도의 레벨(확대, 축소 정도)
 };
 
 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
@@ -272,3 +272,112 @@ function panToGeoje() {
 }
 
 
+//https://www.5gcamp.com/modules/camping/theme/_pc/default/image/tent1.png
+//https://www.5gcamp.com/modules/camping/theme/_pc/default/image/tent2.png 
+//https://www.5gcamp.com/modules/camping/theme/_pc/default/image/tent3.png
+// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+var positions = [
+  {
+      content: '<div>왕터 리조트</div>', 
+      latlng: new kakao.maps.LatLng(37.72998, 127.5610)
+  },
+  {
+      content: '<div class="mapTitle">별빛 캠핑장</div>', 
+      latlng: new kakao.maps.LatLng(37.81735, 127.7668)
+  },
+  {
+      content: '<div class="mapTitle">빌리빙 캠핑장</div>', 
+      latlng: new kakao.maps.LatLng(37.97640, 127.6280)
+  },
+  {
+      content: '<div class="mapTitle">그레이스 글램핑</div>',
+      latlng: new kakao.maps.LatLng(37.8281481, 127.6096608)
+  },
+  {
+      content: '<div class="mapTitle">용화산 프라임 캠핑장</div>',
+      latlng: new kakao.maps.LatLng(38.00808, 127.7412)
+  },
+  {
+      content: '<div class="mapTitle">강촌 캠핑플레아스</div>',
+      latlng: new kakao.maps.LatLng(37.82872, 127.5865)
+  },
+  {
+      content: '<div class="mapTitle">데일리랜드 오토캠핑장</div>',
+      latlng: new kakao.maps.LatLng(37.75848, 127.8456)
+  },
+  {
+      content: '<div class="mapTitle">강촌 포도펜션&캠핑장</div>',
+      latlng: new kakao.maps.LatLng(37.80850666048946, 127.5731158505537)
+  },
+  {
+      content: '<div class="mapTitle">자연에 머물다</div>',
+      latlng: new kakao.maps.LatLng(37.97204677631171, 127.58544150346653)
+  },
+  {
+      content: '<div class="mapTitle">아웃 오브 파크 </div>',
+      latlng: new kakao.maps.LatLng(37.72784323502374, 127.51114008273723)
+  },
+  {
+      content: '<div class="mapTitle">춘천 더숲 캠핑장</div>',
+      latlng: new kakao.maps.LatLng(37.69367197214705, 127.64608183654717)
+  },
+  {
+      content: '<div class="mapTitle">인스타글램</div>',
+      latlng: new kakao.maps.LatLng(37.97931345275575, 127.60662984385549)
+  },
+  {
+      content: '<div class="mapTitle">캠핑 하는 집</div>',
+      latlng: new kakao.maps.LatLng(37.758887650713895, 127.7976001178685)
+  },
+  {
+      content: '<div class="mapTitle">툇골 캠핑장</div>',
+      latlng: new kakao.maps.LatLng(37.93531978678305, 127.65805350204153 )
+  },
+  {
+      content: '<div class="mapTitle">호반 캠핑장</div>',
+      latlng: new kakao.maps.LatLng(37.934160099677136, 127.71772751271385 )
+  }
+];
+
+var imageSrc = "https://www.5gcamp.com/modules/camping/theme/_pc/default/image/tent1.png"; 
+
+for (var i = 0; i < positions.length; i ++) {
+  
+      // 마커 이미지의 이미지 크기 입니다
+    var imageSize = new kakao.maps.Size(30, 30); 
+    
+    // 마커 이미지를 생성합니다    
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+  // 마커를 생성합니다
+  var marker = new kakao.maps.Marker({
+      map: map, // 마커를 표시할 지도
+      position: positions[i].latlng, // 마커의 위치
+      image : markerImage // 마커 이미지 
+  });
+  
+
+  // 마커에 표시할 인포윈도우를 생성합니다 
+  var infowindow = new kakao.maps.InfoWindow({
+      content: positions[i].content // 인포윈도우에 표시할 내용
+  });
+
+  // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+  // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+  // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+  kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+  kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+}
+
+// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+function makeOverListener(map, marker, infowindow) {
+  return function() {
+      infowindow.open(map, marker);
+  };
+}
+
+// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+function makeOutListener(infowindow) {
+  return function() {
+      infowindow.close();
+  };
+}
