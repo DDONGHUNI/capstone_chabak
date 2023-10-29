@@ -21,7 +21,7 @@ let index = {
             dataType: "json"
         }).done(function(resp){
             alert("저장이 완료되었습니다.");
-            location.href = "/";
+            location.href = "/map";
         }).fail(function(error){
             alert(JSON.stringify(error));
         });

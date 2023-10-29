@@ -24,8 +24,8 @@ $.ajax({
             var gb_position = { content : `<div>${item.id}</div>` , latlng: new kakao.maps.LatLng(item.lng, item.lat)};
             positions.push(gb_position)
         });
-        let str = JSON.stringify(positions);
-        alert(str);
+//        let str = JSON.stringify(positions); 테스트용
+//        alert(str);
 
         $.each(positions, function(index, item){
             var imageSize = new kakao.maps.Size(24, 35);
