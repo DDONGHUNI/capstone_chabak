@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    img{
+        width:170px;
+        height:40px;
+    }
+  </style>
+  <title>로그인 페이지</title>
+</head>
+<body>
+<h1>로그인 페이지</h1>
+<hr/>
+<!-- 시큐리티는 x-www-form-url-encoded 타입만 인식 -->
+<form action="/loginProc" method="post">
+  <input type="text" name="username" />
+  <input type="password" name="password" />
+  <button>로그인</button>
+</form>
+
+<br />
+<h1>Social Login</h1>
+<br />
+<a href="/oauth2/authorization/google" >
+  <img src = "img/btn_google_signin_dark_normal_web.png">
+</a>
+<br />
+<a href="/oauth2/authorization/naver" >
+  <img src = "img/btnG_완성형.png">
+</a>
+<br />
+<a href="/oauth2/authorization/kakao" >
+  <img src = "img/kakao_login_medium_narrow.png" width="100" height="20">
+</a>
+
+</body>
+</html>

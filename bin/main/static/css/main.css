@@ -1,0 +1,423 @@
+/* KAKAOMAP */
+.kakaomap-section .inner {
+  height: 500px;
+}
+.kakaomap-section #kakaomap {
+  position: absolute;
+  top: 150px;
+  width: 1100px;
+  height: 400px;
+}
+
+/* * VISUAL */
+.visual {
+  background-color: #f6f5ef;
+}
+
+/* * camping-map */
+#camping-map {
+  position: relative;
+  width: 1100px;
+}
+#camping-map.maininfo .campinfo {
+}
+#camping-map.maininfo .campinfo:after {
+  content: "";
+  display: flex;
+  float: none;
+  clear: both;
+}
+#camping-map.maininfo .campinfo .kmap {
+  float: left;
+  width: 200px;
+  border-right: 2px #c8c8c8 dashed;
+  height: 480px;
+  padding: 35px 50px 15px 0;
+}
+#camping-map.maininfo .campinfo .kmap .kmapborder{
+  border: 2px solid #333;
+  border-radius: 20px;
+  background-color: #FFf;
+  width: 200px;
+  height: 440PX;
+  padding: 10px;
+}
+#camping-map.maininfo .campinfo .kmap h2 {
+  margin: 0;
+  padding: 10px 0;
+  font-size: 1.7rem;
+  text-align: center;
+  letter-spacing: -0.03em
+}
+#camping-map.maininfo .campinfo .kmap h2 span {
+  color: #558001
+}
+#camping-map.maininfo .campinfo .kmap p.csub_head {
+  margin: 3px 0 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+#camping-map.maininfo .campinfo .kmap #campMap area {
+  outline: 0
+}
+
+/* * info-right */
+#camping-map.maininfo .info-right {
+  position: relative;
+  top: 45px;
+  left: 270px;
+  width: 900px;
+  height: 460px;
+}
+#camping-map.maininfo .info-right .selectsido {
+  position: absolute;
+  top: -25px;
+  left: 10px;
+}
+#camping-map.maininfo .info-right .searchSelect {
+  outline: none;
+  min-width: 50px;
+  height: 36px;
+  padding: 4px 40px 6px 15px;
+  border: 1px solid #bbb;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #444;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  background: url('/img/select_arrow.gif') right center no-repeat;
+  background: none\9;
+  background-color: #fff;
+}
+#camping-map.maininfo .info-right .camp_right_content{
+  position: absolute;
+  top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  margin:auto;
+}
+#camping-map.maininfo .info-right .camp_right_content .items {
+  width: 416px;
+  height: 203px;
+  margin:0 20px 20px 10px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+#camping-map.maininfo .info-right .camp_right_content .items .photo a img {
+  border-radius: 10px;
+  width: 250px;
+  height: 180px;
+  margin: 10px;
+}
+#camping-map.maininfo .info-right .camp_right_content .items .cont {
+  position: relative;
+  border-left: 2px dashed #bbb;
+  width: 150px;
+  height: 185px;
+  padding: 5px;
+  text-align: center;
+  margin: auto 0;
+}
+#camping-map.maininfo .info-right .camp_right_content .items .cont .tt {
+  position: absolute;
+  top: 30%;
+  width: 90%;
+  height: 25px;
+  font-size: 18px;
+  font-weight: 700;
+}
+#camping-map.maininfo .info-right .camp_right_content .items .cont .mcont {
+  position: absolute;
+  top: 60%;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  font-size: 14px;
+}
+
+/* * news */
+.news {
+  background-color: #f7e5d2;
+}
+.news .inner {
+  height: 250px;
+}
+.news h2 {
+  padding: 10px 0 0 0;
+  font-size: 1.4rem;
+  color: #333;
+  font-weight: 400;
+  margin-left: 33px;
+}
+.news h2 span {
+  color: #ff4000;
+  font-weight: 700;
+}
+.news .swiper {
+  height: 200px;
+}
+
+.news .swiper-slide {
+  width: 100px;
+  height: 200px;
+  margin: auto;
+}
+.news .swiper-slide a {
+  background-color: #CDD1B3;
+  margin: 0 auto;
+  text-align: center;
+}
+.news .swiper-slide a img {
+  display: block;
+  margin: 10px auto;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  width: 175px;
+  height: 125px;
+}
+.news .swiper-slide a span {
+  display: block;
+  color: #000;
+  font-weight: 700;
+}
+.news .swiper-prev,
+.news .swiper-next {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .4s;
+}
+.news .swiper-prev {
+  left: 0;
+  
+}
+.news .swiper-next {
+  right: 0;
+}
+.news .swiper-prev:hover,
+.news .swiper-next:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+
+/* * NOTICE */
+.notice .notice-line {
+  position: relative;
+}
+.notice .notice-line .bg-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #4C4637;
+}
+.notice .notice-line .bg-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #CDD1B3;
+}
+.notice .notice-line .inner {
+  height: 70px;
+  display: flex;
+}
+.notice .notice-line .inner__left {
+  width: 60%;
+  height: 100%;
+  background-color: #4C4637;
+  display: flex;
+  align-items: center;
+}
+.notice .notice-line .inner__left h2 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 60px;
+}
+.notice .notice-line .inner__left .swiper{
+  height: 62px;
+  flex-grow: 1;
+}
+.notice .notice-line .inner__left .swiper-slide {
+  height: 62px;
+  display: flex;
+  align-items: center;
+}
+.notice .notice-line .inner__left .swiper-slide a {
+  color: #fff;
+}
+.notice .notice-line .inner__left .notice-line__more {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notice .notice-line .inner__left .notice-line__more .material-icons {
+  color: #fff;
+  font-size: 30px;
+}
+.notice .notice-line .inner__right {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.notice .notice-line .inner__right .toggle-promotion span {
+  font-size: 14px;
+  font-weight: 700;
+  opacity: .7;
+}
+.notice .notice-line .inner__right .toggle-promotion h2 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 30px;
+}
+.notice .notice-line .inner__right .toggle-promotion {
+  width: 330px;
+  height: 62px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notice .notice-line .inner__right .toggle-promotion .material-icons {
+  font-size: 30px;
+}
+
+
+/* * PROMOTION */
+.notice .promotion {
+  /*width: auto;*/
+  height: 515px;
+  background-color: #f6f5ef;
+  position: relative;
+  transition: height .4s;
+  overflow: hidden;
+}
+.notice .promotion.hide {
+  height: 0;
+}
+.notice .promotion .swiper {
+  width: calc(819px * 3 + 20px);
+  position: absolute;
+  top: 40px;
+  /* * 요소 가운데 배치 */
+  left: 50%;
+  margin-left: calc((819px * 3 + 20px) / -2);
+}
+
+.notice .promotion .swiper-slide {
+  border: 3px solid #333;
+  height: 425px;
+  border-radius: 10px;
+  opacity: .5;
+  transition: opacity 0.7s;
+  position: relative;
+}
+.notice .promotion .swiper-slide-active {
+  opacity: 1;
+}
+.notice .promotion .swiper-slide img {
+  width: 480px;
+  object-fit: cover;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.notice .promotion .swiper-slide .btn {
+  width: 200px;
+  position: absolute;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.notice .promotion .swiper-pagination {
+  bottom: 40px;
+  left: 0;
+  right: 0;
+}
+.notice .promotion .swiper-pagination .swiper-pagination-bullet {
+  background-color: transparent;
+  width: 13px;
+  height: 12px;
+  margin-right: 6px;
+  outline: none;
+}
+.notice .promotion .swiper-pagination .swiper-pagination-bullet:last-child {
+  margin-right: 0;
+}
+.notice .promotion .swiper-prev,
+.notice .promotion .swiper-next {
+  width: 42px;
+  height: 42px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  position: absolute;
+  top: 45%;
+  z-index: 1;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .4s;
+}
+.notice .promotion .swiper-prev {
+  left: 50%;
+  margin-left: -370px;
+}
+.notice .promotion .swiper-next {
+  right: 50%;
+  margin-right: -390px;
+}
+.notice .promotion .swiper-prev:hover,
+.notice .promotion .swiper-next:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+
+
+/* * SCROLL TO TOP*/
+#to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9;
+  width: 42px;
+  height: 42px;
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+

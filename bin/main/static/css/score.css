@@ -1,0 +1,12 @@
+.rating {
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.star {
+    color: lightgray;
+}
+
+.star:hover {
+    color: gold;
+}
