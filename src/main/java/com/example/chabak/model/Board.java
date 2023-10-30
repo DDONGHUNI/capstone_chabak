@@ -41,6 +41,8 @@ public class Board {
     @OrderBy("id desc")
     private List<Reply> replys;
 
+    private String categoryName;
+
     @CreationTimestamp
     private Timestamp createDate;
 }

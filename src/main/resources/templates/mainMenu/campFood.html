@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
   <meta charset="UTF-8">
@@ -35,7 +35,7 @@
   <!-- * CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.css">
   <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/news.css">
+  <link rel="stylesheet" href="../css/board.css">
 
   <!-- * JS -->
   <script defer src="../js/common.js"></script>
@@ -64,8 +64,9 @@
             <a href="javascript:void(0)">회원가입</a>
           </li>
           <li>
-            <a href="../signin/">로그인</a>
+            <a href="../login/">로그인</a>
           </li>
+        </ul>
       </div>
 
       <!-- * MAIN MENU -->
@@ -74,9 +75,9 @@
           <div class="item__name">NEWS</div>
           <div class="item__contents">
             <ul>
-              <li><a href="../news/board">공지사항</a></li>
-              <li><a href="../news/update.html">업데이트</a></li>
-              <li><a href="../news/event.html">이벤트</a></li>
+              <li><a href="./newsNotice">공지사항</a></li>
+              <li><a href="./newsUpdate">업데이트</a></li>
+              <li><a href="./newsEvent">이벤트</a></li>
             </ul>
           </div> 
         </li>
@@ -84,9 +85,9 @@
           <div class="item__name">PLACE</div>
           <div class="item__contents">
               <ul class="contents_menu">
-                <li><a href="javascript:void(0)">오지/노지캠핑</a></li>
-                <li><a href="javascript:void(0)">유료캠핑</a></li>
-                <li><a href="javascript:void(0)">글램핑/카라반</a></li>
+                <li><a href="./place01">오지/노지캠핑</a></li>
+                <li><a href="./place02">유료캠핑</a></li>
+                <li><a href="./place03">글램핑/카라반</a></li>
             </ul>
            </div>
           </li>
@@ -94,9 +95,9 @@
           <div class="item__name">TIP</div>
           <div class="item__contents">
             <ul>
-              <li><a href="javascript:void(0)">캠핑 팁</a></li>
-              <li><a href="javascript:void(0)">캠핑 음식</a></li>
-              <li><a href="javascript:void(0)">텐트 설치 방법</a></li>
+              <li><a href="./campTip">캠핑 팁</a></li>
+              <li><a href="./campFood">캠핑 음식</a></li>
+              <li><a href="./campTent">텐트 설치 방법</a></li>
             </ul>
           </div> 
         </li>
@@ -104,8 +105,8 @@
           <div class="item__name">STORE</div>
           <div class="item__contents">
             <ul>
-              <li><a href="javascript:void(0)">삽니다.</a></li>
-              <li><a href="javascript:void(0)">팝니다.</a></li>
+              <li><a href="./storeBuy">삽니다.</a></li>
+              <li><a href="./storeSell">팝니다.</a></li>
             </ul>
           </div> 
         </li>
@@ -113,9 +114,9 @@
           <div class="item__name">COMMUNITY</div>
           <div class="item__contents">
             <ul>
-              <li><a href="javascript:void(0)">전체글</a></li>
-              <li><a href="javascript:void(0)">자유게시판</a></li>
-              <li><a href="javascript:void(0)">캠핑 후기</a></li>
+              <li><a href="./commuAll">전체글</a></li>
+              <li><a href="./commuFree">자유게시판</a></li>
+              <li><a href="./commuReview">캠핑 후기</a></li>
             </ul>
           </div> 
         </li>
@@ -129,11 +130,11 @@
 
 
       <div class="board_title">
-        <strong>업데이트</strong>
+        <strong>캠핑 음식</strong>
         <ul class="news_list">
-          <li><a href="./notice.html">공지사항</a></li>
-          <li><a href="./update.html">업데이트</a></li>
-          <li><a href="./event.html">이벤트</a></li>
+          <li><a href="./campTip">캠핑 팁</a></li>
+          <li><a href="./campFood">캠핑 음식</a></li>
+          <li><a href="./campTent">텐트 설치 방법</a></li>
         </ul>  
       </div>
       <div class="board_list_wrap">
@@ -145,40 +146,12 @@
             <div class="date">작성일</div>
             <div class="count">조회</div>
           </div>
-          <div>
-            <div class="num">5</div>
-            <div class="title"><a href="#">글 제목이 들어갑니다.</a></div>
-            <div class="writer">글쓴이</div>
-            <div class="date">작성일</div>
-            <div class="count">조회</div>
-          </div>
-          <div>
-            <div class="num">4</div>
-            <div class="title"><a href="#">글 제목이 들어갑니다.</a></div>
-            <div class="writer">글쓴이</div>
-            <div class="date">작성일</div>
-            <div class="count">조회</div>
-          </div>
-          <div>
-            <div class="num">3</div>
-            <div class="title"><a href="#">글 제목이 들어갑니다.</a></div>
-            <div class="writer">글쓴이</div>
-            <div class="date">작성일</div>
-            <div class="count">조회</div>
-          </div>
-          <div>
-            <div class="num">2</div>
-            <div class="title"><a href="#">글 제목이 들어갑니다.</a></div>
-            <div class="writer">글쓴이</div>
-            <div class="date">작성일</div>
-            <div class="count">조회</div>
-          </div>
-          <div>
-            <div class="num">1</div>
-            <div class="title"><a href="#">글 제목이 들어갑니다.</a></div>
-            <div class="writer">글쓴이</div>
-            <div class="date">작성일</div>
-            <div class="count">조회</div>
+          <div th:each="board : ${boards.content}">
+            <div class="num" th:text="${board.id}"></div>
+            <div class="title" th:onclick="|location.href='@{/news/board/{id}(id=${board.id})}'|" th:text="${board.title}"></div>
+            <div class="writer" th:text="${board.user.name}"></div>
+            <div class="date" th:text="${board.createDate}"></div>
+            <div class="count" th:text="${board.count}"></div>
           </div>
         </div>
 
@@ -195,7 +168,7 @@
         </div>
 
         <div class="bt_wrap">
-          <a href="#">글쓰기</a>
+          <a href="#" th:href="@{/saveForm/campFood}" sec:authorize="isAuthenticated()">글쓰기</a>
           <a href="#">목록</a>
         </div>
 
@@ -217,7 +190,7 @@
         <li><a href="javascript:void(0)">홈페이지 이용약관</a></li>
         <li><a href="javascript:void(0)">광고 및 제휴 문의</a></li>
         <li><a href="javascript:void(0)">회원가입</a></li>
-        <li><a href="./">로그인</a></li>
+        <li><a href="/login">로그인</a></li>
         <li><a href="javascript:void(0)">고객센터</a></li>
       </ul>
 

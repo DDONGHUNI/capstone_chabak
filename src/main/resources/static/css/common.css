@@ -15,7 +15,7 @@ a {
 }
 .inner {
   width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto; 
   position: relative;
 }
 .btn {
@@ -159,7 +159,7 @@ header .sub-menu ul.menu li a {
 }
 header .sub-menu ul.menu li a:hover {
   color: #000;
-  font-weight: 700;
+	font-weight: 700;
 }
 
 
@@ -178,10 +178,10 @@ header .main-menu .item .item__name {
   padding: 10px 40px 20px;
   font-family: Arial, sans-serif;
   font-size: 17px;
-  font-weight: 700;
+	font-weight: 700;
 }
 header .main-menu .item:hover .item__name {
-  background-color: #685f46;
+  background-color: #685f46; 
   color: #a3be6b;
   border-radius: 6px 6px 0 0;
 }

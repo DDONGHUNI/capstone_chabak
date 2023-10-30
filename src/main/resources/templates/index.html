@@ -87,62 +87,63 @@
         <li>
             <a th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a>
         </li>
+      </ul>
     </div>
 
-    <!-- * MAIN MENU -->
-    <ul class="main-menu">
-      <li class="item">
-        <div class="item__name">NEWS</div>
-        <div class="item__contents">
-          <ul>
-            <li><a href="/news/board">공지사항</a></li>
-            <li><a href="/news/update.html">업데이트</a></li>
-            <li><a href="/news/event.html">이벤트</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="item">
-        <div class="item__name">PLACE</div>
-        <div class="item__contents">
-          <ul class="contents_menu">
-            <li><a href="javascript:void(0)">오지/노지캠핑</a></li>
-            <li><a href="javascript:void(0)">유료캠핑</a></li>
-            <li><a href="javascript:void(0)">글램핑/카라반</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="item">
-        <div class="item__name">TIP</div>
-        <div class="item__contents">
-          <ul>
-            <li><a href="javascript:void(0)">캠핑 팁</a></li>
-            <li><a href="javascript:void(0)">캠핑 음식</a></li>
-            <li><a href="javascript:void(0)">텐트 설치 방법</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="item">
-        <div class="item__name">STORE</div>
-        <div class="item__contents">
-          <ul>
-            <li><a href="javascript:void(0)">삽니다.</a></li>
-            <li><a href="javascript:void(0)">팝니다.</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="item">
-        <div class="item__name">COMMUNITY</div>
-        <div class="item__contents">
-          <ul>
-            <li><a href="javascript:void(0)">전체글</a></li>
-            <li><a href="javascript:void(0)">자유게시판</a></li>
-            <li><a href="javascript:void(0)">캠핑 후기</a></li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </div>
-</header>
+      <!-- * MAIN MENU -->
+      <ul class="main-menu">
+        <li class="item">
+          <div class="item__name">NEWS</div>
+          <div class="item__contents">
+            <ul>
+              <li><a href="/mainMenu/newsNotice">공지사항</a></li>
+              <li><a href="/mainMenu/newsUpdate">업데이트</a></li>
+              <li><a href="/mainMenu/newsEvent">이벤트</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">PLACE</div>
+          <div class="item__contents">
+              <ul class="contents_menu">
+                <li><a href="/mainMenu/place01">오지/노지캠핑</a></li>
+                <li><a href="/mainMenu/place02">유료캠핑</a></li>
+                <li><a href="/mainMenu/place03">글램핑/카라반</a></li>
+            </ul>
+           </div>
+          </li>
+        <li class="item">
+          <div class="item__name">TIP</div>
+          <div class="item__contents">
+            <ul>
+              <li><a href="/mainMenu/campTip">캠핑 팁</a></li>
+              <li><a href="/mainMenu/campFood">캠핑 음식</a></li>
+              <li><a href="/mainMenu/campTent">텐트 설치 방법</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">STORE</div>
+          <div class="item__contents">
+            <ul>
+              <li><a href="/mainMenu/storeBuy">삽니다.</a></li>
+              <li><a href="/mainMenu/storeSell">팝니다.</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">COMMUNITY</div>
+          <div class="item__contents">
+            <ul>
+              <li><a href="/mainMenu/commuAll">전체글</a></li>
+              <li><a href="/mainMenu/commuFree">자유게시판</a></li>
+              <li><a href="/mainMenu/commuReview">캠핑 후기</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </header>
 
 
 <!-- * VISUAL-->

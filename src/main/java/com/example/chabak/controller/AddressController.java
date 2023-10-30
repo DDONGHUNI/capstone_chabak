@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AddressController {
 
 
-    @Secured("ROLE_MANAGER")
+    //@Secured("ROLE_MANAGER")
     @GetMapping("/map")
     public String insertPage(){
         return "map";

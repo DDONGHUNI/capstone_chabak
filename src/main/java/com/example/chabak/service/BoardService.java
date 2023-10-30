@@ -29,9 +29,9 @@ public class BoardService {
     }
 
     @Transactional(readOnly = true)
-    public Page<Board> boardList(Pageable pageable){
+    public Page<Board> boardList(String categoryName, Pageable pageable){
 
-        return boardRepository.findAll(pageable);
+        return boardRepository.findByCategoryName(categoryName, pageable);
     }
 
 
