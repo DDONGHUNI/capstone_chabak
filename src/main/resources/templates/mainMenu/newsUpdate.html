@@ -37,6 +37,7 @@
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/board.css">
 
+
   <!-- * JS -->
   <script defer src="../js/common.js"></script>
 
@@ -61,11 +62,15 @@
             <a href="../">HOME</a>
           </li>
           <li>
-            <a href="javascript:void(0)">회원가입</a>
+            <a href="/join" sec:authorize="!isAuthenticated()">회원가입</a>
           </li>
           <li>
-            <a href="../login/">로그인</a>
+            <a th:href="@{/login}" sec:authorize="!isAuthenticated()">로그인</a>
           </li>
+          <li>
+            <a th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a>
+          </li>
+        </ul>
       </div>
 
       <!-- * MAIN MENU -->
@@ -84,9 +89,9 @@
           <div class="item__name">PLACE</div>
           <div class="item__contents">
               <ul class="contents_menu">
-                <li><a href="javascript:void(0)">오지/노지캠핑</a></li>
-                <li><a href="javascript:void(0)">유료캠핑</a></li>
-                <li><a href="javascript:void(0)">글램핑/카라반</a></li>
+                <li><a href="./place01">오지/노지캠핑</a></li>
+                <li><a href="./place02">유료캠핑</a></li>
+                <li><a href="./place03">글램핑/카라반</a></li>
             </ul>
            </div>
           </li>
@@ -94,9 +99,9 @@
           <div class="item__name">TIP</div>
           <div class="item__contents">
             <ul>
-              <li><a href="javascript:void(0)">캠핑 팁</a></li>
-              <li><a href="javascript:void(0)">캠핑 음식</a></li>
-              <li><a href="javascript:void(0)">텐트 설치 방법</a></li>
+              <li><a href="./campTip">캠핑 팁</a></li>
+              <li><a href="./campFood">캠핑 음식</a></li>
+              <li><a href="./campTent">텐트 설치 방법</a></li>
             </ul>
           </div> 
         </li>
@@ -104,8 +109,8 @@
           <div class="item__name">STORE</div>
           <div class="item__contents">
             <ul>
-              <li><a href="javascript:void(0)">삽니다.</a></li>
-              <li><a href="javascript:void(0)">팝니다.</a></li>
+              <li><a href="./storeBuy">삽니다.</a></li>
+              <li><a href="./storeSell">팝니다.</a></li>
             </ul>
           </div> 
         </li>
@@ -113,9 +118,9 @@
           <div class="item__name">COMMUNITY</div>
           <div class="item__contents">
             <ul>
-              <li><a href="javascript:void(0)">전체글</a></li>
-              <li><a href="javascript:void(0)">자유게시판</a></li>
-              <li><a href="javascript:void(0)">캠핑 후기</a></li>
+              <li><a href="./commuAll">전체글</a></li>
+              <li><a href="./commuFree">자유게시판</a></li>
+              <li><a href="./commuReview">캠핑 후기</a></li>
             </ul>
           </div> 
         </li>
@@ -147,7 +152,7 @@
           </div>
           <div th:each="board : ${boards.content}">
             <div class="num" th:text="${board.id}"></div>
-            <div class="title" th:onclick="|location.href='@{/news/board/{id}(id=${board.id})}'|" th:text="${board.title}"></div>
+            <div class="title" th:onclick="|location.href='@{/board/{id}(id=${board.id})}'|" th:text="${board.title}"></div>
             <div class="writer" th:text="${board.user.name}"></div>
             <div class="date" th:text="${board.createDate}"></div>
             <div class="count" th:text="${board.count}"></div>
@@ -188,7 +193,7 @@
         <li><a href="javascript:void(0)" class="green">개인정보처리방침</a></li>
         <li><a href="javascript:void(0)">홈페이지 이용약관</a></li>
         <li><a href="javascript:void(0)">광고 및 제휴 문의</a></li>
-        <li><a href="javascript:void(0)">회원가입</a></li>
+        <li><a href="/join" sec:authorize="!isAuthenticated()">회원가입</a></li>
         <li><a href="/login">로그인</a></li>
         <li><a href="javascript:void(0)">고객센터</a></li>
       </ul>

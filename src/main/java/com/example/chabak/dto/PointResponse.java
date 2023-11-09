@@ -15,11 +15,17 @@ public class PointResponse {
     private double lng;
     private String sido;
     private String address;
+    private String category;
+    private String name;
+    private String img;
 
     public PointResponse(PointEntry pointEntry){
         this.id = pointEntry.getId();
         this.sido = pointEntry.getSido();
         this.address = pointEntry.getAddress();
+        this.category = pointEntry.getCategory();
+        this.name = pointEntry.getName();
+        this.img = pointEntry.getImg();
         PointUtil point = new PointUtil(pointEntry.getPoint());
         this.lat = point.getLatitude();
         this.lng = point.getLongitude();

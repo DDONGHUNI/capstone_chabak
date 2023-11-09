@@ -22,10 +22,10 @@ public class BoardService {
 
 
     @Transactional
-    public void write(Board board, User user) { // title, content
+    public Board write(Board board, User user) { // title, content
         board.setCount(0);
         board.setUser(user);
-        boardRepository.save(board);
+        return boardRepository.save(board);
     }
 
     @Transactional(readOnly = true)

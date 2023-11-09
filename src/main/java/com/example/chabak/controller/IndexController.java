@@ -5,9 +5,12 @@ import java.util.List;
 import java.util.function.Supplier;
 
 import com.example.chabak.config.PrincipalDetails;
+import com.example.chabak.model.Board;
+import com.example.chabak.model.PointEntry;
 import com.example.chabak.model.User;
 import com.example.chabak.repository.UserRepository;
 import com.example.chabak.service.BoardService;
+import com.example.chabak.service.PointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.GrantedAuthority;
@@ -25,7 +28,12 @@ public class IndexController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
     private BoardService boardService;
+
+    @Autowired
+    private PointService pointService;
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -67,6 +75,29 @@ public class IndexController {
 //        List<User> users = userRepository.findAll();
 //        model.addAttribute("users", users);
 //        return "userList";
+//    }
+
+//    @GetMapping("/pointBoard")
+//    public @ResponseBody String pointBoard() {
+//        User user = userRepository.findById(99).orElseThrow(new Supplier<IllegalArgumentException>(){
+//            @Override
+//            public IllegalArgumentException get() {
+//                return new IllegalArgumentException("해당 유저는 없습니다. id:"+99);
+//            }
+//        });
+//        List<PointEntry> pl = pointService.pointEntryList();
+//        int i = 200000;
+//        for(PointEntry pe : pl){
+//            Board b = new Board();
+//            b.setId(i++);
+//            b.setTitle(pe.getName());
+//            b.setCategoryName("pointEntry");
+//            Board board = boardService.write(b,user);
+//            pe.setBoard(board);
+//        }
+//
+//
+//        return "바꾸기 완료";
 //    }
 
     @GetMapping("/admin")

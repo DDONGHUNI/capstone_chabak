@@ -61,10 +61,13 @@
             <a href="../">HOME</a>
           </li>
           <li>
-            <a href="javascript:void(0)">회원가입</a>
+            <a href="/join" sec:authorize="!isAuthenticated()">회원가입</a>
           </li>
           <li>
-            <a href="../login/">로그인</a>
+            <a th:href="@{/login}" sec:authorize="!isAuthenticated()">로그인</a>
+          </li>
+          <li>
+            <a th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a>
           </li>
         </ul>
       </div>
@@ -148,7 +151,7 @@
           </div>
           <div th:each="board : ${boards.content}">
             <div class="num" th:text="${board.id}"></div>
-            <div class="title" th:onclick="|location.href='@{/news/board/{id}(id=${board.id})}'|" th:text="${board.title}"></div>
+            <div class="title" th:onclick="|location.href='@{/board/{id}(id=${board.id})}'|" th:text="${board.title}"></div>
             <div class="writer" th:text="${board.user.name}"></div>
             <div class="date" th:text="${board.createDate}"></div>
             <div class="count" th:text="${board.count}"></div>
@@ -189,7 +192,7 @@
         <li><a href="javascript:void(0)" class="green">개인정보처리방침</a></li>
         <li><a href="javascript:void(0)">홈페이지 이용약관</a></li>
         <li><a href="javascript:void(0)">광고 및 제휴 문의</a></li>
-        <li><a href="javascript:void(0)">회원가입</a></li>
+        <li><a href="/join" sec:authorize="!isAuthenticated()">회원가입</a></li>
         <li><a href="/login">로그인</a></li>
         <li><a href="javascript:void(0)">고객센터</a></li>
       </ul>

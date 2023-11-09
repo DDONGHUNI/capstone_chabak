@@ -1,5 +1,6 @@
 package com.example.chabak.model;
 
+import com.example.chabak.dto.PointResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,6 +41,10 @@ public class Board {
     @JsonIgnoreProperties({"board"})
     @OrderBy("id desc")
     private List<Reply> replys;
+
+    @OneToOne(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties({"board"})
+    private PointEntry pointEntry;
 
     private String categoryName;
 

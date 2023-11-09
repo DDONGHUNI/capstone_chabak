@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
   <meta charset="UTF-8">
@@ -61,11 +61,15 @@
             <a href="../">HOME</a>
           </li>
           <li>
-            <a href="javascript:void(0)">회원가입</a>
+            <a href="/join" sec:authorize="!isAuthenticated()">회원가입</a>
           </li>
           <li>
-            <a href="../signin/">로그인</a>
+            <a th:href="@{/login}" sec:authorize="!isAuthenticated()">로그인</a>
           </li>
+          <li>
+            <a th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a>
+          </li>
+        </ul>
       </div>
 
       <!-- * MAIN MENU -->
@@ -193,7 +197,7 @@
         <li><a href="javascript:void(0)" class="green">개인정보처리방침</a></li>
         <li><a href="javascript:void(0)">홈페이지 이용약관</a></li>
         <li><a href="javascript:void(0)">광고 및 제휴 문의</a></li>
-        <li><a href="javascript:void(0)">회원가입</a></li>
+        <li><a href="/join" sec:authorize="!isAuthenticated()">회원가입</a></li>
         <li><a href="./signin/">로그인</a></li>
         <li><a href="javascript:void(0)">고객센터</a></li>
       </ul>

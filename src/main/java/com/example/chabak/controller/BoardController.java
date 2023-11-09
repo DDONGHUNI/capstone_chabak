@@ -31,7 +31,7 @@ public class BoardController {
     @GetMapping("/saveForm/{categoryName}")
     public String saveForm(Model model, @PathVariable String categoryName) {
         model.addAttribute("categoryName", categoryName);
-        return "board/saveForm";
+        return "mainMenu/write";
     }
 
     @GetMapping("/mainMenu/{categoryName}")
@@ -45,7 +45,7 @@ public class BoardController {
         return "index";
     }
 
-    @GetMapping("/news/board/{id}")
+    @GetMapping("/board/{id}")
     public String findById(@PathVariable int id, Model model) {
         Map ratingOptions = new HashMap();
         ratingOptions.put(0.0, "☆☆☆☆☆");
@@ -57,7 +57,7 @@ public class BoardController {
 
         model.addAttribute("board", boardService.boardDetail(id));
         model.addAttribute("ratingOptions", ratingOptions);
-        return "board/detail";
+        return "mainMenu/view";
     }
 
     @GetMapping("/news/board/{id}/updateForm")

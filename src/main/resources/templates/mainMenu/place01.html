@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
   <meta charset="UTF-8">
@@ -61,11 +61,15 @@
             <a href="../">HOME</a>
           </li>
           <li>
-            <a href="javascript:void(0)">회원가입</a>
+            <a href="/join" sec:authorize="!isAuthenticated()">회원가입</a>
           </li>
           <li>
-            <a href="../signin/">로그인</a>
+            <a th:href="@{/login}" sec:authorize="!isAuthenticated()">로그인</a>
           </li>
+          <li>
+            <a th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a>
+          </li>
+        </ul>
       </div>
 
       <!-- * MAIN MENU -->
@@ -74,9 +78,9 @@
           <div class="item__name">NEWS</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./newsNotice.html">공지사항</a></li>
-              <li><a href="./newsUpdate.html">업데이트</a></li>
-              <li><a href="./newsEvent.html">이벤트</a></li>
+              <li><a href="./newsNotice">공지사항</a></li>
+              <li><a href="./newsUpdate">업데이트</a></li>
+              <li><a href="./newsEvent">이벤트</a></li>
             </ul>
           </div> 
         </li>
@@ -84,9 +88,9 @@
           <div class="item__name">PLACE</div>
           <div class="item__contents">
               <ul class="contents_menu">
-                <li><a href="./place01.html">오지/노지캠핑</a></li>
-                <li><a href="./place02.html">유료캠핑</a></li>
-                <li><a href="./place03.html">글램핑/카라반</a></li>
+                <li><a href="./place01">오지/노지캠핑</a></li>
+                <li><a href="./place02">유료캠핑</a></li>
+                <li><a href="./place03">글램핑/카라반</a></li>
             </ul>
            </div>
           </li>
@@ -94,9 +98,9 @@
           <div class="item__name">TIP</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./campTip.html">캠핑 팁</a></li>
-              <li><a href="./campFood.html">캠핑 음식</a></li>
-              <li><a href="./campTent.html">텐트 설치 방법</a></li>
+              <li><a href="./campTip">캠핑 팁</a></li>
+              <li><a href="./campFood">캠핑 음식</a></li>
+              <li><a href="./campTent">텐트 설치 방법</a></li>
             </ul>
           </div> 
         </li>
@@ -104,8 +108,8 @@
           <div class="item__name">STORE</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./storeBuy.html">삽니다.</a></li>
-              <li><a href="./storeSell.html">팝니다.</a></li>
+              <li><a href="./storeBuy">삽니다.</a></li>
+              <li><a href="./storeSell">팝니다.</a></li>
             </ul>
           </div> 
         </li>
@@ -113,9 +117,9 @@
           <div class="item__name">COMMUNITY</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./commuAll.html">전체글</a></li>
-              <li><a href="./commuFree.html">자유게시판</a></li>
-              <li><a href="./commuReview.html">캠핑 후기</a></li>
+              <li><a href="./commuAll">전체글</a></li>
+              <li><a href="./commuFree">자유게시판</a></li>
+              <li><a href="./commuReview">캠핑 후기</a></li>
             </ul>
           </div> 
         </li>
@@ -131,16 +135,16 @@
       <div class="board_title">
         <strong>오지/노지캠핑</strong>
         <ul class="news_list">
-          <li><a href="./place01.html">오지/노지캠핑</a></li>
-          <li><a href="./place02.html">유료캠핑</a></li>
-          <li><a href="./place03.html">글램핑/카라반</a></li>
+          <li><a href="./place01">오지/노지캠핑</a></li>
+          <li><a href="./place02">유료캠핑</a></li>
+          <li><a href="./place03">글램핑/카라반</a></li>
         </ul>  
       </div>
       <div class="board_list_wrap">
         <div class="board_list">
           <ul>
             <li>
-              <a href="./view.html">
+              <a href="./view">
                 <img src="../img/logo.png" alt="">
                 <div>제목</div>
                 <div>글쓴이</div>
@@ -222,7 +226,7 @@
         </div>
         
         <div class="bt_wrap">
-          <a href="./write.html" class="btn btn--reverse">글 작성</a>
+          <a href="./write" class="btn btn--reverse">글 작성</a>
         </div>
 
       </div>
@@ -242,7 +246,7 @@
         <li><a href="javascript:void(0)" class="green">개인정보처리방침</a></li>
         <li><a href="javascript:void(0)">홈페이지 이용약관</a></li>
         <li><a href="javascript:void(0)">광고 및 제휴 문의</a></li>
-        <li><a href="javascript:void(0)">회원가입</a></li>
+        <li><a href="/join" sec:authorize="!isAuthenticated()">회원가입</a></li>
         <li><a href="./signin/">로그인</a></li>
         <li><a href="javascript:void(0)">고객센터</a></li>
       </ul>

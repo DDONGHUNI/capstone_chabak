@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
   <meta charset="UTF-8">
@@ -12,6 +12,14 @@
   <meta property="og:description" content="국내의 오지/노지캠핑,무료캠핑장,글램핑,카라반 정보를 위치기반 지도 공유 서비스" />
   <meta property="og:image" content="../img/logo.png" />
   <!-- <meta property="og:url" content="" /> -->
+
+  <!-- summernote -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
   <!--* Twitter Card-->
   <meta property="twitter:card" content="summary" />
@@ -61,11 +69,15 @@
             <a href="../">HOME</a>
           </li>
           <li>
-            <a href="javascript:void(0)">회원가입</a>
+            <a href="/join" sec:authorize="!isAuthenticated()">회원가입</a>
           </li>
           <li>
-            <a href="../signin/">로그인</a>
+            <a th:href="@{/login}" sec:authorize="!isAuthenticated()">로그인</a>
           </li>
+          <li>
+            <a th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a>
+          </li>
+        </ul>
       </div>
 
       <!-- * MAIN MENU -->
@@ -74,9 +86,9 @@
           <div class="item__name">NEWS</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./newsNotice.html">공지사항</a></li>
-              <li><a href="./newsUpdate.html">업데이트</a></li>
-              <li><a href="./newsEvent.html">이벤트</a></li>
+              <li><a href="./newsNotice">공지사항</a></li>
+              <li><a href="./newsUpdate">업데이트</a></li>
+              <li><a href="./newsEvent">이벤트</a></li>
             </ul>
           </div> 
         </li>
@@ -84,9 +96,9 @@
           <div class="item__name">PLACE</div>
           <div class="item__contents">
               <ul class="contents_menu">
-                <li><a href="./place01.html">오지/노지캠핑</a></li>
-                <li><a href="./place02.html">유료캠핑</a></li>
-                <li><a href="./place03.html">글램핑/카라반</a></li>
+                <li><a href="./place01">오지/노지캠핑</a></li>
+                <li><a href="./place02">유료캠핑</a></li>
+                <li><a href="./place03">글램핑/카라반</a></li>
             </ul>
            </div>
           </li>
@@ -94,9 +106,9 @@
           <div class="item__name">TIP</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./campTip.html">캠핑 팁</a></li>
-              <li><a href="./campFood.html">캠핑 음식</a></li>
-              <li><a href="./campTent.html">텐트 설치 방법</a></li>
+              <li><a href="./campTip">캠핑 팁</a></li>
+              <li><a href="./campFood">캠핑 음식</a></li>
+              <li><a href="./campTent">텐트 설치 방법</a></li>
             </ul>
           </div> 
         </li>
@@ -104,8 +116,8 @@
           <div class="item__name">STORE</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./storeBuy.html">삽니다.</a></li>
-              <li><a href="./storeSell.html">팝니다.</a></li>
+              <li><a href="./storeBuy">삽니다.</a></li>
+              <li><a href="./storeSell">팝니다.</a></li>
             </ul>
           </div> 
         </li>
@@ -113,9 +125,9 @@
           <div class="item__name">COMMUNITY</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./commuAll.html">전체글</a></li>
-              <li><a href="./commuFree.html">자유게시판</a></li>
-              <li><a href="./commuReview.html">캠핑 후기</a></li>
+              <li><a href="./commuAll">전체글</a></li>
+              <li><a href="./commuFree">자유게시판</a></li>
+              <li><a href="./commuReview">캠핑 후기</a></li>
             </ul>
           </div> 
         </li>
@@ -138,37 +150,31 @@
         <div class="board_write">
 
           <div class="info">
-
             <dl>
               <dt>글쓴이</dt>
-              <dd><input type="text" placeholder="글쓴이 입력"></dd>
+              <dd><div sec:authentication="principal.user.name"></div></dd>
             </dl>
-
-            <dl>
-              <dt>비밀번호</dt>
-              <dd><input type="password" placeholder="비밀번호 입력"></dd>
-            </dl>
-
+            <input type = "hidden" th:value="${categoryName}" id="categoryName"/>
           </div>
 
           <div class="title">
             
             <dl>
               <dt>제목</dt>
-              <dd><input type="text" placeholder="제목"></dd>
+              <dd><input type="text" placeholder="Enter title" id="title"></dd>
             </dl>
 
           </div>
 
           <div class="cont">
-            <textarea placeholder="내용 입력"></textarea>
+            <textarea placeholder="내용 입력" id="content"></textarea>
             <input type="file" multiple>
           </div>
 
         </div>
 
         <div class="bt_wrap">
-          <a href="write.html" class="btn btn--reverse">등록</a>
+          <a href="#" id="btn-save" class="btn btn--reverse">등록</a>
           <a href="javascript:window.history.back();" class="btn btn--reverse">취소</a>
         </div>
 
@@ -189,7 +195,7 @@
         <li><a href="javascript:void(0)" class="green">개인정보처리방침</a></li>
         <li><a href="javascript:void(0)">홈페이지 이용약관</a></li>
         <li><a href="javascript:void(0)">광고 및 제휴 문의</a></li>
-        <li><a href="javascript:void(0)">회원가입</a></li>
+        <li><a href="/join" sec:authorize="!isAuthenticated()">회원가입</a></li>
         <li><a href="./signin/">로그인</a></li>
         <li><a href="javascript:void(0)">고객센터</a></li>
       </ul>
@@ -207,8 +213,13 @@
 
     </div>
   </footer>
-
-
+  <script>
+    $('.summernote').summernote({
+      tabsize: 2,
+      height: 300
+    });
+  </script>
+  <script src="/js/board.js"></script>
 </body>
 
 </html>

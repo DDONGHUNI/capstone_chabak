@@ -42,7 +42,6 @@ public class PointApiController {
         List<PointResponse> pr = new ArrayList<>();
         for(PointEntry point : points){
             pr.add(new PointResponse(point));
-            System.out.println(pr.get(i++).getAddress());
         }
         return pr;
     }
