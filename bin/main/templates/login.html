@@ -34,11 +34,11 @@
 
 	<!-- * CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.css">
-  <link rel="stylesheet" href="/css/common.css">
-	<link rel="stylesheet" href="/css/signin.css">
+  <link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/signin.css">
   
   <!-- * JS -->
-	<script defer src="/js/common.js"></script>
+	<script defer src="../js/common.js"></script>
 
 
 	<title>차박어때</title>
@@ -50,257 +50,74 @@
 	 <header>
     <div class="inner">
 
-      <a href="" class="logo">
-        <img src="/img/logo.png" alt="CHABAGEOTTAE" />
+      <a href="../" class="logo">
+        <img src="../img/logo.png" alt="CHABAGEOTTAE" />
       </a>
-      
+
       <!-- * SUB MENU -->
       <div class="sub-menu">
         <ul class="menu">
           <li>
-            <a href="/login">HOME</a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">공지사항</a>
+            <a href="../">HOME</a>
           </li>
           <li>
             <a href="/join">회원가입</a>
           </li>
           <li>
-            <a href="/login">로그인</a>
-          </li>
-					<li>
-            <a href="javascript:void(0)">고객센터</a>
+            <a href="../signin/">로그인</a>
           </li>
         </ul>
-        <div class="search">
-          <input type="text">
-          <div class="material-icons">search</div>
-        </div>
       </div>
 
       <!-- * MAIN MENU -->
       <ul class="main-menu">
         <li class="item">
-          <div class="item__name">전체</div>
+          <div class="item__name">NEWS</div>
           <div class="item__contents">
-            <div class="contents__menu">
-              <ul class="inner">
-                <li>
-                  <h4>전체</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>오지/노지캠핑</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>글램핑/카라반</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-						<div class="contents__texture">
-              <div class="inner">
-                <h4>이벤트</h4>
-                <p>이벤트</p>
-                <h4>홍보</h4>
-                <p>홍보</p>
-              </div>
-            </div>
+            <ul>
+              <li><a href="../mm_news/notice.html">공지사항</a></li>
+              <li><a href="../mm_news/update.html">업데이트</a></li>
+              <li><a href="../mm_news/event.html">이벤트</a></li>
+            </ul>
           </div>
         </li>
         <li class="item">
-          <div class="item__name">오지/노지캠핑</div>
+          <div class="item__name">PLACE</div>
           <div class="item__contents">
-            <div class="contents__menu">
-              <ul class="inner">
-                <li>
-                  <h4>1</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>2</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>3</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>4</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>5</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-						<div class="contents__texture">
-              <div class="inner">
-                <h4>이벤트</h4>
-                <p>이벤트</p>
-                <h4>홍보</h4>
-                <p>홍보</p>
-              </div>
-            </div>
+              <ul class="contents_menu">
+                <li><a href="javascript:void(0)">오지/노지캠핑</a></li>
+                <li><a href="javascript:void(0)">유료캠핑</a></li>
+                <li><a href="javascript:void(0)">글램핑/카라반</a></li>
+            </ul>
+           </div>
+          </li>
+        <li class="item">
+          <div class="item__name">TIP</div>
+          <div class="item__contents">
+            <ul>
+              <li><a href="javascript:void(0)">캠핑 팁</a></li>
+              <li><a href="javascript:void(0)">캠핑 음식</a></li>
+              <li><a href="javascript:void(0)">텐트 설치 방법</a></li>
+            </ul>
           </div>
         </li>
         <li class="item">
-          <div class="item__name">유료캠핑장</div>
+          <div class="item__name">STORE</div>
           <div class="item__contents">
-            <div class="contents__menu">
-              <ul class="inner">
-                <li>
-                  <h4>1</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>2</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-						<div class="contents__texture">
-              <div class="inner">
-                <h4>이벤트</h4>
-                <p>이벤트</p>
-                <h4>홍보</h4>
-                <p>홍보</p>
-              </div>
-            </div>
+            <ul>
+              <li><a href="javascript:void(0)">삽니다.</a></li>
+              <li><a href="javascript:void(0)">팝니다.</a></li>
+            </ul>
           </div>
         </li>
         <li class="item">
-          <div class="item__name">글램핑/카라반</div>
+          <div class="item__name">COMMUNITY</div>
           <div class="item__contents">
-            <div class="contents__menu">
-              <ul class="inner">
-                <li>
-                  <h4>1</h4>
-                  <ul>
-                    <li>1/li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>2</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>3</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>4</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-						<div class="contents__texture">
-              <div class="inner">
-                <h4>이벤트</h4>
-                <p>이벤트</p>
-                <h4>홍보</h4>
-                <p>홍보</p>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item__name">테마검색</div>
-          <div class="item__contents">
-            <div class="contents__menu">
-              <ul class="inner">
-                <li>
-                  <h4>1</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>2</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>3</h4>
-                  <ul>
-                    <li>1</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-						<div class="contents__texture">
-              <div class="inner">
-                <h4>이벤트</h4>
-                <p>이벤트</p>
-                <h4>홍보</h4>
-                <p>홍보</p>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item__name">차박장터</div>
-          <div class="item__contents">
-            <div class="contents__menu">
-              <ul class="inner">
-                <li>
-                  <h4>프로모션 & 이벤트</h4>
-                  <ul>
-                    <li>전체</li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>새소식</h4>
-                  <ul>
-                    <li>전체</li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>매장</h4>
-                  <ul>
-                    <li>일반 매장</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-						<div class="contents__texture">
-              <div class="inner">
-                <h4>이벤트</h4>
-                <p>이벤트</p>
-                <h4>홍보</h4>
-                <p>홍보</p>
-              </div>
-            </div>
+            <ul>
+              <li><a href="javascript:void(0)">전체글</a></li>
+              <li><a href="javascript:void(0)">자유게시판</a></li>
+              <li><a href="javascript:void(0)">캠핑 후기</a></li>
+            </ul>
           </div>
         </li>
       </ul>
@@ -315,8 +132,8 @@
          <strong>차박어때</strong>에 오신 것을 환영합니다.
       </h2>
       <form action="/loginProc" method="post">
-        <input type="text" name="username" placeholder="아이디를 입력하세요." />
-        <input type="password"  name="password" placeholder="비밀번호를 입력하세요." />
+        <input type="text" placeholder="아이디를 입력하세요." />
+        <input type="password" placeholder="비밀번호를 입력하세요." />
         <p>
           * 비밀번호를 타 사이트와 같이 사용할 경우 도용 위험이 있으니,<br />
           정기적으로 비밀번호를 변경하세요!
@@ -370,7 +187,7 @@
       <p class="copyright">
         &copy; <span class="this-year"></span> chabageottae. All Rights Reserved.
       </p>
-      <img src="/img/logo.png" alt="STAR BUCKS" class="logo"  width="150"/>
+      <img src="/img/logo.png" alt="STAR BUCKS" class="logo" width="150" />
 
     </div>
   </footer>

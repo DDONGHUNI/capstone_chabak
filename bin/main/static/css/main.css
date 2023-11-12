@@ -1,14 +1,6 @@
-/* KAKAOMAP */
-.kakaomap-section .inner {
-  height: 500px;
+.mapTitle {
+  padding: 5px;
 }
-.kakaomap-section #kakaomap {
-  position: absolute;
-  top: 150px;
-  width: 1100px;
-  height: 400px;
-}
-
 /* * VISUAL */
 .visual {
   background-color: #f6f5ef;
@@ -20,6 +12,9 @@
   width: 1100px;
 }
 #camping-map.maininfo .campinfo {
+  height: 1280px;
+  width: 1100px;
+  padding-bottom: 90px;
 }
 #camping-map.maininfo .campinfo:after {
   content: "";
@@ -32,7 +27,7 @@
   width: 200px;
   border-right: 2px #c8c8c8 dashed;
   height: 480px;
-  padding: 35px 50px 15px 0;
+  padding: 155px 50px 15px 0;
 }
 #camping-map.maininfo .campinfo .kmap .kmapborder{
   border: 2px solid #333;
@@ -62,26 +57,49 @@
   outline: 0
 }
 
+
 /* * info-right */
 #camping-map.maininfo .info-right {
   position: relative;
-  top: 45px;
+  top: 155px;
   left: 270px;
-  width: 900px;
+  width: 1200px;
   height: 460px;
 }
-#camping-map.maininfo .info-right .selectsido {
+
+/* * KAKAOMAP */
+#camping-map.maininfo .info-right #kakaomap {
   position: absolute;
-  top: -25px;
+  top: 0;
+  left: 15px;
+  width: 900px;
+  height: 460px;
+  border: 2px solid #333;
+  border-radius: 15px;
+}
+
+/* * info-bottom */
+#camping-map.maininfo .info-bottom{
+  position: relative;
+  top: 200px;
+  height: 500px;
+  width: 1200px;
+  border-top: 2px #c8c8c8 dashed;
+}
+
+
+#camping-map.maininfo .info-bottom .selectsido {
+  position: absolute;
+  top: 20px;
   left: 10px;
 }
-#camping-map.maininfo .info-right .searchSelect {
+#camping-map.maininfo .info-bottom .searchSelect {
   outline: none;
   min-width: 50px;
   height: 36px;
   padding: 4px 40px 6px 15px;
   border: 1px solid #bbb;
-  font-size: 13px;
+  font-size: 0.8rem;
   font-weight: 600;
   line-height: 19px;
   color: #444;
@@ -89,56 +107,43 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   -o-appearance: none;
-  background: url('/img/select_arrow.gif') right center no-repeat;
+  background: url('../img/select_arrow.gif') right center no-repeat;
   background: none\9;
   background-color: #fff;
 }
-#camping-map.maininfo .info-right .camp_right_content{
+#camping-map.maininfo .info-bottom .camp_content{
   position: absolute;
-  top: 25px;
+  top: 75px;
   display: flex;
   flex-wrap: wrap;
-  margin:auto;
+  justify-content: center;
 }
-#camping-map.maininfo .info-right .camp_right_content .items {
-  width: 416px;
-  height: 203px;
-  margin:0 20px 20px 10px;
+#camping-map.maininfo .info-bottom .camp_content .items {
+  width: 375px;
+  height: 270px;
+  margin: 0 20px 20px 0;
   border: 2px solid #000;
   border-radius: 10px;
-  display: flex;
-  align-items: center;
 }
-#camping-map.maininfo .info-right .camp_right_content .items .photo a img {
+#camping-map.maininfo .info-bottom .camp_content .items .photo a img {
   border-radius: 10px;
-  width: 250px;
+  width: 330px;
   height: 180px;
-  margin: 10px;
+  margin: 10px auto;
 }
-#camping-map.maininfo .info-right .camp_right_content .items .cont {
-  position: relative;
-  border-left: 2px dashed #bbb;
-  width: 150px;
-  height: 185px;
-  padding: 5px;
+#camping-map.maininfo .info-bottom .camp_content .items .cont {
+  width: 330px;
+  height: 70px;
+  margin: 0 auto;
   text-align: center;
-  margin: auto 0;
 }
-#camping-map.maininfo .info-right .camp_right_content .items .cont .tt {
-  position: absolute;
-  top: 30%;
-  width: 90%;
-  height: 25px;
-  font-size: 18px;
+#camping-map.maininfo .info-bottom .camp_content .items .cont .tt {
+  margin: 10px 0;
+  font-size: 1.1rem;
   font-weight: 700;
 }
-#camping-map.maininfo .info-right .camp_right_content .items .cont .mcont {
-  position: absolute;
-  top: 60%;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  font-size: 14px;
+#camping-map.maininfo .info-bottom .camp_content .items .cont .mcont {
+  font-size: 0.9rem;
 }
 
 /* * news */
@@ -147,6 +152,7 @@
 }
 .news .inner {
   height: 250px;
+  padding: 25px 0;
 }
 .news h2 {
   padding: 10px 0 0 0;
@@ -249,7 +255,7 @@
 }
 .notice .notice-line .inner__left h2 {
   color: #fff;
-  font-size: 17px;
+  font-size: 1rem;
   font-weight: 700;
   margin-right: 60px;
 }
@@ -274,7 +280,7 @@
 }
 .notice .notice-line .inner__left .notice-line__more .material-icons {
   color: #fff;
-  font-size: 30px;
+  font-size: 1.7rem;
 }
 .notice .notice-line .inner__right {
   width: 40%;
@@ -284,12 +290,12 @@
   align-items: center;
 }
 .notice .notice-line .inner__right .toggle-promotion span {
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: 700;
   opacity: .7;
 }
 .notice .notice-line .inner__right .toggle-promotion h2 {
-  font-size: 17px;
+  font-size: 1.1rem;
   font-weight: 700;
   margin-right: 30px;
 }
@@ -302,7 +308,7 @@
   align-items: center;
 }
 .notice .notice-line .inner__right .toggle-promotion .material-icons {
-  font-size: 30px;
+  font-size: 1.7rem;
 }
 
 
@@ -314,6 +320,7 @@
   position: relative;
   transition: height .4s;
   overflow: hidden;
+  padding: 25px 0;
 }
 .notice .promotion.hide {
   height: 0;
@@ -321,7 +328,7 @@
 .notice .promotion .swiper {
   width: calc(819px * 3 + 20px);
   position: absolute;
-  top: 40px;
+  top: 60px;
   /* * 요소 가운데 배치 */
   left: 50%;
   margin-left: calc((819px * 3 + 20px) / -2);

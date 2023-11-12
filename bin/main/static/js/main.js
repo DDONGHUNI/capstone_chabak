@@ -1,5 +1,3 @@
-
-
 // * 슬라이드 요소 관리
 new Swiper('.notice-line .swiper', {
   direction: 'vertical', // 수직 슬라이드
@@ -73,7 +71,7 @@ toTopEl.addEventListener('click', function () {
 });
 
 $('document').ready(function () {
-  var area0 = ["전국", "서울", "인천", "대전", "광주", "대구", "울산", "부산", "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주도", "세종"];
+  var area0 = ["전국", "서울", "인천", "대전", "광주", "대구", "울산", "부산", "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주", "세종"];
   var area1 = ["강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구"];
   var area2 = ["계양구", "남구", "남동구", "동구", "부평구", "서구", "연수구", "중구", "강화군", "옹진군"];
   var area3 = ["대덕구", "동구", "서구", "유성구", "중구"];
@@ -130,16 +128,16 @@ $('document').ready(function () {
 
 var kmap = $("#Map");
 function campmap(key) {
-  if (key) kmap.attr('src', '/img/kormap/' + key + '.gif');
+  if (key) kmap.attr('src', './img/kormap/' + key + '.gif');
 
   $('#campMap > area').hover(function () {
     var idx = $(this).attr('class');
-    kmap.attr('src', '/img/kormap/' + idx + '.gif');
+    kmap.attr('src', './img/kormap/' + idx + '.gif');
   }, function () {
     if (key) {
-      kmap.attr('src', '/img/kormap/' + key + '.gif');
+      kmap.attr('src', './img/kormap/' + key + '.gif');
     } else {
-      kmap.attr('src', '/img/kormap/kmap.gif');
+      kmap.attr('src', './img/kormap/kmap.gif');
     }
   });
 };
@@ -162,29 +160,120 @@ function sido(c1,a1) {
   changeOption();
   console.log(a1); 
   switch (c1) {
-    case "서울": campmap("kmap_02"); break;
-    case "광주": campmap("kmap_062"); break;
-    case "경기": campmap("kmap_031"); break;
-    case "전남": campmap("kmap_061"); break;
-    case "인천": campmap("kmap_032"); break;
-    case "강원": campmap("kmap_033"); break;
-    case "충남": campmap("kmap_041"); break;
-    case "대전": campmap("kmap_042"); break;
-    case "충북": campmap("kmap_043"); break;
-    case "세종": campmap("kmap_044"); break;
-    case "부산": campmap("kmap_051"); break;
-    case "울산": campmap("kmap_052"); break;
-    case "대구": campmap("kmap_053"); break;
-    case "경북": campmap("kmap_054"); break;
-    case "경남": campmap("kmap_055"); break;
-    case "전북": campmap("kmap_063"); break;
-    case "제주": campmap("kmap_064"); break;
+    case "서울": panToSeoul(), campmap("kmap_02"); break;
+    case "광주": panToGwangju(), campmap("kmap_062"); break;
+    case "경기": panToGoyang(), campmap("kmap_031"); break;
+    case "전남": panToGwangyang(), campmap("kmap_061"); break;
+    case "인천": panToIncheon(), campmap("kmap_032"); break;
+    case "강원": panToChuncheon(), campmap("kmap_033"); break;
+    case "충남": panToGyeryong(), campmap("kmap_041"); break;
+    case "대전": panToDaejeon(), campmap("kmap_042"); break;
+    case "충북": panToJecheon(), campmap("kmap_043"); break;
+    case "세종": panToSejong(), campmap("kmap_044"); break;
+    case "부산": panToBusan(), campmap("kmap_051"); break;
+    case "울산": panToUlsan(), campmap("kmap_052"); break;
+    case "대구": panToDaegu(), campmap("kmap_053"); break;
+    case "경북": panToGyeongsan(), campmap("kmap_054"); break;
+    case "경남": panToGeoje(), campmap("kmap_055"); break;
+    case "전북": panToGunsan(), campmap("kmap_063"); break;
+    case "제주": panToJeju(), campmap("kmap_064"); break;
     default: campmap("kmap");
-  }
+  };
   return false;
+};
+
+// * KAKAOMAP
+var container = document.getElementById('kakaomap'); //지도를 담을 영역의 DOM 레퍼런스
+var options = { //지도를 생성할 때 필요한 기본 옵션
+	center: new kakao.maps.LatLng(37.881372876975846, 127.72976953847908), //지도의 중심좌표.
+	level: 7 //지도의 레벨(확대, 축소 정도)
+};
+
+var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+var mapTypeControl = new kakao.maps.MapTypeControl();
+
+// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+var zoomControl = new kakao.maps.ZoomControl();
+map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+
+function panToSeoul() {
+  var moveLatLon = new kakao.maps.LatLng(37.56667, 126.97806);
+  map.panTo(moveLatLon);            
+}
+function panToBusan() {
+  var moveLatLon = new kakao.maps.LatLng(35.17944, 129.07556);
+  map.panTo(moveLatLon);            
+}
+function panToIncheon() {
+  var moveLatLon = new kakao.maps.LatLng(37.45639, 126.70528);
+  map.panTo(moveLatLon);            
+}
+function panToDaegu() {
+  var moveLatLon = new kakao.maps.LatLng(35.87222, 128.60250);
+  map.panTo(moveLatLon);            
+}
+function panToDaejeon() {
+  var moveLatLon = new kakao.maps.LatLng(36.35111, 127.38500);
+  map.panTo(moveLatLon);            
+}
+function panToGwangju() {
+  var moveLatLon = new kakao.maps.LatLng(35.15972, 126.85306);
+  map.panTo(moveLatLon);            
+}
+function panToUlsan() {
+  var moveLatLon = new kakao.maps.LatLng(35.53889, 129.31667);
+  map.panTo(moveLatLon);            
+}
+function panToSejong() {
+  var moveLatLon = new kakao.maps.LatLng(36.47982853966825, 127.28930603521691);
+  map.panTo(moveLatLon);            
+}
+function panToJeju() {
+  var moveLatLon = new kakao.maps.LatLng(33.50000, 126.51667);
+  map.panTo(moveLatLon);            
+}
+function panToChuncheon() {
+  var moveLatLon = new kakao.maps.LatLng(37.88535048289929, 127.72976900685539);
+  map.panTo(moveLatLon);            
+}
+function panToGoyang() {
+  var moveLatLon = new kakao.maps.LatLng(37.65844516519566, 126.83198338098317);
+  map.panTo(moveLatLon);            
+}
+function panToJecheon() {
+  var moveLatLon = new kakao.maps.LatLng(37.132673673602376, 128.1910167607669);
+  map.panTo(moveLatLon);            
+}
+function panToGyeryong() {
+  var moveLatLon = new kakao.maps.LatLng(36.274547305909216, 127.2485302817933);
+  map.panTo(moveLatLon);            
+}
+function panToGunsan() {
+  var moveLatLon = new kakao.maps.LatLng(36.274547305909216, 127.2485302817933);
+  map.panTo(moveLatLon);            
+}
+function panToGwangyang() {
+  var moveLatLon = new kakao.maps.LatLng(34.94043151895034, 127.69593848802423);
+  map.panTo(moveLatLon);            
+}
+function panToGyeongsan() {
+  var moveLatLon = new kakao.maps.LatLng(35.82506802477233, 128.7413196122302);
+  map.panTo(moveLatLon);            
+}
+function panToGeoje() {
+  var moveLatLon = new kakao.maps.LatLng(34.88051989337904, 128.62107877700012);
+  map.panTo(moveLatLon);            
 }
 
 
-
-
+//https://www.5gcamp.com/modules/camping/theme/_pc/default/image/tent1.png
+//https://www.5gcamp.com/modules/camping/theme/_pc/default/image/tent2.png 
+//https://www.5gcamp.com/modules/camping/theme/_pc/default/image/tent3.png
+// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다
 

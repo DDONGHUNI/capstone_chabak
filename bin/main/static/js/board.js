@@ -34,7 +34,8 @@ let index = {
 		save: function(){
 			let data = {
 					title: $("#title").val(),
-					content: $("#content").val()
+					content: $("#content").val(),
+					categoryName: $("#categoryName").val()
 			};
 
 			$.ajax({
