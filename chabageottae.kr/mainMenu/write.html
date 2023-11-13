@@ -39,6 +39,8 @@
 
   <!-- * JS -->
   <script defer src="../js/common.js"></script>
+  <script  type="text/javascript" src="../smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+  
 
 
   <title>차박어때</title>
@@ -161,7 +163,16 @@
           </div>
 
           <div class="cont">
-            <textarea placeholder="내용 입력"></textarea>
+            <textarea name="ir1" id="ir1" rows="10" cols="100">내용 입력</textarea>
+            <script type="text/javascript">
+              var oEditors = [];
+              nhn.husky.EZCreator.createInIFrame({
+               oAppRef: oEditors,
+               elPlaceHolder: "ir1",
+               sSkinURI: "../smarteditor/SmartEditor2Skin.html",
+               fCreator: "createSEditor2"
+              });
+              </script>
             <input type="file" multiple>
           </div>
 
