@@ -7,13 +7,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.header.writers.StaticHeadersWriter;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 @Configuration // IoC 빈(bean)을 등록
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
-public class SecurityConfig {
+public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
     private PrincipalOauth2UserService principalOauth2UserService;
@@ -23,10 +26,12 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+        CharacterEncodingFilter filter = new CharacterEncodingFilter();
         http.csrf().disable();
-        http.authorizeRequests()
+        http.
+                authorizeRequests()
                 .antMatchers("/user/**").authenticated() // user에 접근하려면 인증필요..
                 // .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN') or
                 // hasRole('ROLE_USER')")
@@ -34,6 +39,8 @@ public class SecurityConfig {
                 // hasRole('ROLE_USER')")
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
                 .anyRequest().permitAll()
+                .and()
+                .headers().frameOptions().disable()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -45,6 +52,5 @@ public class SecurityConfig {
                 .userInfoEndpoint()//엑세스토큰+사용자프로필정보를 받는다.
                 .userService(principalOauth2UserService);
 
-        return http.build();
     }
 }

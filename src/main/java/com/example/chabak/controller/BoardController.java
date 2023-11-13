@@ -35,7 +35,7 @@ public class BoardController {
     }
 
     @GetMapping("/mainMenu/{categoryName}")
-    public String index(Model model, @PageableDefault(size=3, sort="id", direction = Sort.Direction.DESC) Pageable pageable, @PathVariable String categoryName) {
+    public String index(Model model, @PageableDefault(size=10, sort="id", direction = Sort.Direction.DESC) Pageable pageable, @PathVariable String categoryName) {
         model.addAttribute("boards", boardService.boardList(categoryName, pageable));
         return "mainMenu/" + categoryName;
     }
@@ -60,10 +60,10 @@ public class BoardController {
         return "mainMenu/view";
     }
 
-    @GetMapping("/news/board/{id}/updateForm")
+    @GetMapping("/board/{id}/edit")
     public String updateForm(@PathVariable int id, Model model) {
         model.addAttribute("board", boardService.boardDetail(id));
-        return "board/updateForm";
+        return "/mainMenu/edit";
     }
 
 

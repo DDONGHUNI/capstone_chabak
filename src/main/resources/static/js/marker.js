@@ -24,13 +24,14 @@ $.ajax({
 // <br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a>
 //  아래는 마커와 인포윈도우 여러개 표시
         $.each(data,function(index, item){
-//`<div>${item.name} </div>`
-            var gb_position = {
 
-        title : item.name,
-        img : item.img,
-        address : item.address,
-        latlng: new kakao.maps.LatLng(item.lng, item.lat)};
+            var gb_position = {
+                title : item.name,
+                img : item.img,
+                address : item.address,
+                boardId : item.boardId,
+                latlng: new kakao.maps.LatLng(item.lng, item.lat)
+            };
             positions.push(gb_position)
 
         });
@@ -90,7 +91,7 @@ $.ajax({
             descElement.classList.add('desc');
             descElement.innerHTML = `<div class="ellipsis">${item.title}</div>` +
                                     `<div class="jibun ellipsis">${item.address}</div>` +
-                                    '<div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>';
+                                    `<div><a href= \"/board/${item.boardId}\" target="_blank" class="link">자세히</a></div>`;
 
             // bodyElement에 imgElement와 descElement를 추가
             bodyElement.appendChild(imgElement);

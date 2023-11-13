@@ -18,6 +18,7 @@ public class PointResponse {
     private String category;
     private String name;
     private String img;
+    private int boardId;
 
     public PointResponse(PointEntry pointEntry){
         this.id = pointEntry.getId();
@@ -26,6 +27,7 @@ public class PointResponse {
         this.category = pointEntry.getCategory();
         this.name = pointEntry.getName();
         this.img = pointEntry.getImg();
+        this.boardId = pointEntry.getBoard().getId();
         PointUtil point = new PointUtil(pointEntry.getPoint());
         this.lat = point.getLatitude();
         this.lng = point.getLongitude();
