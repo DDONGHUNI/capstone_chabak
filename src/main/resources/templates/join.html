@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>회원가입 페이지</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <h1>회원가입 페이지</h1>
 <hr/>
-<form action="/joinProc" method="post">
-    <input type="text" name="name" placeholder="Name"/> <br/>
-    <input type="text" name="username" placeholder="Username"/> <br/>
-    <input type="password" name="password" placeholder="Password"/> <br/>
-    <input type="email" name="email" placeholder="Email"/> <br/>
-    <button>회원가입</button>
+<form id="joinForm" action="/joinProc" method="post" onsubmit="return check(event);">
+    <input type="text" id="name" name="name" placeholder="닉네임"/> <br/>
+    <input type="text" id="username" name="username" placeholder="ID"/> <br/>
+    <input type="password" id="password" name="password" placeholder="Password"/> <br/>
+    <input type="email" id="email" name="email" placeholder="Email"/> <br/>
+    <button type="submit">회원가입</button>
 </form>
+<script src="/js/joinForm.js"></script>
 </body>
 </html>

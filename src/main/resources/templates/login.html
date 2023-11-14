@@ -38,7 +38,8 @@
 	<link rel="stylesheet" href="../css/signin.css">
   
   <!-- * JS -->
-	<script defer src="../js/common.js"></script>
+  <script defer src="/js/common.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 	<title>차박어때</title>
@@ -132,8 +133,8 @@
          <strong>차박어때</strong>에 오신 것을 환영합니다.
       </h2>
       <form action="/loginProc" method="post">
-        <input type="text" placeholder="아이디를 입력하세요." />
-        <input type="password" placeholder="비밀번호를 입력하세요." />
+        <input type="text" name="username" placeholder="아이디를 입력하세요." />
+        <input type="password" name="password" placeholder="비밀번호를 입력하세요." />
         <p>
           * 비밀번호를 타 사이트와 같이 사용할 경우 도용 위험이 있으니,<br />
           정기적으로 비밀번호를 변경하세요!
