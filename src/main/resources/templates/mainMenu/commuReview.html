@@ -39,6 +39,7 @@
 
   <!-- * JS -->
   <script defer src="/js/common.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
   <title>차박어때</title>
@@ -157,17 +158,24 @@
             <div class="count" th:text="${board.count}"></div>
           </div>
         </div>
-
+        <input type = "hidden" th:value="${boards.number}" id="bn"/>
+        <input type = "hidden" th:value="${boards.totalPages}" id="max"/>
         <div class="board_page">
-          <a href="#" class="bt first"> << </a>
-          <a href="#" class="bt prev"> < </a>
-          <a href="#" class="num on"> 1 </a>
-          <a href="#" class="num"> 2 </a>
-          <a href="#" class="num"> 3 </a>
-          <a href="#" class="num"> 4 </a>
-          <a href="#" class="num"> 5 </a>
-          <a href="#" class="bt next"> > </a>
-          <a href="#" class="bt last"> >> </a>
+          <a th:href="@{/mainMenu/commuReview/(page=0)}" class="bt first"> << </a>
+          <a th:unless="${boards.first}" th:href="@{/mainMenu/commuReview/(page=${boards.number}-1)}" class="bt prev"> < </a>
+          <script>
+            let n = parseInt($("#bn").val()) + 1;
+            let max = $("#max").val();
+            let start = (Math.floor((n - 1) / 10) * 10) + 1;
+            let end = start + 9;
+            end = Math.min(end, max);
+            for (var i = start; i <= end; i++) {
+              document.write('<a href="/mainMenu/commuReview/?page=' + (i - 1) + '" class="num">' + i + '</a>');
+            }
+
+          </script>
+          <a th:unless="${boards.last}"  th:href="@{/mainMenu/commuReview/(page=${boards.number}+1)}" class="bt next"> > </a>
+          <a th:href="@{/mainMenu/commuReview/(page=${boards.totalPages-1})}" class="bt last"> >> </a>
         </div>
 
         <div class="bt_wrap">
