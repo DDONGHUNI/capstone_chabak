@@ -55,7 +55,11 @@ public class BoardController {
         ratingOptions.put(4.0, "★★★★☆");
         ratingOptions.put(5.0, "★★★★★");
 
-        model.addAttribute("board", boardService.boardDetail(id));
+        Board board = boardService.boardDetail(id);
+        board.setCount(board.getCount()+1);
+        boardService.modify(id, board);
+
+        model.addAttribute("board", board);
         model.addAttribute("ratingOptions", ratingOptions);
         return "mainMenu/view";
     }
