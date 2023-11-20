@@ -20,11 +20,11 @@ let index = {
 		},
 
 		save: function(){
-		    oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD",[])
+//		    oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD",[])
 
 			let data = {
 					title: $("#title").val(),
-					content: $("#ir1").val(),
+					content: $("#summernote").val(),
 					categoryName: $("#categoryName").val()
 			};
 
@@ -65,11 +65,10 @@ let index = {
 
 		update: function(){
 			let id = $("#id").val();
-			oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD",[])
 
 			let data = {
 					title: $("#title").val(),
-					content: $("#ir1").val()
+					content: $("#summernote").val()
 			};
 
 			if(data.title == '') {
@@ -85,7 +84,7 @@ let index = {
 				dataType: "json"
 			}).done(function(resp){
 				alert("글수정이 완료되었습니다.");
-				location.href = "/";
+				location.href = "/board/"+id;
 			}).fail(function(error){
 				alert(JSON.stringify(error));
 			});

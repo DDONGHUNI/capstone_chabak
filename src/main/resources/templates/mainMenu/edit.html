@@ -39,8 +39,13 @@
 
   <!-- * JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script  type="text/javascript" src="/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
   <script defer src="/js/common.js"></script>
+
+  <!--  summernote-->
+  <script src="/js/summernote/summernote-lite.js"></script>
+  <script src="/js/summernote/lang/summernote-ko-KR.js"></script>
+  <link rel="stylesheet" href="/css/summernote/summernote-lite.css">
+
 
 
   <title>차박어때</title>
@@ -154,16 +159,31 @@
           </div>
 
           <div class="cont">
-            <textarea name="ir1" id="ir1" th:text="${board.content}" rows="10" cols="130"></textarea>
+            <form>
+            <textarea id="summernote" name="editordata" th:text="${board.content}"></textarea>
             <script type="text/javascript">
-              var oEditors = [];
-              nhn.husky.EZCreator.createInIFrame({
-               oAppRef: oEditors,
-               elPlaceHolder: "ir1",
-               sSkinURI: "/smarteditor/SmartEditor2Skin.html",
-               fCreator: "createSEditor2"
-              });
+              $(document).ready(function() {
+                   $('#summernote').summernote({
+                      height : 300,
+                      focus: true,
+                      lang : "ko-KR",
+                      toolbar: [
+                            // [groupName, [list of button]]
+                            ['fontname', ['fontname']],
+                            ['fontsize', ['fontsize']],
+                            ['style', ['bold','underline','strikethrough', 'clear']],
+                            ['color', ['forecolor','color']],
+                            ['table', ['table']],
+                            ['para', ['ul', 'ol', 'paragraph']],
+                            ['height', ['height']],
+                            ['insert',['picture','link','video']],
+                          ],
+                        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
+                        fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
+                  })
+                });
             </script>
+            </form>
           </div>
 
         </div>
