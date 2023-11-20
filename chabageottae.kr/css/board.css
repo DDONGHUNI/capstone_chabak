@@ -271,23 +271,29 @@
   border-top: 1px solid #aaa;   
   margin-top: 30px;
 }
-.comments-wrap .commentList .comment-info {
-  margin: 20px 0 10px 60px;
-}
-.comments-wrap .commentList a {
+.comments-wrap .commentList .comment-body a {
   position: absolute;
-  width: 100px;
+  width: 60px;
   height: 35px;
   line-height: 13px;
   font-size: 12px;
+}
+.comments-wrap .commentList .comment-body .btn.btn--del {
   top: 10px;
   right: 60px;
+}
+.comments-wrap .commentList .comment-body .btn.btn--edit {
+  top: 10px;
+  right: 125px;
+}
+.comments-wrap .commentList .comment-info {
+  margin: 20px 0 10px 60px;
 }
 .comments-wrap .commentList .comment-text {
   width: 90%;
   min-height: 100px;
-  background-color: #fff;
-  border: 1px solid #000;
+  background-color: #f6f5ef;
+  border-top: 1px solid #ddd;
   border-radius: 5px;
   margin: 0 0 10px 60px;
   padding: 10px;
