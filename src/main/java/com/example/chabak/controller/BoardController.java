@@ -35,7 +35,7 @@ public class BoardController {
     }
 
     @GetMapping("/mainMenu/{categoryName}")
-    public String index(Model model, @PageableDefault(size=10, sort="id", direction = Sort.Direction.DESC) Pageable pageable, @PathVariable String categoryName) {
+    public String index(Model model, @PageableDefault(size=8, sort="id", direction = Sort.Direction.DESC) Pageable pageable, @PathVariable String categoryName) {
         model.addAttribute("boards", boardService.boardList(categoryName, pageable));
         return "mainMenu/" + categoryName;
     }

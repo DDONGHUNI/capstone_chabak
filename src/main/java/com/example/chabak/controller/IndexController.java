@@ -40,19 +40,19 @@ public class IndexController {
 
 
 
-    @GetMapping("/user")
-    public @ResponseBody String user(@AuthenticationPrincipal PrincipalDetails principal) {
-        System.out.println("Principal : " + principal.getUser());
-        System.out.println("OAuth2 : "+principal.getUser().getProvider());
-        // iterator 순차 출력 해보기
-        Iterator<? extends GrantedAuthority> iter = principal.getAuthorities().iterator();
-        while (iter.hasNext()) {
-            GrantedAuthority auth = iter.next();
-            System.out.println(auth.getAuthority());
-        }
-
-        return "유저 페이지입니다.";
-    }
+//    @GetMapping("/user")
+//    public @ResponseBody String user(@AuthenticationPrincipal PrincipalDetails principal) {
+//        System.out.println("Principal : " + principal.getUser());
+//        System.out.println("OAuth2 : "+principal.getUser().getProvider());
+//        // iterator 순차 출력 해보기
+//        Iterator<? extends GrantedAuthority> iter = principal.getAuthorities().iterator();
+//        while (iter.hasNext()) {
+//            GrantedAuthority auth = iter.next();
+//            System.out.println(auth.getAuthority());
+//        }
+//
+//        return "유저 페이지입니다.";
+//    }
 
     //유저 정보 확인
     @Secured("ROLE_MANAGER")
@@ -79,6 +79,24 @@ public class IndexController {
 
 //    @GetMapping("/pointBoard")
 //    public @ResponseBody String pointBoard() {
+//        List<PointEntry> pl = pointService.pointEntryList();
+//        for(PointEntry pe : pl) {
+//            Board board = boardService.boardDetail(pe.getBoard().getId());
+//            if (pe.getCategory().equals("유료캠핑장")) {
+//                board.setCategoryName("place02");
+//            }else{
+//                board.setCategoryName("place03");
+//            }
+//            boardService.modify(pe.getBoard().getId(),board);
+//
+//
+//
+//        }
+//        return "바꾸기 완료";
+//    }
+
+
+
 //        User user = userRepository.findById(99).orElseThrow(new Supplier<IllegalArgumentException>(){
 //            @Override
 //            public IllegalArgumentException get() {
@@ -97,8 +115,7 @@ public class IndexController {
 //        }
 //
 //
-//        return "바꾸기 완료";
-//    }
+
 
     @GetMapping("/admin")
     public @ResponseBody String admin() {
