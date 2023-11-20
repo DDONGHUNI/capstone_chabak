@@ -32,11 +32,19 @@ let index = {
 		},
 
 		save: function(){
+		    oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD",[])
+
 			let data = {
 					title: $("#title").val(),
-					content: $("#content").val(),
+					content: $("#ir1").val(),
 					categoryName: $("#categoryName").val()
 			};
+
+			 if(data.title == '') {
+                    alert("제목을 입력해주세요.")
+                    return
+                  }
+
 
 			$.ajax({
 				type: "POST",
@@ -46,7 +54,7 @@ let index = {
 				dataType: "json"
 			}).done(function(resp){
 				alert("글쓰기가 완료되었습니다.");
-				location.href = "/";
+				location.href = "/mainMenu/"+data.categoryName;
 			}).fail(function(error){
 				alert(JSON.stringify(error));
 			});
@@ -69,11 +77,17 @@ let index = {
 
 		update: function(){
 			let id = $("#id").val();
+			oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD",[])
 
 			let data = {
 					title: $("#title").val(),
-					content: $("#content").val()
+					content: $("#ir1").val()
 			};
+
+			if(data.title == '') {
+                                alert("제목을 입력해주세요.")
+                                return
+                              }
 
 			$.ajax({
 				type: "PUT",

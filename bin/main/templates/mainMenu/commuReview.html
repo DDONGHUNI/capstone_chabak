@@ -10,7 +10,7 @@
   <meta property="og:site_name" content="chabageottae" />
   <meta property="og:title" content="차박어때" />
   <meta property="og:description" content="국내의 오지/노지캠핑,무료캠핑장,글램핑,카라반 정보를 위치기반 지도 공유 서비스" />
-  <meta property="og:image" content="../img/logo.png" />
+  <meta property="og:image" content="/img/logo.png" />
   <!-- <meta property="og:url" content="" /> -->
 
   <!--* Twitter Card-->
@@ -18,11 +18,11 @@
   <meta property="twitter:site" content="chabageottae" />
   <meta property="twitter:title" content="차박어때" />
   <meta property="twitter:description" content="국내의 오지/노지캠핑,무료캠핑장,글램핑,카라반 정보를 위치기반 지도 공유 서비스" />
-  <meta property="twitter:image" content="../img/logo.png" />
+  <meta property="twitter:image" content="/img/logo.png" />
   <!-- <meta property="twitter:url" content="" /> -->
 
   <!-- * 파비콘 -->
-  <link rel="icon" href="../favicon.ico">
+  <link rel="icon" href="/favicon.ico">
 
   <!-- * 폰트 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,11 +34,12 @@
 
   <!-- * CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.css">
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/board.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/board.css">
 
   <!-- * JS -->
-  <script defer src="../js/common.js"></script>
+  <script defer src="/js/common.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
   <title>차박어때</title>
@@ -50,15 +51,15 @@
   <header>
     <div class="inner">
 
-      <a href="../" class="logo">
-        <img src="../img/logo.png" alt="CHABAGEOTTAE" />
+      <a href="/" class="logo">
+        <img src="/img/logo.png" alt="CHABAGEOTTAE" />
       </a>
 
       <!-- * SUB MENU -->
       <div class="sub-menu">
         <ul class="menu">
           <li>
-            <a href="../">HOME</a>
+            <a href="/">HOME</a>
           </li>
           <li>
             <a href="/join" sec:authorize="!isAuthenticated()">회원가입</a>
@@ -78,9 +79,9 @@
           <div class="item__name">NEWS</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./newsNotice">공지사항</a></li>
-              <li><a href="./newsUpdate">업데이트</a></li>
-              <li><a href="./newsEvent">이벤트</a></li>
+              <li><a href="/mainMenu/newsNotice">공지사항</a></li>
+              <li><a href="/mainMenu/newsUpdate">업데이트</a></li>
+              <li><a href="/mainMenu/newsEvent">이벤트</a></li>
             </ul>
           </div> 
         </li>
@@ -88,9 +89,9 @@
           <div class="item__name">PLACE</div>
           <div class="item__contents">
               <ul class="contents_menu">
-                <li><a href="./place01">오지/노지캠핑</a></li>
-                <li><a href="./place02">유료캠핑</a></li>
-                <li><a href="./place03">글램핑/카라반</a></li>
+                <li><a href="/mainMenu/place01">오지/노지캠핑</a></li>
+                <li><a href="/mainMenu/place02">유료캠핑</a></li>
+                <li><a href="/mainMenu/place03">글램핑/카라반</a></li>
             </ul>
            </div>
           </li>
@@ -98,9 +99,9 @@
           <div class="item__name">TIP</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./campTip">캠핑 팁</a></li>
-              <li><a href="./campFood">캠핑 음식</a></li>
-              <li><a href="./campTent">텐트 설치 방법</a></li>
+              <li><a href="/mainMenu/campTip">캠핑 팁</a></li>
+              <li><a href="/mainMenu/campFood">캠핑 음식</a></li>
+              <li><a href="/mainMenu/campTent">텐트 설치 방법</a></li>
             </ul>
           </div> 
         </li>
@@ -108,8 +109,8 @@
           <div class="item__name">STORE</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./storeBuy">삽니다.</a></li>
-              <li><a href="./storeSell">팝니다.</a></li>
+              <li><a href="/mainMenu/storeBuy">삽니다.</a></li>
+              <li><a href="/mainMenu/storeSell">팝니다.</a></li>
             </ul>
           </div> 
         </li>
@@ -117,9 +118,9 @@
           <div class="item__name">COMMUNITY</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./commuAll">전체글</a></li>
-              <li><a href="./commuFree">자유게시판</a></li>
-              <li><a href="./commuReview">캠핑 후기</a></li>
+              <li><a href="/mainMenu/commuAll">전체글</a></li>
+              <li><a href="/mainMenu/commuFree">자유게시판</a></li>
+              <li><a href="/mainMenu/commuReview">캠핑 후기</a></li>
             </ul>
           </div> 
         </li>
@@ -135,9 +136,9 @@
       <div class="board_title">
         <strong>캠핑장 후기</strong>
         <ul class="news_list">
-          <li><a href="./commuAll">전체글</a></li>
-          <li><a href="./commuFree">자유게시판</a></li>
-          <li><a href="./commuReview">캠핑장 후기</a></li>
+          <li><a href="/mainMenu/commuAll">전체글</a></li>
+          <li><a href="/mainMenu/commuFree">자유게시판</a></li>
+          <li><a href="/mainMenu/commuReview">캠핑장 후기</a></li>
         </ul>  
       </div>
       <div class="board_list_wrap">
@@ -157,17 +158,24 @@
             <div class="count" th:text="${board.count}"></div>
           </div>
         </div>
-
+        <input type = "hidden" th:value="${boards.number}" id="bn"/>
+        <input type = "hidden" th:value="${boards.totalPages}" id="max"/>
         <div class="board_page">
-          <a href="#" class="bt first"> << </a>
-          <a href="#" class="bt prev"> < </a>
-          <a href="#" class="num on"> 1 </a>
-          <a href="#" class="num"> 2 </a>
-          <a href="#" class="num"> 3 </a>
-          <a href="#" class="num"> 4 </a>
-          <a href="#" class="num"> 5 </a>
-          <a href="#" class="bt next"> > </a>
-          <a href="#" class="bt last"> >> </a>
+          <a th:href="@{/mainMenu/commuReview/(page=0)}" class="bt first"> << </a>
+          <a th:unless="${boards.first}" th:href="@{/mainMenu/commuReview/(page=${boards.number}-1)}" class="bt prev"> < </a>
+          <script>
+            let n = parseInt($("#bn").val()) + 1;
+            let max = $("#max").val();
+            let start = (Math.floor((n - 1) / 10) * 10) + 1;
+            let end = start + 9;
+            end = Math.min(end, max);
+            for (var i = start; i <= end; i++) {
+              document.write('<a href="/mainMenu/commuReview/?page=' + (i - 1) + '" class="num">' + i + '</a>');
+            }
+
+          </script>
+          <a th:unless="${boards.last}"  th:href="@{/mainMenu/commuReview/(page=${boards.number}+1)}" class="bt next"> > </a>
+          <a th:href="@{/mainMenu/commuReview/(page=${boards.totalPages-1})}" class="bt last"> >> </a>
         </div>
 
         <div class="bt_wrap">
@@ -206,7 +214,7 @@
       <p class="copyright">
         &copy; <span class="this-year"></span> chabageottae. All Rights Reserved.
       </p>
-      <img src="../img/logo.png" alt="STAR BUCKS" class="logo" width="150" />
+      <img src="/img/logo.png" alt="STAR BUCKS" class="logo" width="150" />
 
     </div>
   </footer>

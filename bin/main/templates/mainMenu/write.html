@@ -10,27 +10,21 @@
   <meta property="og:site_name" content="chabageottae" />
   <meta property="og:title" content="차박어때" />
   <meta property="og:description" content="국내의 오지/노지캠핑,무료캠핑장,글램핑,카라반 정보를 위치기반 지도 공유 서비스" />
-  <meta property="og:image" content="../img/logo.png" />
+  <meta property="og:image" content="/img/logo.png" />
   <!-- <meta property="og:url" content="" /> -->
 
-  <!-- summernote -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
   <!--* Twitter Card-->
   <meta property="twitter:card" content="summary" />
   <meta property="twitter:site" content="chabageottae" />
   <meta property="twitter:title" content="차박어때" />
   <meta property="twitter:description" content="국내의 오지/노지캠핑,무료캠핑장,글램핑,카라반 정보를 위치기반 지도 공유 서비스" />
-  <meta property="twitter:image" content="../img/logo.png" />
+  <meta property="twitter:image" content="/img/logo.png" />
   <!-- <meta property="twitter:url" content="" /> -->
 
   <!-- * 파비콘 -->
-  <link rel="icon" href="../favicon.ico">
+  <link rel="icon" href="/favicon.ico">
 
   <!-- * 폰트 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,11 +36,13 @@
 
   <!-- * CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.css">
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/board.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/board.css">
 
   <!-- * JS -->
-  <script defer src="../js/common.js"></script>
+  <script defer src="/js/common.js"></script>
+  <script  type="text/javascript" src="/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+
 
 
   <title>차박어때</title>
@@ -58,15 +54,15 @@
   <header>
     <div class="inner">
 
-      <a href="../" class="logo">
-        <img src="../img/logo.png" alt="CHABAGEOTTAE" />
+      <a href="/" class="logo">
+        <img src="/img/logo.png" alt="CHABAGEOTTAE" />
       </a>
 
       <!-- * SUB MENU -->
       <div class="sub-menu">
         <ul class="menu">
           <li>
-            <a href="../">HOME</a>
+            <a href="/">HOME</a>
           </li>
           <li>
             <a href="/join" sec:authorize="!isAuthenticated()">회원가입</a>
@@ -86,9 +82,9 @@
           <div class="item__name">NEWS</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./newsNotice">공지사항</a></li>
-              <li><a href="./newsUpdate">업데이트</a></li>
-              <li><a href="./newsEvent">이벤트</a></li>
+              <li><a href="/mainMenu/newsNotice">공지사항</a></li>
+              <li><a href="/mainMenu/newsUpdate">업데이트</a></li>
+              <li><a href="/mainMenu/newsEvent">이벤트</a></li>
             </ul>
           </div> 
         </li>
@@ -96,9 +92,9 @@
           <div class="item__name">PLACE</div>
           <div class="item__contents">
               <ul class="contents_menu">
-                <li><a href="./place01">오지/노지캠핑</a></li>
-                <li><a href="./place02">유료캠핑</a></li>
-                <li><a href="./place03">글램핑/카라반</a></li>
+                <li><a href="/mainMenu/place01">오지/노지캠핑</a></li>
+                <li><a href="/mainMenu/place02">유료캠핑</a></li>
+                <li><a href="/mainMenu/place03">글램핑/카라반</a></li>
             </ul>
            </div>
           </li>
@@ -106,9 +102,9 @@
           <div class="item__name">TIP</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./campTip">캠핑 팁</a></li>
-              <li><a href="./campFood">캠핑 음식</a></li>
-              <li><a href="./campTent">텐트 설치 방법</a></li>
+              <li><a href="/mainMenu/campTip">캠핑 팁</a></li>
+              <li><a href="/mainMenu/campFood">캠핑 음식</a></li>
+              <li><a href="/mainMenu/campTent">텐트 설치 방법</a></li>
             </ul>
           </div> 
         </li>
@@ -116,8 +112,8 @@
           <div class="item__name">STORE</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./storeBuy">삽니다.</a></li>
-              <li><a href="./storeSell">팝니다.</a></li>
+              <li><a href="/mainMenu/storeBuy">삽니다.</a></li>
+              <li><a href="/mainMenu/storeSell">팝니다.</a></li>
             </ul>
           </div> 
         </li>
@@ -125,9 +121,9 @@
           <div class="item__name">COMMUNITY</div>
           <div class="item__contents">
             <ul>
-              <li><a href="./commuAll">전체글</a></li>
-              <li><a href="./commuFree">자유게시판</a></li>
-              <li><a href="./commuReview">캠핑 후기</a></li>
+              <li><a href="/mainMenu/commuAll">전체글</a></li>
+              <li><a href="/mainMenu/commuFree">자유게시판</a></li>
+              <li><a href="/mainMenu/commuReview">캠핑 후기</a></li>
             </ul>
           </div> 
         </li>
@@ -167,8 +163,16 @@
           </div>
 
           <div class="cont">
-            <textarea placeholder="내용 입력" id="content"></textarea>
-            <input type="file" multiple>
+            <textarea name="ir1" id="ir1" rows="10" cols="100"></textarea>
+            <script type="text/javascript">
+              var oEditors = [];
+              nhn.husky.EZCreator.createInIFrame({
+               oAppRef: oEditors,
+               elPlaceHolder: "ir1",
+               sSkinURI: "/smarteditor/SmartEditor2Skin.html",
+               fCreator: "createSEditor2"
+              });
+            </script>
           </div>
 
         </div>
@@ -196,7 +200,7 @@
         <li><a href="javascript:void(0)">홈페이지 이용약관</a></li>
         <li><a href="javascript:void(0)">광고 및 제휴 문의</a></li>
         <li><a href="/join" sec:authorize="!isAuthenticated()">회원가입</a></li>
-        <li><a href="./signin/">로그인</a></li>
+        <li><a href="/signin/">로그인</a></li>
         <li><a href="javascript:void(0)">고객센터</a></li>
       </ul>
 
@@ -209,16 +213,10 @@
       <p class="copyright">
         &copy; <span class="this-year"></span> chabageottae. All Rights Reserved.
       </p>
-      <img src="../img/logo.png" alt="STAR BUCKS" class="logo" width="150" />
+      <img src="/img/logo.png" alt="STAR BUCKS" class="logo" width="150" />
 
     </div>
   </footer>
-  <script>
-    $('.summernote').summernote({
-      tabsize: 2,
-      height: 300
-    });
-  </script>
   <script src="/js/board.js"></script>
 </body>
 
