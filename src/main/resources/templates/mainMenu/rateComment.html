@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
   <meta charset="UTF-8">
@@ -39,6 +39,7 @@
 
   <!-- * JS -->
   <script defer src="/js/common.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
   <title>차박어때</title>
@@ -61,11 +62,15 @@
             <a href="/">HOME</a>
           </li>
           <li>
-            <a href="javascript:void(0)">회원가입</a>
+            <a href="/join" sec:authorize="!isAuthenticated()">회원가입</a>
           </li>
           <li>
-            <a href="/signin/">로그인</a>
+            <a th:href="@{/login}" sec:authorize="!isAuthenticated()">로그인</a>
           </li>
+            <li>
+                <a th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a>
+            </li>
+        </ul>
       </div>
 
       <!-- * MAIN MENU -->
@@ -74,9 +79,9 @@
           <div class="item__name">NEWS</div>
           <div class="item__contents">
             <ul>
-              <li><a href="/newsNotice.html">공지사항</a></li>
-              <li><a href="/newsUpdate.html">업데이트</a></li>
-              <li><a href="/newsEvent.html">이벤트</a></li>
+              <li><a href="/mainMenu/newsNotice">공지사항</a></li>
+              <li><a href="/mainMenu/newsUpdate">업데이트</a></li>
+              <li><a href="/mainMenu/newsEvent">이벤트</a></li>
             </ul>
           </div> 
         </li>
@@ -84,9 +89,9 @@
           <div class="item__name">PLACE</div>
           <div class="item__contents">
               <ul class="contents_menu">
-                <li><a href="/place01.html">오지/노지캠핑</a></li>
-                <li><a href="/place02.html">유료캠핑</a></li>
-                <li><a href="/place03.html">글램핑/카라반</a></li>
+
+                <li><a href="/mainMenu/place02">유료캠핑</a></li>
+                <li><a href="/mainMenu/place03">글램핑/카라반</a></li>
             </ul>
            </div>
           </li>
@@ -94,9 +99,9 @@
           <div class="item__name">TIP</div>
           <div class="item__contents">
             <ul>
-              <li><a href="/campTip.html">캠핑 팁</a></li>
-              <li><a href="/campFood.html">캠핑 음식</a></li>
-              <li><a href="/campTent.html">텐트 설치 방법</a></li>
+              <li><a href="/mainMenu/campTip">캠핑 팁</a></li>
+              <li><a href="/mainMenu/campFood">캠핑 음식</a></li>
+              <li><a href="/mainMenu/campTent">텐트 설치 방법</a></li>
             </ul>
           </div> 
         </li>
@@ -104,8 +109,8 @@
           <div class="item__name">STORE</div>
           <div class="item__contents">
             <ul>
-              <li><a href="/storeBuy.html">삽니다.</a></li>
-              <li><a href="/storeSell.html">팝니다.</a></li>
+              <li><a href="/mainMenu/storeBuy">삽니다.</a></li>
+              <li><a href="/mainMenu/storeSell">팝니다.</a></li>
             </ul>
           </div> 
         </li>
@@ -113,9 +118,9 @@
           <div class="item__name">COMMUNITY</div>
           <div class="item__contents">
             <ul>
-              <li><a href="/commuAll.html">전체글</a></li>
-              <li><a href="/commuFree.html">자유게시판</a></li>
-              <li><a href="/commuReview.html">캠핑 후기</a></li>
+              <li><a href="/mainMenu/commuAll">전체글</a></li>
+              <li><a href="/mainMenu/commuFree">자유게시판</a></li>
+              <li><a href="/mainMenu/commuReview">캠핑 후기</a></li>
             </ul>
           </div> 
         </li>
@@ -132,70 +137,68 @@
         <strong>차박어때</strong>
 
         <ul class="news_list">
-          <li><a href="/newsNotice.html">공지사항</a></li>
-          <li><a href="/newsNotice.html">업데이트</a></li>
-          <li><a href="/newsEvent.html">이벤트</a></li>
+          <li><a href="/mainMenu/newsNotice">공지사항</a></li>
+          <li><a href="/mainMenu/newsNotice">업데이트</a></li>
+          <li><a href="/mainMenu/newsEvent">이벤트</a></li>
         </ul>  
 
       </div>
 
       <div class="board_view_wrap">
         <div class="board_view">
-            <div class="title">
-                글 제목이 들어갑니다.
+            <!--            글 제목-->
+            <div class="title" th:text="${board.title}">
             </div>
             <div class="info">
                 <dl>
                     <dt>번호</dt>
-                    <dd>1</dd>
+                    <dd><span id="id" th:text="${board.id}"></span></dd>
                 </dl>
                 <dl>
-                    <dt>글쓴이</dt>
-                    <dd>김이름</dd>
+                    <dt>작성자</dt>
+                    <dd><span th:text="${board.user.name}"></span></dd>
                 </dl>
                 <dl>
                     <dt>작성일</dt>
-                    <dd>2021.1.16</dd>
+                    <dd><div class="date" th:text="${board.createDate}"></div></dd>
                 </dl>
                 <dl>
                     <dt>조회</dt>
-                    <dd>33</dd>
+                    <dd><div class="count" th:text="${board.count}"></div></dd>
                 </dl>
             </div>
-            <div class="cont">
-                글 내용이 들어갑니다<br>
-                글 내용이 들어갑니다<br>
-                글 내용이 들어갑니다<br>
-                글 내용이 들어갑니다<br>
-                글 내용이 들어갑니다<br>
-                글 내용이 들어갑니다<br>
-                글 내용이 들어갑니다<br>
-                글 내용이 들어갑니다
+            <div class="cont" th:utext="${board.content}">
             </div>
         </div>
-        <div class="bt_wrap">
-            <a href="edit.html" class="btn btn--reverse">수정</a>
-            <a href="javascript:window.history.back();" class="btn btn--reverse">취소</a>
-        </div>
+          <div class="bt_wrap">
+<!--              <a href="/edit" class="btn btn&#45;&#45;reverse">수정</a>-->
+                <span sec:authorize="isAuthenticated()">
+                    <span th:if="${#authentication.principal.user.id} == ${board.user.id}">
+                        <a th:href="@{/board/{id}/edit(id=${board.id})}" class="btn btn--reverse">수정</a>
+                        <a id="btn-delete" href="#" class="btn btn--reverse">삭제</a>
+                    </span>
+                </span>
+              <a href="javascript:window.history.back();" class="btn btn--reverse">뒤로가기</a>
+          </div>
 
         <div class="comments-wrap">
           <div class="comment-head">
-            <span> 댓글 </span> <span> 0 </span>
+            <span> 댓글 </span> <span th:text="${board.replys.size()}"></span>
           </div>
           <div class="comment">
             <span>평점 입력 : </span>
             <div class="starpoint_wrap">
               <div class="starpoint_box">
-                <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                <label for="starpoint_1" class="label_star" onclick="rate(0.5)"><span class="blind">0.5점</span></label>
+                <label for="starpoint_2" class="label_star" onclick="rate(1.0)"><span class="blind">1점</span></label>
+                <label for="starpoint_3" class="label_star" onclick="rate(1.5)"><span class="blind">1.5점</span></label>
+                <label for="starpoint_4" class="label_star" onclick="rate(2.0)"><span class="blind">2점</span></label>
+                <label for="starpoint_5" class="label_star" onclick="rate(2.5)"><span class="blind">2.5점</span></label>
+                <label for="starpoint_6" class="label_star" onclick="rate(3.0)"><span class="blind">3점</span></label>
+                <label for="starpoint_7" class="label_star" onclick="rate(3.5)"><span class="blind">3.5점</span></label>
+                <label for="starpoint_8" class="label_star" onclick="rate(4.0)"><span class="blind">4점</span></label>
+                <label for="starpoint_9" class="label_star" onclick="rate(4.5)"><span class="blind">4.5점</span></label>
+                <label for="starpoint_10" class="label_star" onclick="rate(5.0)"><span class="blind">5점</span></label>
                 <input type="radio" name="starpoint" id="starpoint_1" class="star_radio">
                 <input type="radio" name="starpoint" id="starpoint_2" class="star_radio">
                 <input type="radio" name="starpoint" id="starpoint_3" class="star_radio">
@@ -209,11 +212,40 @@
                 <span class="starpoint_bg"></span>
               </div>
             </div>
-            <a href="write.html" class="btn">등록</a>
-            <textarea placeholder="내용 입력"></textarea>
+              <textarea id="reply-content" placeholder="내용 입력"></textarea>
+              <span sec:authorize="isAuthenticated()">
+                    <input type="hidden" th:id="userId" th:value="${#authentication.principal.user.id}" />
+                    <input type="hidden" th:id="boardId" th:value="${board.id}" />
+                      <a id="btn-reply-save" href="#" class="btn">등록</a>
+                  </span>
+              <span sec:authorize="!isAuthenticated()">
+                    <div class="card-footer" onclick="alert('로그인을 해주세요')">
+                        <a class="btn btn-primary" th:href="@{/login}" sec:authorize="!isAuthenticated()">등록</a>
+                    </div>
+                  </span>
           </div>
+          <div class="commentList" th:each="reply : ${board.replys}">
+            <div class="comment-body">
+              <div class="comment-info">
+                  <p>작성자 : <span th:text="${reply.user.name}"></span></p>
+                  <div class="date" th:text="${reply.createDate}"></div>
+                  <div>
+                      <div th:text="${ratingOptions[reply.rating]}"></div>
+                  </div>
+              </div>
+                <span sec:authorize="isAuthenticated()">
+                            <span th:if="${#authentication.principal.user.id} == ${reply.user.id}">
+                                <a href="#" th:onclick="index.replyDelete([[${board.id}]],[[${reply.id}]]);" class="btn btn--del">삭제</a>
+                            </span>
+                        </span>
+                <div class="comment-text" th:utext="${reply.content}"></div>
+            </div>
+          </div>
+
+
         </div>
 
+      </div>
     </section>
 
 
@@ -230,7 +262,7 @@
         <li><a href="javascript:void(0)" class="green">개인정보처리방침</a></li>
         <li><a href="javascript:void(0)">홈페이지 이용약관</a></li>
         <li><a href="javascript:void(0)">광고 및 제휴 문의</a></li>
-        <li><a href="javascript:void(0)">회원가입</a></li>
+        <li><a href="/join" sec:authorize="!isAuthenticated()">회원가입</a></li>
         <li><a href="/signin/">로그인</a></li>
         <li><a href="javascript:void(0)">고객센터</a></li>
       </ul>
@@ -249,7 +281,7 @@
     </div>
   </footer>
 
-
+  <script src="/js/board.js"></script>
 </body>
 
 </html>

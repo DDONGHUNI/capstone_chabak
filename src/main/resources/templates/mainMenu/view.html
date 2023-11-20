@@ -89,7 +89,7 @@
           <div class="item__name">PLACE</div>
           <div class="item__contents">
               <ul class="contents_menu">
-                <li><a href="/mainMenu/place01">오지/노지캠핑</a></li>
+
                 <li><a href="/mainMenu/place02">유료캠핑</a></li>
                 <li><a href="/mainMenu/place03">글램핑/카라반</a></li>
             </ul>
@@ -183,7 +183,7 @@
 
           <div class="comments-wrap">
               <div class="comment-head">
-                  <span> 댓글 </span> <span> 0 </span>
+                  <span> 댓글 </span> <span th:text="${board.replys.size()}"></span>
               </div>
               <div class="comment">
                   <textarea id="reply-content" placeholder="내용 입력"></textarea>
@@ -197,16 +197,33 @@
                         <a class="btn btn-primary" th:href="@{/login}" sec:authorize="!isAuthenticated()">등록</a>
                     </div>
                   </span>
-
-              </div>
           </div>
+          <div class="commentList" th:each="reply : ${board.replys}">
+            <div class="comment-body">
+              <div class="comment-info">
+                  <p>작성자 : <span th:text="${reply.user.name}"></span></p>
+                  <div class="date" th:text="${reply.createDate}"></div>
+              </div>
+                <span sec:authorize="isAuthenticated()">
+                            <span th:if="${#authentication.principal.user.id} == ${reply.user.id}">
+                                <a href="#" th:onclick="index.replyDelete([[${board.id}]],[[${reply.id}]]);" class="btn btn--del">삭제</a>
+                            </span>
+                        </span>
+                <div class="comment-text" th:utext="${reply.content}"></div>
+            </div>
+          </div>
+
+
         </div>
 
+      </div>
     </section>
+
 
   </div>
 
  </div>
+
 
   <!-- * FOOTER -->
   <footer>

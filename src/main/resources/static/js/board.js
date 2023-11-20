@@ -1,18 +1,6 @@
 let currentRating = 0;
 function rate(stars) {
     currentRating = stars;
-
-    for (let i = 1; i <= 5; i++) {
-        const star = document.getElementById(`star${i}`);
-        if (i <= stars) {
-                star.style.color = "gold";
-        } else {
-                star.style.color = "lightgray";
-        }
-    }
-
-    const ratingMessage = document.getElementById("ratingMessage");
-    ratingMessage.innerHTML = `별점: ${"★".repeat(currentRating)} / 5`;
 }
 
 let index = {
