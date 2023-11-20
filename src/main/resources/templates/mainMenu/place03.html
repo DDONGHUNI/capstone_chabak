@@ -144,72 +144,12 @@
       <div class="board_list_wrap">
         <div class="board_list">
           <ul>
-            <li>
-              <a href="/view">
-                <img src="/img/logo.png" alt="">
-                <div>제목</div>
-                <div>글쓴이</div>
-                <div>작성일</div>
-              </a>              
-            </li>
-            
-            <li>
-              <a href="#">
-                <img src="/img/logo.png" alt="">
-                <div>제목</div>
-                <div>글쓴이</div>
-                <div>작성일</div>
-              </a>              
-            </li>
+            <li th:each="board : ${boards.content}">
+              <a th:href="@{/board/{id}(id=${board.id})}">
+                <img th:src="${board.pointEntry.img}" alt="" height="168">
+                <div th:text="${board.title}"></div>
 
-            <li>
-              <a href="#">
-                <img src="/img/logo.png" alt="">
-                <div>제목</div>
-                <div>글쓴이</div>
-                <div>작성일</div>
-              </a>              
-            </li>
-
-            <li>
-              <a href="#">
-                <img src="/img/logo.png" alt="">
-                <div>제목</div>
-                <div>글쓴이</div>
-                <div>작성일</div>
-              </a>                            
-            </li>
-            <li>
-              <a href="#">
-                <img src="/img/logo.png" alt="">
-                <div>제목</div>
-                <div>글쓴이</div>
-                <div>작성일</div>
-              </a>                            
-            </li>
-            <li>
-              <a href="#">
-                <img src="/img/logo.png" alt="">
-                <div>제목</div>
-                <div>글쓴이</div>
-                <div>작성일</div>
-              </a>                            
-            </li>
-            <li>
-              <a href="#">
-                <img src="/img/logo.png" alt="">
-                <div>제목</div>
-                <div>글쓴이</div>
-                <div>작성일</div>
-              </a>                            
-            </li>
-            <li>
-              <a href="#">
-                <img src="/img/logo.png" alt="">
-                <div>제목</div>
-                <div>글쓴이</div>
-                <div>작성일</div>
-              </a>                            
+              </a>
             </li>
           </ul>
         </div>
