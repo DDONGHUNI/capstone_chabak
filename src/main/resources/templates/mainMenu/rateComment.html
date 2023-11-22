@@ -151,19 +151,18 @@
             </div>
             <div class="info">
                 <dl>
-                    <dt>번호</dt>
-                    <dd><span id="id" th:text="${board.id}"></span></dd>
+                    <dd><span th:text="${'★'+board.RatingAvg}"></span></dd>
                 </dl>
                 <dl>
-                    <dt>작성자</dt>
-                    <dd><span th:text="${board.user.name}"></span></dd>
+                    <dt>번호</dt>
+                    <dd><span id="id" th:text="${board.id}"></span></dd>
                 </dl>
                 <dl>
                     <dt>작성일</dt>
                     <dd><div class="date" th:text="${board.createDate}"></div></dd>
                 </dl>
                 <dl>
-                    <dt>조회</dt>
+                    <dt>조회수</dt>
                     <dd><div class="count" th:text="${board.count}"></div></dd>
                 </dl>
             </div>

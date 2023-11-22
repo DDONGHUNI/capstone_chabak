@@ -8,8 +8,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -39,6 +43,7 @@ public class Board {
 
     @OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE) //mapppedBy DB에 컬럼 생성 x
     @JsonIgnoreProperties({"board"})
+    @NotFound(action = NotFoundAction.IGNORE)
     @OrderBy("id desc")
     private List<Reply> replys;
 
@@ -47,6 +52,14 @@ public class Board {
     private PointEntry pointEntry;
 
     private String categoryName;
+
+    @Column(precision = 3, scale = 2)
+    @ColumnDefault("0.0")
+    public BigDecimal RatingAvg;
+
+    public void setDecimalField(BigDecimal value) {
+        this.RatingAvg = value.setScale(2, RoundingMode.HALF_UP);
+    }
 
     @CreationTimestamp
     private Timestamp createDate;
