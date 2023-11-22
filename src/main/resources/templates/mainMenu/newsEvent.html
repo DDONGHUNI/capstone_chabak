@@ -179,7 +179,7 @@
         </div>
 
         <div class="bt_wrap">
-          <a href="#" th:href="@{/saveForm/newsEvent}" sec:authorize="isAuthenticated()">글쓰기</a>
+          <a href="#" th:href="@{/saveForm/newsEvent}" sec:authorize="hasRole('ROLE_ADMIN')">글쓰기</a>
           <a href="#">목록</a>
         </div>
 
